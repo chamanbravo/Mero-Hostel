@@ -9,7 +9,11 @@ body{
 .header-logo{
 	max-width: 5rem;
 }
-
+.navbar{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 .search-input{
 	border: none;
 	outline: none;
@@ -42,4 +46,58 @@ select:-webkit-autofill:focus{
 	max-width: 100%;
 	padding: 0.2rem;
 	color: #000;
+}
+.halfnav{
+	display: inline-flex;
+	align-items: center;
+}
+.host-btn{
+	color: #000;
+	text-decoration: none;
+	border: 1px solid #000;
+	padding: 0.5rem 0.8rem;
+	border-radius: 20px;
+	transition: all 0.3s ease-in-out;
+	margin-right: 4rem;
+}
+.host-btn:hover{
+	background: #ddd;
+	box-shadow: 0px 3px 10px rgb(0 0 0 / 18%);
+}
+.user{
+	border: 1px solid #DDDDDD;
+	display: inline-flex;
+	align-items: center;
+	padding: 0.4rem;
+	border-radius: 25px;
+	cursor: pointer;
+}
+.hammenu{
+	margin: 0 0.8rem 0 0.5rem;
+	font-size: 1.2rem;
+	color: #717171;
+}
+.userinfo{
+	color: #717171;
+	font-size: 1.8rem;
+}
+.user:hover{
+	box-shadow: 0px 2px 4px rgb(0 0 0 / 18%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media(min-width: 768px){
+	.navbar{
+		margin: 1rem 5rem;
+	}
 }
