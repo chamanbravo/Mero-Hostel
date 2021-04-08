@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
+
+
 *{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 body{
-
+	font-family: 'Jost', sans-serif;
+	font-size: 16px;
+	margin: 0 auto;
 }
 .header-logo{
 	max-width: 5rem;
@@ -19,6 +24,7 @@ body{
 	outline: none;
 	color: #000;
 	padding: 0 1rem;
+	width: 18rem;
 	font-size: 1rem;
 	background: transparent;
 }
@@ -46,6 +52,9 @@ select:-webkit-autofill:focus{
 	max-width: 100%;
 	padding: 0.2rem;
 	color: #000;
+}
+.hsb{
+	display: none;
 }
 .halfnav{
 	display: inline-flex;
@@ -85,7 +94,20 @@ select:-webkit-autofill:focus{
 	box-shadow: 0px 2px 4px rgb(0 0 0 / 18%);
 }
 
-
+.hero{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.hero-img img{
+	height: 100%;
+	width: 100%;
+}
+.hero-text h1{
+	max-width: 16ch;
+	font-weight: 500;
+	margin-bottom: 2rem;
+}
 
 
 
@@ -98,6 +120,16 @@ select:-webkit-autofill:focus{
 
 @media(min-width: 768px){
 	.navbar{
-		margin: 1rem 5rem;
+		margin: 1.5rem 5rem;
 	}
+	.hero{
+		margin-left: 5rem; 
+	}
+	.hero-img img{
+		width: 40rem;
+	}
+	.hero-text h1{
+		max-width: 16ch;
+	}
+
 }
