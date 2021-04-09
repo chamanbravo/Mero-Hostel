@@ -163,6 +163,38 @@ select:-webkit-autofill:focus{
 .recommended{
 	margin: 5rem 5rem;
 }
+.hostel-name{
+	font-weight: 600;
+}
+.hostels{
+	background: #ddd;
+	padding: 0.5rem 0.5rem;
+	width: fit-content;
+	border-radius: 20px;
+	transition: all 0.2s ease-in-out;
+}
+.hostels:hover{
+	box-shadow: 0 10px 10px #ddd;
+}
+.hostel-images img{
+	border-radius: 10px;
+	width: 20rem;
+	height: 15rem;
+}
+.hostel-info{
+	padding: 1rem 1rem;
+}
+.pricenstar{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.recommended-hostel{
+	margin: 2rem 0; 
+	display: grid;
+	grid-gap: 2rem;
+	grid-template-columns: repeat(3, 1fr);
+}
 
 
 
