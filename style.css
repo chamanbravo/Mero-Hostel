@@ -61,17 +61,17 @@ select:-webkit-autofill:focus{
 	align-items: center;
 }
 .host-btn{
-	color: #000;
+	color: #ffffff;
+	background: #c1c8d7;
 	text-decoration: none;
-	border: 1px solid #000;
 	padding: 0.5rem 0.8rem;
-	border-radius: 20px;
+	border-radius: 10px;
 	transition: all 0.3s ease-in-out;
 	margin-right: 4rem;
 }
 .host-btn:hover{
-	background: #ddd;
-	box-shadow: 0px 3px 10px rgb(0 0 0 / 18%);
+	background: #FF385C;
+	box-shadow: 0px 5px 10px #FF385C;
 }
 .user{
 	border: 1px solid #DDDDDD;
@@ -106,10 +106,28 @@ select:-webkit-autofill:focus{
 .hero-text h1{
 	max-width: 16ch;
 	font-weight: 500;
-	margin-bottom: 2rem;
+	margin-bottom: 3rem;
 }
-
-
+.filters{
+	margin-top: 3rem;
+}
+.property{
+	color: #ffffff;
+	text-decoration: none;
+	padding: 0.4rem 0.8rem;
+	border-radius: 5px;
+	margin-right: 0.2rem;
+	transition: all 0.2s ease-in-out;
+	background: #c1c8d7;
+}
+.property:hover{
+	background: #FF385C;
+	color: #ffffff;
+}
+.active{
+	background: #FF385C;
+	color: #ffffff;
+}
 
 
 
@@ -120,7 +138,7 @@ select:-webkit-autofill:focus{
 
 @media(min-width: 768px){
 	.navbar{
-		margin: 1.5rem 5rem;
+		margin: 1.2rem 5rem;
 	}
 	.hero{
 		margin-left: 5rem; 
