@@ -15,6 +15,27 @@ body{
 	font-size: 16px;
 	margin: 0 auto;
 }
+.menu{
+	display: inline-flex;
+	align-items: center;
+}
+.menu ul{
+	display: inline-flex;
+	margin-left: 3rem;
+}
+.menu ul li{
+	list-style: none;
+	margin-left: 2rem;
+}
+.menu ul li a{
+	font-weight: 500;
+	text-transform: uppercase;
+	transition: all 0.1s ease-in-out;
+}
+.menu ul li a:hover{
+	color: #FF385C;
+}
+
 .header-logo{
 	max-width: 5rem;
 }
