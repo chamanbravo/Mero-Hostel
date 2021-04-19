@@ -251,7 +251,20 @@ select:-webkit-autofill:focus{
 .host-info p{
 	margin: 0.6rem 0 2rem 0;
 }
-
+.social{
+	font-size: 1.8rem;
+}
+.social .fab{
+	cursor: pointer;
+}
+.footer-elements{
+	margin: 0 5rem;
+	display: grid;
+	
+}
+.footer-list ul li{
+	list-style: none;
+}
 
 @media(min-width: 768px){
 	.navbar{
