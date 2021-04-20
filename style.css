@@ -15,6 +15,17 @@ body{
 	font-size: 16px;
 	margin: 0 auto;
 }
+.header{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	transition: all 0.2s ease-in-out;
+	z-index: 3;
+}
+.sticky-header{
+	background: #fff;
+	box-shadow: 0 6px 10px #ddd;
+}
 .menu{
 	display: inline-flex;
 	align-items: center;
@@ -77,6 +88,7 @@ select:-webkit-autofill:focus{
 	max-width: 100%;
 	padding: 0.2rem;
 	color: #000;
+	transition: all 0.2s ease-in-out;
 }
 .hsb{
 	display: none;
@@ -123,6 +135,7 @@ select:-webkit-autofill:focus{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin-top: 5.7rem;
 }
 .hero-img img{
 	height: 100%;
@@ -306,7 +319,7 @@ select:-webkit-autofill:focus{
 
 @media(min-width: 768px){
 	.navbar{
-		margin: 1.2rem 5rem;
+		margin: 1rem 5rem;
 	}
 	.hero{
 		margin-left: 5rem; 
