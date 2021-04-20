@@ -256,11 +256,49 @@ select:-webkit-autofill:focus{
 }
 .social .fab{
 	cursor: pointer;
+	margin-left: 1rem;
+	color: #fff;
+}
+.social .fab:hover{
+	color: #FF385C;
+}
+.footer{
+	background: #191414;
 }
 .footer-elements{
+	padding: 2rem 0;
 	margin: 0 5rem;
+	grid-row-gap: 2rem;
 	display: grid;
-	
+	grid-template-areas: "footer-logo footer-logo social"
+	  					  "colf cols colt";
+}
+.footer-logo{
+	grid-area: footer-logo;
+}
+.social{
+	grid-area: social;
+	display: flex;
+	justify-content: flex-end;
+}
+.footer-list ul li a{
+	color: #fff;
+}
+.footer-list ul li a:hover{
+	color: #FF385C;
+}
+.col-1{
+	grid-area: colf;
+}
+.col-2{
+	grid-area: cols;
+	display: flex;
+	justify-content: center;
+}
+.col-3{
+	grid-area: colt;
+	display: flex;
+	justify-content: flex-end;
 }
 .footer-list ul li{
 	list-style: none;
