@@ -9,17 +9,21 @@
 
 .header{
 	background: #fff;
-	position: fixed !important;
+	position: fixed;
 	top: 0;
-	left: 0;
 	width: 100%;
-	z-index: 99;
+
 }
 
-@media (max-width: 768px){
-	.menu, .halfnav{
-		display: none;
-	}
+.navbar{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.8rem;
+}
+
+.menu .logo{
+	max-width: 2.5rem;
 }
 
 .search-input{
@@ -27,9 +31,10 @@
 	outline: none;
 	color: #000;
 	padding: 0 1rem;
-	font-size: 1rem;
+	font-size: 1.2rem;
 	background: transparent;
 }
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus,
@@ -41,22 +46,44 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus{
   	transition: background-color 5000s ease-in-out 0s;
 }
+
 .search-btn{
 	background: #FF385C;
 	padding: 0.5rem;
 	border-radius: 50%;
 	color: #ffffff;
+	font-size: 1.2rem;
 }
-.hsb{
-	border: 1px solid #DDDDDD;
+
+.searchbar{
+	border: 1px solid #dddddd;
 	border-radius: 30px;
 	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	box-shadow: 0px 2px 5px #c3bfbf;
-	max-width: 100%;
-	margin: 2rem 0;
-	padding: 0.2rem;
+	padding: 0.4rem;
 	color: #000;
 	transition: all 0.2s ease-in-out;
+}
+
+@media (max-width: 768px){
+	.right_nav{
+		display: none;
+	}
+}
+
+@media (max-width: 400px){
+	.logo{
+		display: none;
+	}
+	.navbar{
+		justify-content: center;
+	}
+	.searchbar{
+		width: 100%;
+		box-shadow: 0 2px 10px #d4d2d2;
+		border: unset;
+	}
+	.search-input{
+		width: 100%;
+	}
+
 }
