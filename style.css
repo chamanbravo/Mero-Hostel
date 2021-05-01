@@ -10,11 +10,13 @@
 body{
 	font-family: Jost, sans-serif;
 }
+
 .header{
 	background: #fff;
 	position: fixed;
 	top: 0;
 	width: 100%;
+	z-index: 1;
 
 }
 
@@ -105,6 +107,7 @@ select:-webkit-autofill:focus{
 .hero-text h1{
 	padding-bottom: 2rem;
 	line-height: 2rem;
+	max-width: 12ch;
 }
 .hero-searchbar{
 	background: #fff;
