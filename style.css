@@ -125,3 +125,45 @@ select:-webkit-autofill:focus{
 	transform: translateX(-50%);
     left: 50%;
 } 
+
+.explore-nearby h1{
+	padding: 2.8rem 0.8rem 1rem;
+	font-weight: 600;
+	font-size: 1.6rem;
+}
+
+.places-grid{
+	overflow-x: auto !important;
+    display: grid !important;
+    gap: 12px !important;
+    grid-template-columns: repeat(4, auto) !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-padding: 0 0.8rem;
+}
+
+.places-grid::-webkit-scrollbar{
+	display: none;
+}
+
+.place{
+	padding: 0 1.2rem;
+}
+
+.place img{
+	max-width: 5rem;
+	border-radius: 10px;
+	margin-right: 1rem;
+}
+
+.place{
+	display: inline-flex;
+	align-items: center;
+}
+
+.text h3{
+	font-weight: 500;
+}
+
+.text p{
+	font-weight: 200;
+}
