@@ -126,8 +126,11 @@ select:-webkit-autofill:focus{
     left: 50%;
 } 
 
+.explore-nearby{
+	margin: 4rem 0;
+}
 .explore-nearby h1{
-	padding: 2.8rem 0.8rem 1rem;
+	padding: 0 0.8rem 1rem;
 	font-weight: 600;
 	font-size: 1.6rem;
 }
@@ -166,4 +169,23 @@ select:-webkit-autofill:focus{
 
 .text p{
 	font-weight: 200;
+}
+
+.recommended-places{
+	margin: 5rem 1.2rem;
+}
+
+.recommended-places h1{
+	padding-bottom: 0.8rem;
+	font-weight: 600;
+    font-size: 1.6rem;
+}
+
+.rating{
+	display: inline-flex;
+	align-items: center;
+}
+
+.rating svg{
+	color: #FF385C;
 }
