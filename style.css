@@ -238,3 +238,24 @@ select:-webkit-autofill:focus{
 	object-fit: cover;
 	border-radius: 20px;
 }
+
+.host-section{
+	display: grid;
+	grid-template-columns: repeat(1, auto);
+	margin: 0 1.2rem;
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+.host-text{
+	background: #222422;
+	color: #fff;
+	text-align: center;
+}
+
+.host-img{
+	height: 250px;
+	width: 100%;
+	object-fit: cover;
+	object-position: bottom;
+}
