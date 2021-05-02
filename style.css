@@ -176,13 +176,13 @@ select:-webkit-autofill:focus{
 }
 
 .recommended-places h1{
-	padding-bottom: 0.8rem;
+	padding-bottom: 1rem;
 	font-weight: 600;
     font-size: 1.6rem;
 }
 
 .hostel-name{
-	font-size: 1.4rem;
+	font-size: 1.5rem;
 	font-weight: 400;
 }
 
@@ -191,7 +191,7 @@ select:-webkit-autofill:focus{
 }
 
 .location{
-	font-size: 1rem;
+	font-size: 1.1rem;
 	font-weight: 400;
 }
 
@@ -218,4 +218,23 @@ select:-webkit-autofill:focus{
 
 .price h4{
 	font-weight: 500;
+}
+
+.hostels-grid{
+	display: grid;
+	grid-template-columns: repeat(1, auto);
+	grid-gap: 3rem;
+}
+
+.hostel-card{
+	display: grid;
+	grid-template-rows: repeat(2, auto);
+	grid-gap: 0.5rem;
+}
+
+.hostel-pic{
+	height: 200px;
+	width: 100%;
+	object-fit: cover;
+	border-radius: 20px;
 }
