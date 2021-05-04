@@ -69,7 +69,7 @@ select:-webkit-autofill:focus{
 	transition: all 0.2s ease-in-out;
 }
 
-@media (max-width: 768px){
+@media (max-width: 767px){
 	.right_nav{
 		display: none;
 	}
@@ -290,7 +290,11 @@ select:-webkit-autofill:focus{
 	grid-template-columns: repeat(1, auto);
 	margin: 5rem 1.2rem;
 	border-radius: 20px;
-	overflow: hidden;
+	background: url(assets/host-hostel.jpg);
+    overflow: hidden;
+    height: 400px;
+    background-size: cover;
+    background-position: bottom;
 }
 
 .host-text{
@@ -298,6 +302,7 @@ select:-webkit-autofill:focus{
 	color: #fff;
 	text-align: center;
 	padding: 1.5rem 0;
+	height: fit-content;
 }
 
 .host-text h1{
@@ -404,4 +409,103 @@ select:-webkit-autofill:focus{
 	font-size: 0.8rem;
 	font-weight: 300;
 	color: #fff;
+}
+
+@media(min-width: 500px) and (max-width: 767px){
+	.hero-text{
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.hostels-grid {
+    	grid-template-columns: repeat(2, auto);
+	}
+	.about-text{
+		max-width: 35ch;
+	}
+}
+
+@media(min-width: 768px){
+	.right-nav{
+		display: inline-flex;
+		align-items: center;
+	}
+	.hostbtn-header a{
+		text-decoration: none;
+		color: #000;
+	}
+	.hostbtn-header{
+		margin-right: 1rem;
+		border: 1px solid #dddddd;
+		padding: 0.4rem 1rem;
+		border-radius: 20px;
+	}
+	.user{
+		border: 1px solid #dddddd;
+		padding: 0.4rem 1rem;
+		border-radius: 20px;
+	}
+	.user a{
+		text-decoration: none;
+		color: #000;
+	}
+	.sticky-bar{
+		display: none !important;
+	}
+	.hero-text{
+		padding: 6rem 1rem 10rem;
+	}
+	.hero-image img {
+	    bottom: 0;
+    	transform: unset;
+    	left: unset;
+    	right: -5rem;
+	}
+	.hostels-grid {
+    	grid-template-columns: repeat(2, auto);
+	}
+
+	.host-section{
+		display: block;
+		grid-template-columns: unset;	
+		position: relative;
+	}
+
+	.host-text{
+		background: unset;
+		color: #fff;
+		text-align: left;
+		position: absolute;
+		left: 60px;
+		transform: translateY(-50%);
+		top: 50%;
+	}
+
+	.footer-elements{
+		grid-template-areas: "about menu1 menu2";
+	}
+
+	.about{
+		margin-bottom: unset;
+	}
+
+	.about-text{
+		max-width: 22ch;
+	}
+
+	.bottom-footer{
+		margin-bottom: unset;
+	}
+
+	.bottom-container{
+		padding: 1rem 0;
+	}
+
+}
+
+@media(min-width: 1000px){
+	.hostels-grid {
+    	grid-template-columns: repeat(3, auto);
+	}
 }
