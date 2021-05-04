@@ -383,6 +383,7 @@ select:-webkit-autofill:focus{
 
 .bottom-footer{
 	background: #343a40;
+	margin-bottom: 4rem;
 }
 
 .bottom-container{
