@@ -24,7 +24,7 @@ body{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0.8rem;
+	margin: 0.8rem;
 }
 
 .menu .logo{
@@ -70,7 +70,7 @@ select:-webkit-autofill:focus{
 }
 
 @media (max-width: 767px){
-	.right_nav{
+	.right-nav{
 		display: none;
 	}
 }
@@ -412,6 +412,25 @@ select:-webkit-autofill:focus{
 }
 
 @media(min-width: 500px) and (max-width: 767px){
+	.navbar{
+		margin: 1rem 2rem;
+	}
+
+	.explore-nearby h1 {
+    	padding: 0 2rem 1rem;
+	}
+	.place{
+		padding: 0 2rem;
+	}
+	.recommended-places {
+    	margin: 5rem 2rem;
+	}
+	.host-section{
+		margin: 5rem 2rem;
+	}
+	.footer-elements{
+		margin: 0 2rem;
+	}
 	.hero-text{
 		text-align: center;
 		display: flex;
