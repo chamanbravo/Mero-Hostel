@@ -69,6 +69,34 @@ select:-webkit-autofill:focus{
 	transition: all 0.2s ease-in-out;
 }
 
+.right-nav{
+	display: inline-flex;
+	align-items: center;
+}
+
+.hostbtn-header a{
+	text-decoration: none;
+	color: #000;
+}
+
+.hostbtn-header{
+	margin-right: 1rem;
+	border: 1px solid #dddddd;
+	padding: 0.4rem 1rem;
+	border-radius: 20px;
+}
+
+.user{
+	border: 1px solid #dddddd;
+	padding: 0.4rem 1rem;
+	border-radius: 20px;
+}
+
+.user a{
+	text-decoration: none;
+	color: #000;
+}
+
 @media (max-width: 767px){
 	.right-nav{
 		display: none;
@@ -176,7 +204,7 @@ select:-webkit-autofill:focus{
 	margin: 4rem 0;
 }
 .explore-nearby h1{
-	padding: 0 0.8rem 1rem;
+	margin: 0 1.2rem 1rem;
 	font-weight: 600;
 	font-size: 1.6rem;
 }
@@ -417,7 +445,7 @@ select:-webkit-autofill:focus{
 	}
 
 	.explore-nearby h1 {
-    	padding: 0 2rem 1rem;
+    	margin: 0 2rem 1rem;
 	}
 	.place{
 		padding: 0 2rem;
@@ -446,29 +474,6 @@ select:-webkit-autofill:focus{
 }
 
 @media(min-width: 768px){
-	.right-nav{
-		display: inline-flex;
-		align-items: center;
-	}
-	.hostbtn-header a{
-		text-decoration: none;
-		color: #000;
-	}
-	.hostbtn-header{
-		margin-right: 1rem;
-		border: 1px solid #dddddd;
-		padding: 0.4rem 1rem;
-		border-radius: 20px;
-	}
-	.user{
-		border: 1px solid #dddddd;
-		padding: 0.4rem 1rem;
-		border-radius: 20px;
-	}
-	.user a{
-		text-decoration: none;
-		color: #000;
-	}
 	.sticky-bar{
 		display: none !important;
 	}
@@ -480,6 +485,12 @@ select:-webkit-autofill:focus{
     	transform: unset;
     	left: unset;
     	right: -5rem;
+	}
+	.hid{
+		display: none;
+	}
+	.places-grid{
+		grid-template-columns: repeat(3, auto) !important;
 	}
 	.hostels-grid {
     	grid-template-columns: repeat(2, auto);
