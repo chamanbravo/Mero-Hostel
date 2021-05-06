@@ -190,6 +190,8 @@ select:-webkit-autofill:focus{
 	border-radius: 10px;
 	position: relative;
 	overflow: hidden;
+	background: url("assets/herobg.jpg");
+	background-position: bottom;
 }
 
 .hero-text{
@@ -722,5 +724,17 @@ select:-webkit-autofill:focus{
 	}
 	.hero-image img{
 		right: 3rem;
+	}
+}
+
+@media (min-width: 1500px){
+	.container, .footer-container, .header{
+		max-width: 1500px;
+	}
+	.container{
+		margin: 0 auto;
+	}
+	.footer-container{
+		margin: 0 auto;
 	}
 }
