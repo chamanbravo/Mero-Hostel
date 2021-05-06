@@ -84,12 +84,21 @@ select:-webkit-autofill:focus{
 	border: 1px solid #dddddd;
 	padding: 0.4rem 1rem;
 	border-radius: 20px;
+	transition: 0.2s all ease-in-out;
+}
+
+.hostbtn-header:hover{
+	box-shadow: 0 4px 10px #dddddd;
 }
 
 .user{
 	border: 1px solid #dddddd;
 	padding: 0.4rem 1rem;
 	border-radius: 20px;
+}
+
+.user:hover{
+	box-shadow: 0 4px 10px #dddddd;
 }
 
 .user a{
@@ -146,6 +155,14 @@ select:-webkit-autofill:focus{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.bm:hover i{
+	color: #FF385C;
+}
+
+.bm:hover p{
+	color: #000;
 }
 
 .bm p{
@@ -414,6 +431,10 @@ select:-webkit-autofill:focus{
 	font-size: 1.1rem;
 }
 
+.social-icons a:hover, .menulist li a:hover{
+	color: #FF385C;
+}
+
 .bottom-footer{
 	background: #343a40;
 	margin-bottom: 4rem;
@@ -466,7 +487,7 @@ select:-webkit-autofill:focus{
 		align-items: center;
 	}
 	.hostels-grid {
-    	grid-template-columns: repeat(2, auto);
+    	grid-template-columns: repeat(1, auto);
 	}
 	.about-text{
 		max-width: 35ch;
@@ -474,6 +495,15 @@ select:-webkit-autofill:focus{
 }
 
 @media(min-width: 768px){
+	.hsb{
+		padding: 0.3rem;
+	}
+	.hsi{
+		font-size: 1rem;
+	}
+	.sbtnh{
+		font-size: 1rem;
+	}
 	.sticky-bar{
 		display: none !important;
 	}
@@ -534,7 +564,16 @@ select:-webkit-autofill:focus{
 
 }
 
-@media(min-width: 1000px){
+@media(min-width: 1024px){
+	.hsb{
+		padding: 0.3rem;
+	}
+	.hsi{
+		font-size: 1rem;
+	}
+	.sbtnh{
+		font-size: 1rem;
+	}
 	.hostels-grid {
     	grid-template-columns: repeat(3, auto);
 	}
