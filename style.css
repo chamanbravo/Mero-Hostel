@@ -565,6 +565,31 @@ select:-webkit-autofill:focus{
 }
 
 @media(min-width: 1024px){
+	.navbar{
+		margin: 1rem 4rem;
+	}
+	.hero{
+		margin: 7rem 4rem 3rem;
+		border-radius: 30px;
+	}
+	.explore-nearby{
+		margin: 0 4rem;
+	}
+	.explore-nearby h1 {
+    	margin: 0 0 1rem;
+	}
+	.place{
+		padding: 0;
+	}
+	.recommended-places {
+    	margin: 5rem 4rem;
+	}
+	.host-section{
+		margin: 5rem 4rem;
+	}
+	.footer-elements{
+		margin: 0 4rem;
+	}
 	.hsb{
 		padding: 0.3rem;
 	}
@@ -574,7 +599,47 @@ select:-webkit-autofill:focus{
 	.sbtnh{
 		font-size: 1rem;
 	}
+	.hero-text{
+		padding-left: 3rem;	
+	}
+	.hero-image img{
+		right: 3rem;
+	}
+	.hid{
+		display: inline-flex;
+	}
+	.places-grid{
+		grid-template-columns: repeat(4, auto) !important;
+	}
 	.hostels-grid {
     	grid-template-columns: repeat(3, auto);
+	}
+}
+
+@media (min-width: 1200px){
+	.navbar{
+		margin: 1rem 5rem;
+	}
+	.hero{
+		margin: 7rem 5rem 3rem;
+		border-radius: 30px;
+	}
+	.explore-nearby{
+		margin: 0 5rem;
+	}
+	.explore-nearby h1 {
+    	margin: 0 0 1rem;
+	}
+	.place{
+		padding: 0;
+	}
+	.recommended-places {
+    	margin: 5rem 5rem;
+	}
+	.host-section{
+		margin: 5rem 5rem;
+	}
+	.footer-elements{
+		margin: 0 5rem;
 	}
 }
