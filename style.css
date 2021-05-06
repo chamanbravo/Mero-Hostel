@@ -193,7 +193,7 @@ select:-webkit-autofill:focus{
 }
 
 .hero-text{
-	padding: 6rem 1rem 20rem;
+	padding: 5rem 1rem 20rem;
 }
 .hero-text h1{
 	padding-bottom: 2rem;
@@ -323,11 +323,20 @@ select:-webkit-autofill:focus{
 	grid-gap: 0.5rem;
 }
 
+.hostel-card:hover{
+	box-shadow: 0 4px 10px #dddddd;
+	border-radius: 20px;
+}
+
 .hostel-pic{
 	height: 200px;
 	width: 100%;
 	object-fit: cover;
 	border-radius: 20px;
+}
+
+.hostel-info{
+		padding: 1rem;
 }
 
 .host-section{
@@ -572,6 +581,9 @@ select:-webkit-autofill:focus{
 		margin: 7rem 4rem 3rem;
 		border-radius: 30px;
 	}
+	.hero-text{
+		padding: 5rem 2rem 8rem;
+	}
 	.explore-nearby{
 		margin: 0 4rem;
 	}
@@ -600,10 +612,10 @@ select:-webkit-autofill:focus{
 		font-size: 1rem;
 	}
 	.hero-text{
-		padding-left: 3rem;	
+		padding-left: 2rem;	
 	}
 	.hero-image img{
-		right: 3rem;
+		right: 2rem;
 	}
 	.hid{
 		display: inline-flex;
@@ -641,5 +653,11 @@ select:-webkit-autofill:focus{
 	}
 	.footer-elements{
 		margin: 0 5rem;
+	}
+	.hero-text{
+		padding-left: 3rem;	
+	}
+	.hero-image img{
+		right: 3rem;
 	}
 }
