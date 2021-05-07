@@ -95,6 +95,31 @@ select:-webkit-autofill:focus{
 	border: 1px solid #dddddd;
 	padding: 0.4rem 1rem;
 	border-radius: 20px;
+	position: relative;
+}
+
+.user-clicked{
+	background: #fff;
+	position: absolute;
+	right: 5rem;
+	top: 4.5rem;
+	border-radius: 12px;
+	box-shadow: 0 4px 8px #18171759;
+	display: none;
+}
+
+.user-clicked ul{
+	padding: 1rem 2rem;
+}
+
+.user-clicked ul li{
+	list-style: none;
+	padding: 0.5rem;
+}
+
+.user-clicked ul li a{
+	text-decoration: none;
+	color: #000;
 }
 
 .user:hover{
