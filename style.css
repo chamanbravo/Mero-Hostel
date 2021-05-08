@@ -98,26 +98,29 @@ select:-webkit-autofill:focus{
 	position: relative;
 }
 
-.user-clicked{
+.register-menu{
 	background: #fff;
 	position: absolute;
-	right: 5rem;
 	top: 4.5rem;
 	border-radius: 12px;
 	box-shadow: 0 4px 8px #18171759;
-	display: none;
 }
 
-.user-clicked ul{
-	padding: 1rem 2rem;
+.register-menu ul{
+	padding: 0.8rem 0rem;
 }
 
-.user-clicked ul li{
+.register-menu ul li{
 	list-style: none;
-	padding: 0.5rem;
+	padding: 0.5rem 3rem 0.5rem 1rem;
+	transition: 0.2s all ease-in-out;
 }
 
-.user-clicked ul li a{
+.register-menu ul li:hover{
+	background: #dddddd;
+}
+
+.register-menu ul li a{
 	text-decoration: none;
 	color: #000;
 }
@@ -130,6 +133,7 @@ select:-webkit-autofill:focus{
 	text-decoration: none;
 	color: #000;
 }
+
 
 @media (max-width: 767px){
 	.right-nav{
@@ -532,6 +536,9 @@ select:-webkit-autofill:focus{
 }
 
 @media(min-width: 768px){
+	.register-menu{
+		right: 1rem;
+	}
 	.hsb{
 		padding: 0.3rem;
 	}
@@ -605,6 +612,9 @@ select:-webkit-autofill:focus{
 	.navbar{
 		margin: 1rem 4rem;
 	}
+	.register-menu{
+		right: 4rem;
+	}
 	.hero{
 		margin: 7rem 4rem 3rem;
 		border-radius: 30px;
@@ -660,6 +670,9 @@ select:-webkit-autofill:focus{
 	.navbar{
 		margin: 1rem 5rem;
 	}
+	.register-menu{
+		right: 5rem;
+	}
 	.hero{
 		margin: 7rem 5rem 3rem;
 		border-radius: 30px;
@@ -694,6 +707,9 @@ select:-webkit-autofill:focus{
 	.navbar{
 		margin: 1rem 7rem;
 	}
+	.register-menu{
+		right: 7rem;
+	}
 	.hero{
 		margin: 7rem 7rem 3rem;
 		border-radius: 30px;
@@ -721,6 +737,9 @@ select:-webkit-autofill:focus{
 @media (min-width: 1400px){
 	.navbar{
 		margin: 1rem 8rem;
+	}
+	.register-menu{
+		right: 8rem;
 	}
 	.hero{
 		margin: 7rem 8rem 3rem;
