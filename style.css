@@ -9,6 +9,7 @@
 
 body{
 	font-family: Jost, sans-serif;
+	scroll-behavior: smooth;
 }
 
 .header{
@@ -69,6 +70,28 @@ select:-webkit-autofill:focus{
 	transition: all 0.2s ease-in-out;
 }
 
+.center-nav{
+	margin-right: 2rem;
+}
+
+.center-nav ul{
+	display: inline-flex;
+}
+
+.center-nav ul li{
+	list-style: none;
+	margin-right: 1rem;
+}
+
+.center-nav ul li a{
+	text-decoration: none;
+	color: #000;
+}
+
+.center-nav ul li a:hover{
+	color: #FF385C;
+}
+
 .right-nav{
 	display: inline-flex;
 	align-items: center;
@@ -96,6 +119,7 @@ select:-webkit-autofill:focus{
 	padding: 0.4rem 1rem;
 	border-radius: 20px;
 	position: relative;
+	cursor: pointer;
 }
 
 .register-menu{
@@ -138,6 +162,12 @@ select:-webkit-autofill:focus{
 
 @media (max-width: 767px){
 	.right-nav{
+		display: none;
+	}
+}
+
+@media(max-width: 1020px){
+	.center-nav{
 		display: none;
 	}
 }
@@ -235,6 +265,7 @@ select:-webkit-autofill:focus{
 .hero-searchbar{
 	background: #fff;
 	box-shadow: unset;
+	transition: 0.2s all ease-in-out;
 }
 
 .hero-input{
@@ -516,7 +547,6 @@ select:-webkit-autofill:focus{
 	.navbar{
 		margin: 1rem 2rem;
 	}
-
 	.explore-nearby h1 {
     	margin: 0 2rem 1rem;
 	}
