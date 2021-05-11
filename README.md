@@ -21,11 +21,12 @@ Users should be able to:
 
 - View the optimal layout for each page depending on their device's screen size
 - See hover states for all interactive elements on the page
-- 
+- Search for hostels
+- show location of hostels in map
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://merohostel.vercel.app)
+- Live Site URL: [Merohostel](https://merohostel.vercel.app)
 
 ### Built with
 
