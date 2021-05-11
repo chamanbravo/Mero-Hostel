@@ -26,7 +26,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Merohostel](https://merohostel.vercel.app)
+- Live Site URL: [merohostel.vercel.app](https://merohostel.vercel.app)
 
 ### Built with
 
