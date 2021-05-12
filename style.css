@@ -618,14 +618,17 @@ select:-webkit-autofill:focus{
 	}
 
 	.host-text{
-		background: unset;
 		color: #fff;
 		align-items: flex-start;
 		text-align: left;
 		position: absolute;
-		left: 60px;
+		height: 100%;
 		transform: translateY(-50%);
 		top: 50%;
+	}
+
+	.htext{
+		margin: 0 2rem;
 	}
 
 	.footer-elements{
