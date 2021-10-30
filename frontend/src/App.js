@@ -1,9 +1,13 @@
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Header } from "./components";
 
 function App() {
   return (
     <div className="App">
-      <h1>This is the frontend</h1>
+      <Router>
+        <Header />
+      </Router>
     </div>
   );
 }

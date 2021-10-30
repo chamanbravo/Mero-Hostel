@@ -1,0 +1,132 @@
+.header {
+  background: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.5rem 1rem;
+    .menu .logo {
+      max-width: 2.5rem;
+      max-height: 3rem;
+    }
+    .searchbar {
+      border: 1px solid #dddddd;
+      border-radius: 30px;
+      display: inline-flex;
+      padding: 0.25rem;
+      color: #000;
+      transition: all 0.2s ease-in-out;
+      .search-input {
+        border: none;
+        outline: none;
+        padding: 0 1rem;
+        font-size: 1rem;
+        background: transparent;
+      }
+      .search-btn {
+        background: #ff385c;
+        padding: 0.5rem;
+        border-radius: 50%;
+        color: #ffffff;
+        font-size: 1rem;
+      }
+    }
+
+    .right-nav {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 767px) {
+  .navbar {
+    margin: 0.5rem 2rem;
+    .right-nav {
+      display: inline-flex !important;
+      align-items: center;
+      .center-nav {
+        display: none;
+      }
+      .hostbtn-header {
+        margin-right: 1rem;
+        border: 1px solid #dddddd;
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        transition: 0.2s all ease-in-out;
+        &:hover {
+          box-shadow: 0 4px 10px #dddddd;
+        }
+        a {
+          text-decoration: none;
+          color: #000;
+        }
+      }
+      .user {
+        border: 1px solid #dddddd;
+        padding: 0.6rem 1rem;
+        border-radius: 20px;
+        position: relative;
+        cursor: pointer;
+        display: inline-flex;
+        gap: 0.5rem;
+        &:hover {
+          box-shadow: 0 4px 10px #dddddd;
+        }
+      }
+      .register-menu {
+        background: #fff;
+        position: absolute;
+        top: 4.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px #18171759;
+        display: none;
+        ul {
+          padding: 0.8rem 0rem;
+          li {
+            list-style: none;
+            padding: 0.5rem 3rem 0.5rem 1rem;
+            transition: 0.2s all ease-in-out;
+            &:hover {
+              background: #dddddd;
+            }
+            a {
+              text-decoration: none;
+              color: #000;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .center-nav {
+    margin-right: 2rem;
+    display: unset !important;
+    ul {
+      display: inline-flex !important;
+      li {
+        list-style: none;
+        margin-right: 1rem;
+        a {
+          text-decoration: none;
+          color: #000;
+          &:hover {
+            color: #ff385c;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .header .navbar {
+    margin: 0.5rem 6rem;
+  }
+}
