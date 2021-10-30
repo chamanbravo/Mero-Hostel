@@ -4,21 +4,11 @@
 
 # [Note: This is still under construction.]
 
-## Table of contents
-
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-- [Author](#author)
-
-### The challenge
+### Features of Mero Hostel
 
 Users should be able to:
 
 - View the optimal layout for each page depending on their device's screen size
-- See hover states for all interactive elements on the page
 - Search for hostels
 - show location of hostels in map
 - general user registration
@@ -38,9 +28,9 @@ Users should be able to:
 ### Folder Structure
 
 - frontend
-  React.js
+  - React.js
 - backend
-  Node.js
+  - Node.js
 
 ## Author
 
