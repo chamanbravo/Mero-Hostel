@@ -1,8 +1,6 @@
-# Frontend of merohostel
+# [Note: This is under construction.]
 
-![Design preview of Merohostel website](./design-preview/desktop.png)
-
-# [Note: This is still under construction.]
+![Design preview of Merohostel website](./preview/desktop.png)
 
 ### Features of Mero Hostel
 
