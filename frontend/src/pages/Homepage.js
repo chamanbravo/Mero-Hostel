@@ -1,5 +1,5 @@
 import React from "react";
-import { Hero, ExploreNearby, Recommend } from "../components";
+import { Hero, ExploreNearby, Recommend, Host } from "../components";
 
 function Homepage() {
   return (
@@ -7,6 +7,7 @@ function Homepage() {
       <Hero />
       <ExploreNearby />
       <Recommend />
+      <Host />
     </div>
   );
 }
