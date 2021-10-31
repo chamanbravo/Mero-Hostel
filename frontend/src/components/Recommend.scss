@@ -1,0 +1,87 @@
+.recommended-places {
+  margin: 5rem 1rem;
+  h1 {
+    padding-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.6rem;
+  }
+}
+
+.hostel-name {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.map-icon {
+  padding-right: 5px;
+}
+
+.location {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.rate-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+  .fa-star {
+    color: #ff385c;
+  }
+}
+
+.stars {
+  padding: 0 4px;
+}
+
+.price h4 {
+  font-weight: 500;
+}
+
+.hostels-grid {
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  grid-gap: 3rem;
+}
+
+.hostel-card {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 0.5rem;
+  transition: 0.2s all ease-in-out;
+  &:hover {
+    box-shadow: 0 4px 10px #dddddd;
+    border-radius: 20px;
+  }
+}
+
+.hostel-pic {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.hostel-info {
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .hostels-grid {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
+@media (min-width: 1024px) {
+  .recommended-places {
+    margin: 3rem 6rem;
+  }
+  .hostels-grid {
+    grid-template-columns: repeat(3, auto);
+  }
+}

@@ -1,9 +1,18 @@
+import {
+  hostel1,
+  hostel2,
+  hostel3,
+  hostel4,
+  hostel5,
+  hostel6,
+} from "../../assets";
+
 export const data = [
   {
     id: 1,
     name: "Aone Hostel",
     location: "Sankhamul",
-    image: "",
+    image: hostel1,
     price: "10,000",
     description: "",
     reviews: [
@@ -23,7 +32,7 @@ export const data = [
     id: 2,
     name: "Comfy Hostel",
     location: "New Baneshwor",
-    image: "",
+    image: hostel2,
     price: "9,000",
     description: "",
     reviews: [
@@ -43,7 +52,7 @@ export const data = [
     id: 3,
     name: "All Star Hostel",
     location: "Putalisadak",
-    image: "",
+    image: hostel3,
     price: "12,000",
     description: "",
     reviews: [
@@ -63,7 +72,7 @@ export const data = [
     id: 4,
     name: "Trilok Hostel",
     location: "Kritipur",
-    image: "",
+    image: hostel4,
     price: "10,500",
     description: "",
     reviews: [
@@ -83,7 +92,7 @@ export const data = [
     id: 5,
     name: "Grandy Hostel",
     location: "Anamnagar",
-    image: "",
+    image: hostel5,
     price: "10,000",
     description: "",
     reviews: [
@@ -103,7 +112,7 @@ export const data = [
     id: 6,
     name: "Luxy Hostel",
     location: "Maitighar",
-    image: "",
+    image: hostel6,
     price: "10,000",
     description: "",
     reviews: [
