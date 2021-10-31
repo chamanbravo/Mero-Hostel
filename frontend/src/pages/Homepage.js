@@ -1,8 +1,12 @@
 import React from "react";
-import { Header } from "../components";
+import { Hero } from "../components";
 
 function Homepage() {
-  return <div></div>;
+  return (
+    <div>
+      <Hero />
+    </div>
+  );
 }
 
 export default Homepage;

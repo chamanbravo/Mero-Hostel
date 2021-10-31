@@ -105,19 +105,22 @@
 }
 
 @media (min-width: 1024px) {
-  .center-nav {
-    margin-right: 2rem;
-    display: unset !important;
-    ul {
-      display: inline-flex !important;
-      li {
-        list-style: none;
-        margin-right: 1rem;
-        a {
-          text-decoration: none;
-          color: #000;
-          &:hover {
-            color: #ff385c;
+  .header .navbar {
+    margin: 1rem 4rem;
+    .center-nav {
+      margin-right: 2rem;
+      display: unset !important;
+      ul {
+        display: inline-flex !important;
+        li {
+          list-style: none;
+          margin-right: 1rem;
+          a {
+            text-decoration: none;
+            color: #000;
+            &:hover {
+              color: #ff385c;
+            }
           }
         }
       }
@@ -127,6 +130,6 @@
 
 @media (min-width: 1200px) {
   .header .navbar {
-    margin: 0.5rem 6rem;
+    margin: 1rem 6rem;
   }
 }
