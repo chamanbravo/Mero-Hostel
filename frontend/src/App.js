@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Header } from "./components";
+import { Header, Footer } from "./components";
 import { Homepage } from "./pages";
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
             <Homepage />
           </Route>
         </Switch>
+        <Footer />
       </Router>
     </div>
   );
