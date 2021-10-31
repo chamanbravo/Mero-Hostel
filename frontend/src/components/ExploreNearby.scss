@@ -1,0 +1,54 @@
+.explore-nearby {
+  margin: 3rem 0rem;
+  h1 {
+    margin: 1rem 1rem;
+    font-weight: 600;
+    font-size: 1.6rem;
+  }
+  .places-grid {
+    overflow-x: auto !important;
+    display: grid !important;
+    gap: 12px !important;
+    grid-template-columns: repeat(4, auto) !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-padding: 0 0.8rem;
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .place {
+    padding: 0 1rem;
+    display: inline-flex;
+    align-items: center;
+    img {
+      max-width: 5rem;
+      border-radius: 10px;
+      margin-right: 1rem;
+    }
+    .text h3 {
+      font-weight: 500;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .explore-nearby {
+    margin: 3rem 4rem;
+    h1 {
+      margin: 1rem 0;
+    }
+    .place {
+      padding: unset;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .explore-nearby {
+    margin: 3rem 6rem;
+  }
+}

@@ -1,10 +1,11 @@
 import React from "react";
-import { Hero } from "../components";
+import { Hero, ExploreNearby } from "../components";
 
 function Homepage() {
   return (
     <div>
       <Hero />
+      <ExploreNearby />
     </div>
   );
 }

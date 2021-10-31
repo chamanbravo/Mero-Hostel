@@ -56,7 +56,7 @@
 
 @media (min-width: 768px) {
   .hero {
-    margin: 5rem 1rem;
+    margin: 5rem 1rem 0rem;
     .hero-text {
       padding: 5rem 1rem 10rem;
     }
@@ -70,7 +70,7 @@
 
 @media (min-width: 1024px) {
   .hero {
-    margin: 6rem 4rem;
+    margin: 6rem 4rem 0;
     border-radius: 15px;
     .hero-text {
       padding: 5rem 4rem 10rem;
@@ -80,7 +80,7 @@
 
 @media (min-width: 1200px) {
   .hero {
-    margin: 6rem 6rem;
+    margin: 6rem 6rem 0;
     border-radius: 20px;
     .hero-text {
       padding: 6rem 6rem 10rem;
