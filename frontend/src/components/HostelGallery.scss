@@ -1,0 +1,26 @@
+.gallery-slider {
+  margin-bottom: 3rem;
+}
+
+.awssld__wrapper {
+  border-radius: 20px;
+}
+
+.awssld {
+  --loader-bar-color: #fc5774 !important;
+}
+
+.awssld__content {
+  background-color: #fff !important;
+}
+
+.awssld__bullets button {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+@media (min-width: 768px) {
+  .gallery-slider {
+    width: 60%;
+  }
+}

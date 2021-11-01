@@ -1,0 +1,24 @@
+.hostel-review {
+  h1 {
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+}
+
+.review {
+  margin: 2rem 0;
+}
+
+.review-user {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+  }
+  p {
+    font-weight: 500;
+  }
+}

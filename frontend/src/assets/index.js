@@ -14,6 +14,13 @@ import hostel4 from "./hostels/hostel4.jpg";
 import hostel5 from "./hostels/hostel5.jpg";
 import hostel6 from "./hostels/hostel6.jpg";
 
+import room1 from "./gallery/room1.jpg";
+import room2 from "./gallery/room2.jpg";
+
+import user1 from "./users/user1.jpg";
+import user2 from "./users/user2.jpg";
+import user3 from "./users/user3.jpg";
+
 export {
   anamnagar,
   baneshwor,
@@ -29,4 +36,9 @@ export {
   hostel4,
   hostel5,
   hostel6,
+  room1,
+  room2,
+  user1,
+  user2,
+  user3,
 };

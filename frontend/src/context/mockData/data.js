@@ -5,6 +5,11 @@ import {
   hostel4,
   hostel5,
   hostel6,
+  room1,
+  room2,
+  user1,
+  user2,
+  // user3,
 } from "../../assets";
 
 export const data = [
@@ -13,16 +18,19 @@ export const data = [
     name: "Aone Hostel",
     location: "Sankhamul",
     image: hostel1,
+    gallery: [room1, room2],
     price: "10,000",
     description: "",
     reviews: [
       {
         name: "John Smith",
-        Comment: "very comfortable hostel, best for students",
+        profile: user1,
+        comment: "very comfortable hostel, best for students",
       },
       {
         name: "Harry Potter",
-        Comment:
+        profile: user2,
+        comment:
           "this hostel has all the services and suitable environment for students",
       },
     ],
@@ -33,16 +41,19 @@ export const data = [
     name: "Comfy Hostel",
     location: "New Baneshwor",
     image: hostel2,
+    gallery: [room1, room2],
     price: "9,000",
     description: "",
     reviews: [
       {
         name: "John Smith",
-        Comment: "very comfortable hostel, best for students",
+        profile: user1,
+        comment: "very comfortable hostel, best for students",
       },
       {
         name: "Harry Potter",
-        Comment:
+        profile: user2,
+        comment:
           "this hostel has all the services and suitable environment for students",
       },
     ],
@@ -53,16 +64,19 @@ export const data = [
     name: "All Star Hostel",
     location: "Putalisadak",
     image: hostel3,
+    gallery: [room1, room2],
     price: "12,000",
     description: "",
     reviews: [
       {
         name: "John Smith",
-        Comment: "very comfortable hostel, best for students",
+        profile: user1,
+        comment: "very comfortable hostel, best for students",
       },
       {
         name: "Harry Potter",
-        Comment:
+        profile: user2,
+        comment:
           "this hostel has all the services and suitable environment for students",
       },
     ],
@@ -73,16 +87,19 @@ export const data = [
     name: "Trilok Hostel",
     location: "Kritipur",
     image: hostel4,
+    gallery: [room1, room2],
     price: "10,500",
     description: "",
     reviews: [
       {
         name: "John Smith",
-        Comment: "very comfortable hostel, best for students",
+        profile: user1,
+        comment: "very comfortable hostel, best for students",
       },
       {
         name: "Harry Potter",
-        Comment:
+        profile: user2,
+        comment:
           "this hostel has all the services and suitable environment for students",
       },
     ],
@@ -93,16 +110,19 @@ export const data = [
     name: "Grandy Hostel",
     location: "Anamnagar",
     image: hostel5,
+    gallery: [room1, room2],
     price: "10,000",
     description: "",
     reviews: [
       {
         name: "John Smith",
-        Comment: "very comfortable hostel, best for students",
+        profile: user1,
+        comment: "very comfortable hostel, best for students",
       },
       {
         name: "Harry Potter",
-        Comment:
+        profile: user2,
+        comment:
           "this hostel has all the services and suitable environment for students",
       },
     ],
@@ -113,16 +133,19 @@ export const data = [
     name: "Luxy Hostel",
     location: "Maitighar",
     image: hostel6,
+    gallery: [room1, room2],
     price: "10,000",
     description: "",
     reviews: [
       {
         name: "John Smith",
-        Comment: "very comfortable hostel, best for students",
+        profile: user1,
+        comment: "very comfortable hostel, best for students",
       },
       {
         name: "Harry Potter",
-        Comment:
+        profile: user2,
+        comment:
           "this hostel has all the services and suitable environment for students",
       },
     ],
