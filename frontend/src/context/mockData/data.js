@@ -16,7 +16,7 @@ export const data = [
   {
     id: 1,
     name: "Aone Hostel",
-    location: "Sankhamul",
+    location: "sankhamul",
     image: hostel1,
     gallery: [room1, room2],
     price: "10,000",
@@ -85,7 +85,7 @@ export const data = [
   {
     id: 4,
     name: "Trilok Hostel",
-    location: "Kritipur",
+    location: "sankhamul",
     image: hostel4,
     gallery: [room1, room2],
     price: "10,500",
