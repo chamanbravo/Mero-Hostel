@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import "./Header.scss";
+import SearchBar from "./SearchBar";
 
 function Header() {
   return (
@@ -13,18 +14,7 @@ function Header() {
           </Link>
         </div>
 
-        <div className="searchbar hsb">
-          <input
-            className="search-input hsi"
-            autoComplete="off"
-            type="text"
-            name="search"
-            placeholder="Start your search"
-          />
-          <Link to="#">
-            <i className="fas fa-search search-btn sbtnh"></i>
-          </Link>
-        </div>
+        <SearchBar />
 
         <div className="right-nav">
           <div className="center-nav">

@@ -1,0 +1,23 @@
+.searchbar {
+  border: 1px solid #dddddd;
+  border-radius: 30px;
+  display: inline-flex;
+  padding: 0.25rem;
+  color: #000;
+  transition: all 0.2s ease-in-out;
+  background: #fff;
+  .search-input {
+    border: none;
+    outline: none;
+    padding: 0 1rem;
+    font-size: 1rem;
+    background: transparent;
+  }
+  .search-btn {
+    background: #ff385c;
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 1rem;
+  }
+}
