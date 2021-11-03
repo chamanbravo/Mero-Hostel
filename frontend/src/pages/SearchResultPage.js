@@ -1,8 +1,9 @@
 import React from "react";
-import { withRouter, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { data } from "../context/mockData/data";
+import { SearchResults } from "../components";
 
-function SearchResult() {
+function SearchResultPage() {
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);
   const searchLocation = searchParams.get("search");
@@ -20,11 +21,9 @@ function SearchResult() {
 
   return (
     <div>
-      {searchHostel.map((SearchResult, index) => {
-        return <h1>{SearchResult.name}</h1>;
-      })}
+      <SearchResults searchHostels={searchHostel} />
     </div>
   );
 }
 
-export default withRouter(SearchResult);
+export default SearchResultPage;

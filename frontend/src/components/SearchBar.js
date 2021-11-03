@@ -19,7 +19,7 @@ function SearchBar() {
         value={query}
         onChange={searchValue}
       />
-      <Link to={`hostel?search=${query}`}>
+      <Link to={`/hostel?search=${query}`}>
         <i className="fas fa-search search-btn"></i>
       </Link>
     </div>

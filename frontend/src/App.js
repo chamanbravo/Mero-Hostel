@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Header, Footer } from "./components";
-import { Homepage, SingleHostelPage, SearchResult } from "./pages";
+import { Homepage, SingleHostelPage, SearchResultPage } from "./pages";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
             <SingleHostelPage />
           </Route>
           <Route exact path="/hostel">
-            <SearchResult />
+            <SearchResultPage />
           </Route>
         </Switch>
         <Footer />

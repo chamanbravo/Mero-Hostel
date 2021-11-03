@@ -1,5 +1,5 @@
 import Homepage from "./Homepage";
 import SingleHostelPage from "./SingleHostelPage";
-import SearchResult from "./SearchResult";
+import SearchResultPage from "./SearchResultPage";
 
-export { Homepage, SingleHostelPage, SearchResult };
+export { Homepage, SingleHostelPage, SearchResultPage };

@@ -1,0 +1,15 @@
+.search-results {
+  margin: 5rem 1rem;
+}
+
+@media (min-width: 1024px) {
+  .search-results {
+    margin: 5rem 4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .search-results {
+    margin: 5rem 6rem;
+  }
+}
