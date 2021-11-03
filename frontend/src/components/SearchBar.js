@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./SearchBar.scss";
+import { scrollToTop } from "../utils/helper";
 
 function SearchBar() {
   let [query, setQuery] = useState("");
@@ -19,7 +20,7 @@ function SearchBar() {
         value={query}
         onChange={searchValue}
       />
-      <Link to={`/hostel?search=${query}`}>
+      <Link to={query && `/hostel?search=${query}`} onClick={scrollToTop}>
         <i className="fas fa-search search-btn"></i>
       </Link>
     </div>

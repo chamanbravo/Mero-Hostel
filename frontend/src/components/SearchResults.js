@@ -1,16 +1,22 @@
 import React from "react";
 import HostelCard from "./HostelCard";
-import "./SearchResult.scss";
+import "./SearchResults.scss";
 
 function SearchResults(searchHostels) {
-  console.log(searchHostels);
+  let foundResults = searchHostels.searchHostels;
+  const renderResults = () => {
+    if (foundResults.length > 0) {
+      return foundResults.map((hostel) => {
+        return <HostelCard key={hostel.id} hostel={hostel} />;
+      });
+    } else {
+      return <h1>No results found</h1>;
+    }
+  };
+
   return (
     <div className="search-results">
-      <div className="hostels-grid">
-        {searchHostels.searchHostels.map((searchResult, index) => {
-          return <HostelCard key={index} hostel={searchResult} />;
-        })}
-      </div>
+      <div className="hostels-grid">{renderResults()}</div>
     </div>
   );
 }
