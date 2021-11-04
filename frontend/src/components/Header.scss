@@ -4,18 +4,19 @@
   top: 0;
   width: 100%;
   z-index: 999;
-  .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0.5rem 1rem;
-    .menu .logo {
-      max-width: 2.5rem;
-      max-height: 3rem;
-    }
-    .right-nav {
-      display: none;
-    }
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem 1rem;
+  .menu .logo {
+    max-width: 2.5rem;
+    max-height: 3rem;
+  }
+  .right-nav {
+    display: none;
   }
 }
 
@@ -28,53 +29,54 @@
       .center-nav {
         display: none;
       }
-      .hostbtn-header {
-        margin-right: 1rem;
-        border: 1px solid #dddddd;
-        padding: 0.4rem 1rem;
-        border-radius: 20px;
+    }
+  }
+  .hostbtn-header {
+    margin-right: 1rem;
+    border: 1px solid #dddddd;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    transition: 0.2s all ease-in-out;
+    &:hover {
+      box-shadow: 0 4px 10px #dddddd;
+    }
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+  }
+  .user {
+    border: 1px solid #dddddd;
+    padding: 0.6rem 1rem;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    display: inline-flex;
+    gap: 0.5rem;
+    &:hover {
+      box-shadow: 0 4px 10px #dddddd;
+    }
+  }
+  .register-menu {
+    background: #fff;
+    position: absolute;
+    top: 4rem;
+    right: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px #18171759;
+    display: unset;
+    ul {
+      padding: 0.8rem 0rem;
+      li {
+        list-style: none;
+        padding: 0.5rem 3rem 0.5rem 1rem;
         transition: 0.2s all ease-in-out;
         &:hover {
-          box-shadow: 0 4px 10px #dddddd;
+          background: #dddddd;
         }
         a {
           text-decoration: none;
           color: #000;
-        }
-      }
-      .user {
-        border: 1px solid #dddddd;
-        padding: 0.6rem 1rem;
-        border-radius: 20px;
-        position: relative;
-        cursor: pointer;
-        display: inline-flex;
-        gap: 0.5rem;
-        &:hover {
-          box-shadow: 0 4px 10px #dddddd;
-        }
-      }
-      .register-menu {
-        background: #fff;
-        position: absolute;
-        top: 4.5rem;
-        border-radius: 12px;
-        box-shadow: 0 4px 8px #18171759;
-        display: none;
-        ul {
-          padding: 0.8rem 0rem;
-          li {
-            list-style: none;
-            padding: 0.5rem 3rem 0.5rem 1rem;
-            transition: 0.2s all ease-in-out;
-            &:hover {
-              background: #dddddd;
-            }
-            a {
-              text-decoration: none;
-              color: #000;
-            }
-          }
         }
       }
     }
@@ -82,7 +84,7 @@
 }
 
 @media (min-width: 1024px) {
-  .header .navbar {
+  .navbar {
     margin: 1rem 4rem;
     .center-nav {
       margin-right: 2rem;
@@ -103,10 +105,18 @@
       }
     }
   }
+  .register-menu {
+    top: 5rem;
+    right: 4rem;
+  }
 }
 
 @media (min-width: 1200px) {
-  .header .navbar {
+  .navbar {
     margin: 1rem 6rem;
+  }
+  .register-menu {
+    top: 5rem;
+    right: 6rem;
   }
 }

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import "./Header.scss";
 import SearchBar from "./SearchBar";
+import UserMenu from "./UserMenu";
 
 function Header() {
   return (
@@ -36,32 +37,8 @@ function Header() {
               Host your hostel
             </Link>
           </div>
-          <div className="user">
-            <i className="fas fa-bars hammenu"></i>
-            <i className="fas fa-user-circle userinfo"></i>
-          </div>
-          <div className="register-menu">
-            <ul>
-              <li>
-                <Link to="#" className="sign">
-                  Sign up
-                </Link>
-              </li>
-              <li>
-                <Link to="#" className="log">
-                  Log in
-                </Link>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <Link to="#">Host your hostel</Link>
-              </li>
-              <li>
-                <Link to="#">Help</Link>
-              </li>
-            </ul>
-          </div>
+
+          <UserMenu />
         </div>
       </div>
     </div>
