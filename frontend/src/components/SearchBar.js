@@ -8,7 +8,7 @@ function SearchBar() {
   const searchValue = (e) => {
     setQuery((query = e.target.value));
   };
-  console.log(query);
+
   return (
     <div className="searchbar">
       <input

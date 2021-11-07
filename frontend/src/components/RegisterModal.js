@@ -10,6 +10,10 @@ function RegisterModal() {
   const dispatch = useDispatch();
   const register = useSelector((state) => state.register.value);
 
+  const closeModal = () => {
+    dispatch(toggle({ toggleState: false }));
+  };
+
   const inup = () => {
     if (register.sign === "up") {
       return <SignUp />;
@@ -18,18 +22,14 @@ function RegisterModal() {
     }
   };
 
-  console.log(register.sign);
-
   return (
-    <div className="register-modal">
-      <i
-        className="far fa-times-circle cross-icon"
-        onClick={() => {
-          dispatch(toggle({ toggleState: false }));
-        }}
-      ></i>
-      <div className="register-pattern"></div>
-      {inup()}
+    <div>
+      <div className="register-modal">
+        <i className="far fa-times-circle cross-icon" onClick={closeModal}></i>
+        <div className="register-pattern"></div>
+        {inup()}
+      </div>
+      <div className="register-modal-bg" onClick={closeModal}></div>
     </div>
   );
 }

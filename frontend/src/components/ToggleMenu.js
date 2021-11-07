@@ -7,20 +7,24 @@ import { useDispatch } from "react-redux";
 function ToggleMenu({ menuState }) {
   const dispatch = useDispatch();
 
-  const toggleMenuState = () => {
-    dispatch(toggle({ toggleState: true, sign: "up" }));
+  const toggleUserMenu = () => {
     menuState(false);
+  };
+
+  const toggleMenuStateUp = () => {
+    dispatch(toggle({ toggleState: true, sign: "up" }));
+    toggleUserMenu();
   };
 
   const toggleMenuStateIn = () => {
     dispatch(toggle({ toggleState: true, sign: "in" }));
-    menuState(false);
+    toggleUserMenu();
   };
 
   return (
     <div className="register-menu">
       <ul>
-        <li onClick={toggleMenuState}>
+        <li onClick={toggleMenuStateUp}>
           <p className="sign">Sign up</p>
         </li>
         <li onClick={toggleMenuStateIn}>
@@ -28,10 +32,10 @@ function ToggleMenu({ menuState }) {
         </li>
       </ul>
       <ul>
-        <li onClick={toggleMenuState}>
+        <li onClick={toggleUserMenu}>
           <Link to="#">Host your hostel</Link>
         </li>
-        <li onClick={toggleMenuState}>
+        <li onClick={toggleUserMenu}>
           <Link to="#">Help</Link>
         </li>
       </ul>

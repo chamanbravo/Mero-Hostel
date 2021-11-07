@@ -1,3 +1,14 @@
+.register-modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.5;
+  z-index: 12;
+}
+
 .register-modal {
   position: fixed;
   top: 0;
@@ -5,7 +16,7 @@
   background: #fff;
   height: 100%;
   width: 100%;
-  z-index: 999;
+  z-index: 13;
 }
 
 .cross-icon {
