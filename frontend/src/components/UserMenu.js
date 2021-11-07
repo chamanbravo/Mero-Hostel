@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ToggleMenu from "./ToggleMenu";
+import "./UserMenu.scss";
 
 function UserMenu() {
   const [toggle, setToggle] = useState(false);

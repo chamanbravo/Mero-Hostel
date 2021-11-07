@@ -1,0 +1,41 @@
+.register-menu {
+  background: #fff;
+  position: absolute;
+  top: 4rem;
+  right: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px #18171759;
+  display: unset;
+  ul {
+    padding: 0.8rem 0rem;
+    li {
+      list-style: none;
+      padding: 0.5rem 3rem 0.5rem 1rem;
+      transition: 0.2s all ease-in-out;
+      &:hover {
+        background: #dddddd;
+      }
+      p {
+        cursor: pointer;
+      }
+      a {
+        text-decoration: none;
+        color: #000;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .register-menu {
+    top: 5rem;
+    right: 4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .register-menu {
+    top: 5rem;
+    right: 6rem;
+  }
+}

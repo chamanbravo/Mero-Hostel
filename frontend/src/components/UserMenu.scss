@@ -1,0 +1,14 @@
+@media (min-width: 767px) {
+  .user {
+    border: 1px solid #dddddd;
+    padding: 0.6rem 1rem;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    display: inline-flex;
+    gap: 0.5rem;
+    &:hover {
+      box-shadow: 0 4px 10px #dddddd;
+    }
+  }
+}

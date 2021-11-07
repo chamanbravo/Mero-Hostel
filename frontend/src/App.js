@@ -1,9 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Header, Footer } from "./components";
+import { Header, Footer, RegisterModal } from "./components";
 import { Homepage, SingleHostelPage, SearchResultPage } from "./pages";
+import { useSelector } from "react-redux";
 
 function App() {
+  const register = useSelector((state) => state.register.value);
   return (
     <div className="App">
       <Router>
@@ -21,6 +23,7 @@ function App() {
         </Switch>
         <Footer />
       </Router>
+      {register.toggleState && <RegisterModal />}
     </div>
   );
 }

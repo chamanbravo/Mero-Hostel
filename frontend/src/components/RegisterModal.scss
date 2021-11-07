@@ -1,0 +1,47 @@
+.register-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+}
+
+.cross-icon {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.register-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  h1 {
+    margin-bottom: 2rem;
+    font-weight: 500;
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .register-modal {
+    display: flex;
+    height: 500px;
+    width: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+  }
+  .register-pattern {
+    background: url("../assets/pattern.jpg");
+    background-size: cover;
+    width: 120px;
+    border-radius: 20px;
+  }
+}
