@@ -8,7 +8,12 @@ function ToggleMenu({ menuState }) {
   const dispatch = useDispatch();
 
   const toggleMenuState = () => {
-    dispatch(toggle({ toggleState: true }));
+    dispatch(toggle({ toggleState: true, sign: "up" }));
+    menuState(false);
+  };
+
+  const toggleMenuStateIn = () => {
+    dispatch(toggle({ toggleState: true, sign: "in" }));
     menuState(false);
   };
 
@@ -18,7 +23,7 @@ function ToggleMenu({ menuState }) {
         <li onClick={toggleMenuState}>
           <p className="sign">Sign up</p>
         </li>
-        <li onClick={toggleMenuState}>
+        <li onClick={toggleMenuStateIn}>
           <p className="log">Log in</p>
         </li>
       </ul>
