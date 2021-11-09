@@ -10,6 +10,7 @@ function App() {
     <div className="App">
       <Router>
         <Header />
+        {register.toggleState && <RegisterModal />}
         <Switch>
           <Route exact path="/">
             <Homepage />
@@ -23,7 +24,6 @@ function App() {
         </Switch>
         <Footer />
       </Router>
-      {register.toggleState && <RegisterModal />}
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import TextBox from "./TextBox";
+import Button from "./Button";
 
 function SignUp() {
   return (
@@ -30,6 +31,7 @@ function SignUp() {
           inputName="Password"
           name="password"
         />
+        <Button link="#" cName="btn-color" innerText="Sign up" />
       </form>
     </div>
   );

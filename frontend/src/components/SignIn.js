@@ -1,5 +1,6 @@
 import React from "react";
 import TextBox from "./TextBox";
+import Button from "./Button";
 
 function SignIn() {
   return (
@@ -18,6 +19,7 @@ function SignIn() {
           inputName="Password"
           name="password"
         />
+        <Button link="#" cName="btn-color" innerText="Sign in" />
       </form>
     </div>
   );

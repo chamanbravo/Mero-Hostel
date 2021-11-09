@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer.scss";
 import logo from "../assets/logo.png";
+import Button from "./Button";
 
 function Footer() {
   const date = new Date();
@@ -30,13 +31,13 @@ function Footer() {
           <div className="menu1 menulist">
             <ul>
               <li>
-                <Link to="#">Mobile Apps</Link>
+                <Button cName="btn-text2" innerText="Mobile Apps" link="#" />
               </li>
               <li>
-                <Link to="#">Company</Link>
+                <Button cName="btn-text2" innerText="Company" link="#" />
               </li>
               <li>
-                <Link to="#">Sitemap</Link>
+                <Button cName="btn-text2" innerText="Sitemap" link="#" />
               </li>
             </ul>
           </div>
@@ -44,13 +45,17 @@ function Footer() {
           <div className="menu2 menulist">
             <ul>
               <li>
-                <Link to="#">Help</Link>
+                <Button cName="btn-text2" innerText="Help" link="#" />
               </li>
               <li>
-                <Link to="#">Privacy Policy</Link>
+                <Button cName="btn-text2" innerText="Privacy Policy" link="#" />
               </li>
               <li>
-                <Link to="#">How Merohostel works</Link>
+                <Button
+                  cName="btn-text2"
+                  innerText="How Merohostel works"
+                  link="#"
+                />
               </li>
             </ul>
           </div>

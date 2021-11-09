@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Host.scss";
+import Button from "./Button";
 
 function Host() {
   return (
@@ -12,9 +12,7 @@ function Host() {
             Are you a hostel owner? Host your hostel and Provide a place for
             students.
           </p>
-          <Link to="#" className="btn">
-            Learn More
-          </Link>
+          <Button cName="btn-white" innerText="Learn More" link="#" />
         </div>
       </div>
     </div>

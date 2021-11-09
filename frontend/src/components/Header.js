@@ -4,6 +4,7 @@ import logo from "../assets/logo.png";
 import "./Header.scss";
 import SearchBar from "./SearchBar";
 import UserMenu from "./UserMenu";
+import Button from "./Button";
 
 function Header() {
   return (
@@ -21,13 +22,13 @@ function Header() {
           <div className="center-nav">
             <ul>
               <li>
-                <Link to="#">About</Link>
+                <Button cName="btn-text1" innerText="About" link="#" />
               </li>
               <li>
-                <Link to="#">Blog</Link>
+                <Button cName="btn-text1" innerText="Blog" link="#" />
               </li>
               <li>
-                <Link to="#">Contact</Link>
+                <Button cName="btn-text1" innerText="Contact" link="#" />
               </li>
             </ul>
           </div>
