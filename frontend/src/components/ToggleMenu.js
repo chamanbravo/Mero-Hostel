@@ -28,7 +28,7 @@ function ToggleMenu({ menuState }) {
           <p className="sign">Sign up</p>
         </li>
         <li onClick={toggleMenuStateIn}>
-          <p className="log">Log in</p>
+          <p className="log">Sign in</p>
         </li>
       </ul>
       <ul>

@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import "./TextBox.scss";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setUser } from "../features/user";
+import { toggle } from "../features/register";
 
 function SignUp() {
+  const dispatch = useDispatch();
+
   const [newUser, setNewUser] = useState({
     firstname: "",
     lastname: "",
@@ -17,8 +22,12 @@ function SignUp() {
 
   const registerUser = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:4000/registerUser", newUser);
+    axios.post("http://localhost:4000/registerUser", newUser).then((res) => {
+      dispatch(setUser({ userName: res.data.firstname }));
+      if (res.data.firstname) dispatch(toggle({ toggleState: false }));
+    });
   };
+
   return (
     <div className="register-modal-content">
       <h1>Sign up</h1>

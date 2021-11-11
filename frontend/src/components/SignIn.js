@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import "./TextBox.scss";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setUser } from "../features/user";
+import { toggle } from "../features/register";
 
 function SignIn() {
-  const [user, setUser] = useState({ email: "", password: "" });
+  const dispatch = useDispatch();
+
+  const [user, setLogUser] = useState({ email: "", password: "" });
 
   const handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    setUser({
+    setLogUser({
       ...user,
       [name]: value,
     });
@@ -18,7 +23,14 @@ function SignIn() {
     e.preventDefault();
     axios
       .post("http://localhost:4000/login", user, { withCredentials: true })
-      .then(() => {});
+      .then((res) => {
+        if (res.data.user) {
+          dispatch(setUser({ userName: res.data.user.firstname }));
+          if (res.data.user) dispatch(toggle({ toggleState: false }));
+        } else {
+          alert(res.data.msg);
+        }
+      });
   };
 
   return (
