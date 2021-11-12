@@ -26,7 +26,7 @@ function SignIn() {
       .then((res) => {
         if (res.data.user) {
           dispatch(setUser({ userName: res.data.user.firstname }));
-          if (res.data.user) dispatch(toggle({ toggleState: false }));
+          dispatch(toggle({ toggleState: false }));
         } else {
           alert(res.data.msg);
         }

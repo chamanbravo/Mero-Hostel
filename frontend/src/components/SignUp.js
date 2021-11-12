@@ -23,8 +23,12 @@ function SignUp() {
   const registerUser = (e) => {
     e.preventDefault();
     axios.post("http://localhost:4000/registerUser", newUser).then((res) => {
-      dispatch(setUser({ userName: res.data.firstname }));
-      if (res.data.firstname) dispatch(toggle({ toggleState: false }));
+      if (res.data.firstname) {
+        dispatch(setUser({ userName: res.data.firstname }));
+        dispatch(toggle({ toggleState: false }));
+      } else {
+        alert(res.data.msg);
+      }
     });
   };
 
