@@ -48,7 +48,7 @@ function SignIn() {
           />
         </div>
         <div className="input-field">
-          <h4>Email</h4>
+          <h4>Password</h4>
           <input
             type="password"
             placeholder="Password"

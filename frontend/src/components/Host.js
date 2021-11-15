@@ -12,7 +12,7 @@ function Host() {
             Are you a hostel owner? Host your hostel and Provide a place for
             students.
           </p>
-          <Button cName="btn-white" innerText="Learn More" link="#" />
+          <Button cName="btn-white" innerText="Learn More" link="/host" />
         </div>
       </div>
     </div>

@@ -7,7 +7,6 @@ function SearchResultPage() {
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);
   const searchLocation = searchParams.get("search");
-  console.log(searchLocation);
 
   let searchHostel = [];
 

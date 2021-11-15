@@ -5,6 +5,7 @@ import HostelDetail from "./HostelDetail";
 import SearchResults from "./SearchResults";
 import RegisterModal from "./RegisterModal";
 import Recommend from "./Recommend";
+import HostForm from "./HostForm";
 import Host from "./Host";
 import Footer from "./Footer";
 
@@ -14,6 +15,7 @@ export {
   ExploreNearby,
   RegisterModal,
   Recommend,
+  HostForm,
   Host,
   Footer,
   HostelDetail,

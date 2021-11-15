@@ -33,7 +33,7 @@ function ToggleMenu({ menuState }) {
               <Link to="#">Profile</Link>
             </li>
             <li onClick={toggleUserMenu}>
-              <Link to="#">Host your hostel</Link>
+              <Link to="/host">Host your hostel</Link>
             </li>
           </ul>
           <ul>
@@ -65,7 +65,7 @@ function ToggleMenu({ menuState }) {
           </ul>
           <ul>
             <li onClick={toggleUserMenu}>
-              <Link to="#">Host your hostel</Link>
+              <Link to="/host">Host your hostel</Link>
             </li>
             <li onClick={toggleUserMenu}>
               <Link to="#">Help</Link>

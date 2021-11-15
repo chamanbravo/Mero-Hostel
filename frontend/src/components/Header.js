@@ -5,8 +5,20 @@ import "./Header.scss";
 import SearchBar from "./SearchBar";
 import UserMenu from "./UserMenu";
 import Button from "./Button";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { toggle } from "../features/register";
 
 function Header() {
+  const user = useSelector((state) => state.user.value);
+  const dispatch = useDispatch();
+
+  const hostbtn = () => {
+    if (!user.userName) {
+      dispatch(toggle({ toggleState: true, sign: "in" }));
+    }
+  };
+
   return (
     <div className="header">
       <div className="navbar">
@@ -33,8 +45,8 @@ function Header() {
             </ul>
           </div>
 
-          <div className="hostbtn-header">
-            <Link to="#" className="host-btn">
+          <div className="hostbtn-header" onClick={hostbtn}>
+            <Link to={user.userName ? "/host" : "#"} className="host-btn">
               Host your hostel
             </Link>
           </div>

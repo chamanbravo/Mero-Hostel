@@ -1,7 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Header, Footer, RegisterModal } from "./components";
-import { Homepage, SingleHostelPage, SearchResultPage } from "./pages";
+import {
+  Homepage,
+  SingleHostelPage,
+  SearchResultPage,
+  HostFormPage,
+} from "./pages";
 import { useSelector } from "react-redux";
 
 function App() {
@@ -20,6 +25,9 @@ function App() {
           </Route>
           <Route exact path="/hostel">
             <SearchResultPage />
+          </Route>
+          <Route exact path="/host">
+            <HostFormPage />
           </Route>
         </Switch>
         <Footer />
