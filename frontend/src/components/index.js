@@ -6,6 +6,7 @@ import SearchResults from "./SearchResults";
 import RegisterModal from "./RegisterModal";
 import Recommend from "./Recommend";
 import HostForm from "./HostForm";
+import HostLocation from "./HostLocation";
 import Host from "./Host";
 import Footer from "./Footer";
 
@@ -18,6 +19,7 @@ export {
   HostForm,
   Host,
   Footer,
+  HostLocation,
   HostelDetail,
   SearchResults,
 };

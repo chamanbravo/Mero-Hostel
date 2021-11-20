@@ -2,8 +2,7 @@ import React from "react";
 import "./ToggleMenu.scss";
 import { Link } from "react-router-dom";
 import { toggle } from "../features/register";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../features/user";
 
 function ToggleMenu({ menuState }) {

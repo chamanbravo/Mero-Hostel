@@ -45,8 +45,12 @@ function Header() {
             </ul>
           </div>
 
-          <div className="hostbtn-header" onClick={hostbtn}>
-            <Link to={user.userName ? "/host" : "#"} className="host-btn">
+          <div className="hostbtn-header">
+            <Link
+              to={user.userName ? "/host" : "#"}
+              className="host-btn"
+              onClick={hostbtn}
+            >
               Host your hostel
             </Link>
           </div>

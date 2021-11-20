@@ -1,23 +1,24 @@
 import React from "react";
-import { HostForm, Hero } from "../components";
+import { HostForm, HostLocation } from "../components";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   useRouteMatch,
+  withRouter,
 } from "react-router-dom";
 
 function HostFormPage() {
-  let { path, url } = useRouteMatch();
+  let { url } = useRouteMatch();
   return (
     <div>
       <Router>
         <Switch>
-          <Route exact path={`${path}`}>
+          <Route exact path={`${url}`}>
             <HostForm />
           </Route>
           <Route exact path={`${url}/location`}>
-            <Hero />
+            <HostLocation />
           </Route>
         </Switch>
       </Router>
@@ -25,4 +26,4 @@ function HostFormPage() {
   );
 }
 
-export default HostFormPage;
+export default withRouter(HostFormPage);
