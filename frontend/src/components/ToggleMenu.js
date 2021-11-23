@@ -23,6 +23,12 @@ function ToggleMenu({ menuState }) {
     toggleUserMenu();
   };
 
+  const hostbtn = () => {
+    if (!user.userName) {
+      dispatch(toggle({ toggleState: true, sign: "in" }));
+    }
+  };
+
   const menu = () => {
     if (user.userName) {
       return (
@@ -64,7 +70,9 @@ function ToggleMenu({ menuState }) {
           </ul>
           <ul>
             <li onClick={toggleUserMenu}>
-              <Link to="/host">Host your hostel</Link>
+              <Link to={user.userName ? "/host" : "#"} onClick={hostbtn}>
+                Host your hostel
+              </Link>
             </li>
             <li onClick={toggleUserMenu}>
               <Link to="#">Help</Link>
