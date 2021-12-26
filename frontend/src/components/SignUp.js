@@ -79,6 +79,12 @@ function SignUp() {
         <button className="btn-color" type="submit">
           Sign up
         </button>
+        <p
+          className="bottom-text"
+          onClick={() => dispatch(toggle({ toggleState: true, sign: "in" }))}
+        >
+          Already a member? <span>SignIn Now</span>
+        </p>
       </form>
     </div>
   );

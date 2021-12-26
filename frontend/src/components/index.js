@@ -7,6 +7,8 @@ import RegisterModal from "./RegisterModal";
 import Recommend from "./Recommend";
 import HostForm from "./HostForm";
 import HostLocation from "./HostLocation";
+import HostAmenitiesForm from "./HostAmenitiesForm";
+import HostImagesForm from "./HostImagesForm";
 import Host from "./Host";
 import Footer from "./Footer";
 
@@ -16,6 +18,8 @@ export {
   ExploreNearby,
   RegisterModal,
   Recommend,
+  HostAmenitiesForm,
+  HostImagesForm,
   HostForm,
   Host,
   Footer,

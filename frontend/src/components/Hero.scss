@@ -4,8 +4,6 @@
   border-radius: 10px;
   position: relative;
   overflow: hidden;
-  background: url("../assets/herobg.jpg");
-  background-position: bottom;
   .hero-text {
     padding: 5rem 1rem 20rem;
   }
@@ -29,6 +27,8 @@
 
 @media (min-width: 768px) {
   .hero {
+    background: url("../assets/herobg.jpg");
+    background-position: bottom;
     margin: 5rem 1rem 0rem;
     .hero-text {
       padding: 5rem 1rem 10rem;

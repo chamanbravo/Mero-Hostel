@@ -60,6 +60,12 @@ function SignIn() {
         <button className="btn-color" type="submit">
           Sign in
         </button>
+        <p
+          className="bottom-text"
+          onClick={() => dispatch(toggle({ toggleState: true, sign: "up" }))}
+        >
+          Not a member? <span>Register Now</span>
+        </p>
       </form>
     </div>
   );

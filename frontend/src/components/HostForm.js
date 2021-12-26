@@ -32,7 +32,7 @@ function HostForm() {
             <h4>Owner Contact Number</h4>
             <input
               type="number"
-              placeholder="Hostel Owner Name"
+              placeholder="Hostel Owner Number"
               name="hostelOwnerName"
             />
           </div>

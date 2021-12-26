@@ -1,5 +1,10 @@
 import React from "react";
-import { HostForm, HostLocation } from "../components";
+import {
+  HostForm,
+  HostLocation,
+  HostAmenitiesForm,
+  HostImagesForm,
+} from "../components";
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,6 +24,12 @@ function HostFormPage() {
           </Route>
           <Route exact path={`${url}/location`}>
             <HostLocation />
+          </Route>
+          <Route exact path={`${url}/amenities`}>
+            <HostAmenitiesForm />
+          </Route>
+          <Route exact path={`${url}/hostelImages`}>
+            <HostImagesForm />
           </Route>
         </Switch>
       </Router>

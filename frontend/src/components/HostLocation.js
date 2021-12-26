@@ -40,7 +40,7 @@ function HostLocation() {
             <p>Nepal</p>
           </div>
         </div>
-        <Button link="host" innerText="Next" cName="btn-black" />
+        <Button link="amenities" innerText="Next" cName="btn-black" />
       </form>
     </div>
   );

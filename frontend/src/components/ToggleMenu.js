@@ -55,6 +55,7 @@ function ToggleMenu({ menuState }) {
               </p>
             </li>
           </ul>
+          <div className="userMenu-modal-bg" onClick={toggleUserMenu}></div>
         </div>
       );
     } else {
@@ -78,6 +79,7 @@ function ToggleMenu({ menuState }) {
               <Link to="#">Help</Link>
             </li>
           </ul>
+          <div className="userMenu-modal-bg" onClick={toggleUserMenu}></div>
         </div>
       );
     }
