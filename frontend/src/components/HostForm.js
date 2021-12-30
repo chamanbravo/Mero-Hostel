@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./HostForm.scss";
 import Button from "./Button";
 
 function HostForm() {
+  const [state, setState] = useState({
+    hostelName: "",
+    hostelOwnerName: "",
+    hostelOwnerNumber: "",
+    hostelContactNumber: "",
+  });
+
+  const handleChange = (e) => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <div className="host-form">
       <div className="host-user">
@@ -18,7 +32,13 @@ function HostForm() {
         <div className="text-field">
           <div className="input-field">
             <h4>Hostel Name</h4>
-            <input type="text" placeholder="Hostel Name" name="hostelName" />
+            <input
+              type="text"
+              placeholder="Hostel Name"
+              name="hostelName"
+              value={state.hostelName}
+              onChange={handleChange}
+            />
           </div>
           <div className="input-field">
             <h4>Hostel Owner Name</h4>
@@ -26,6 +46,8 @@ function HostForm() {
               type="text"
               placeholder="Hostel Owner Name"
               name="hostelOwnerName"
+              value={state.hostelOwnerName}
+              onChange={handleChange}
             />
           </div>
           <div className="input-field">
@@ -33,40 +55,43 @@ function HostForm() {
             <input
               type="number"
               placeholder="Hostel Owner Number"
-              name="hostelOwnerName"
+              name="hostelOwnerNumber"
+              value={state.hostelOwnerNumber}
+              onChange={handleChange}
             />
           </div>
           <div className="input-field">
             <h4>Hostel Contact Number</h4>
             <input
               type="number"
-              placeholder="Hostel Owner Number"
-              name="hostelOwnerNumber"
+              placeholder="Hostel Contact Number"
+              name="hostelContactNumber"
+              value={state.hostelContactNumber}
+              onChange={handleChange}
             />
           </div>
         </div>
-        <div className="checkbox-field">
+        <div className="checkbox-field" onChange={handleChange}>
           <h4>Hostel type</h4>
-          <div className="">
-            <input type="checkbox" name="BoysHostel" />
-            <label htmlFor="hostelType">Boys Hostel</label>
+          <div className="hostelType">
+            <input type="radio" name="hostelType" value="boys" />
+            Boys Hostel
           </div>
           <div className="">
-            <input type="checkbox" name="GirlsHostel" />
-            <label htmlFor="hostelType">Girls Hostel</label>
+            <input type="radio" name="hostelType" value="girls" />
+            Girls Hostel
           </div>
         </div>
-        <div className="checkbox-field">
+        <div className="nehaRegister" onChange={handleChange}>
           <h4>
             Is your Hostel is registered in Nepal Hostel Association (NeHA)?
           </h4>
           <div>
-            <input type="checkbox" name="BoysHostel" />
-            <label htmlFor="hostelType">Yes</label>
+            <input type="radio" name="nehaRegister" value="yes" />
+            Yes
           </div>
           <div>
-            <input type="checkbox" name="BoysHostel" />
-            <label htmlFor="hostelType">No</label>
+            <input type="radio" name="nehaRegister" value="no" /> No
           </div>
         </div>
         <Button link="host/location" innerText="Next" cName="btn-black" />

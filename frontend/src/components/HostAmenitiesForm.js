@@ -1,7 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./Button";
 
 function HostAmenitiesForm() {
+  const [state, setState] = useState({
+    hostelCapacity: "",
+    hostelRooms: "",
+    hostelPrice: "",
+    hostelAdmissionFee: "",
+    hostelSecurityCharges: "",
+  });
+
+  const handleChange = (e) => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const [amenities, setAmenities] = useState({
+    Wifi: false,
+    ParkingSpace: false,
+    Laundary: false,
+    Furniture: false,
+    AirConditioning: false,
+  });
+
+  const onChangeWifi = () => {
+    setAmenities((initialState) => ({
+      ...amenities,
+      Wifi: !initialState.Wifi,
+    }));
+  };
+
+  const onChangeParkingSpace = () => {
+    setAmenities((initialState) => ({
+      ...amenities,
+      ParkingSpace: !initialState.ParkingSpace,
+    }));
+  };
+
+  const onChangeLaundary = () => {
+    setAmenities((initialState) => ({
+      ...amenities,
+      Laundary: !initialState.Laundary,
+    }));
+  };
+
+  const onChangeFurniture = () => {
+    setAmenities((initialState) => ({
+      ...amenities,
+      Furniture: !initialState.Furniture,
+    }));
+  };
+
+  const onChangeAirConditioning = () => {
+    setAmenities((initialState) => ({
+      ...amenities,
+      AirConditioning: !initialState.AirConditioning,
+    }));
+  };
+
+  let checkArray = [];
+  for (var key in amenities) {
+    if (amenities[key] === true) {
+      checkArray.push(key);
+    }
+  }
+
+  // let checkData = {
+  //   checkbox: checkArray.toString(),
+  // };
+
   return (
     <div className="host-form">
       <div className="host-user">
@@ -21,6 +90,8 @@ function HostAmenitiesForm() {
               type="number"
               placeholder="total capacity"
               name="hostelCapacity"
+              value={state.hostelCapacity}
+              onChange={handleChange}
             />
           </div>
           <div className="input-field">
@@ -29,14 +100,18 @@ function HostAmenitiesForm() {
               type="number"
               placeholder="total no of rooms"
               name="hostelRooms"
+              value={state.hostelRooms}
+              onChange={handleChange}
             />
           </div>
           <div className="input-field">
-            <h4>Price of room(Rs)</h4>
+            <h4>Price per head(NPR)</h4>
             <input
               type="number"
               placeholder="price of room"
               name="hostelPrice"
+              value={state.hostelPrice}
+              onChange={handleChange}
             />
           </div>
           <div className="input-field">
@@ -45,6 +120,8 @@ function HostAmenitiesForm() {
               type="number"
               placeholder="Admission Fee"
               name="hostelAdmissionFee"
+              value={state.hostelAdmissionFee}
+              onChange={handleChange}
             />
           </div>
           <div className="input-field">
@@ -57,30 +134,62 @@ function HostAmenitiesForm() {
               type="number"
               placeholder="Security Charges"
               name="hostelSecurityCharges"
+              value={state.hostelSecurityCharges}
+              onChange={handleChange}
             />
           </div>
         </div>
         <div className="checkbox-field">
           <h4>Amenities(Tick the amenities you provide)</h4>
-          <div className="">
-            <input type="checkbox" name="BoysHostel" />
-            <label htmlFor="hostelType">Wifi</label>
+          <div className="form-check">
+            <label className="form-check-label">
+              <input
+                type="checkbox"
+                checked={amenities.Wifi}
+                onChange={onChangeWifi}
+              />
+              Wifi
+            </label>
           </div>
-          <div className="">
-            <input type="checkbox" name="GirlsHostel" />
-            <label htmlFor="hostelType">Parking Space</label>
+          <div className="form-check">
+            <label className="form-check-label">
+              <input
+                type="checkbox"
+                checked={amenities.ParkingSpace}
+                onChange={onChangeParkingSpace}
+              />
+              Parking Space
+            </label>
           </div>
-          <div className="">
-            <input type="checkbox" name="GirlsHostel" />
-            <label htmlFor="hostelType">Laundary</label>
+          <div className="form-check">
+            <label className="form-check-label">
+              <input
+                type="checkbox"
+                checked={amenities.Laundary}
+                onChange={onChangeLaundary}
+              />
+              Laundary
+            </label>
           </div>
-          <div className="">
-            <input type="checkbox" name="GirlsHostel" />
-            <label htmlFor="hostelType">Furniture</label>
+          <div className="form-check">
+            <label className="form-check-label">
+              <input
+                type="checkbox"
+                checked={amenities.Furniture}
+                onChange={onChangeFurniture}
+              />
+              Furniture
+            </label>
           </div>
-          <div className="">
-            <input type="checkbox" name="GirlsHostel" />
-            <label htmlFor="hostelType">Air conditioning</label>
+          <div className="form-check">
+            <label className="form-check-label">
+              <input
+                type="checkbox"
+                checked={amenities.AirConditioning}
+                onChange={onChangeAirConditioning}
+              />
+              Air Conditioning
+            </label>
           </div>
         </div>
         <Button link="hostelImages" innerText="Next" cName="btn-black" />
