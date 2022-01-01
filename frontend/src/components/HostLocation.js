@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import GoogleMapReact from "google-map-react";
 import "./HostLocation.scss";
 import Button from "./Button";
+import { useDispatch, useSelector } from "react-redux";
+import { setHostel } from "../features/hostHostel";
 
 function HostLocation() {
+  const dispatch = useDispatch();
+  const hostelData = useSelector((state) => state.hostHostel);
   const [state, setState] = useState({
     street: "",
     city: "",
@@ -22,6 +26,15 @@ function HostLocation() {
       lng: 85.335615,
     },
     zoom: 13,
+  };
+
+  const handleSubmit = () => {
+    dispatch(
+      setHostel({
+        ...hostelData.value,
+        ...state,
+      })
+    );
   };
 
   return (
@@ -71,7 +84,9 @@ function HostLocation() {
             <p>Nepal</p>
           </div>
         </div>
-        <Button link="amenities" innerText="Next" cName="btn-black" />
+        <div onClick={handleSubmit}>
+          <Button link="amenities" innerText="Next" cName="btn-black" />
+        </div>
       </form>
     </div>
   );

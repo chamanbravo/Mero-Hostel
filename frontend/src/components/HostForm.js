@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "./HostForm.scss";
 import Button from "./Button";
+import { useDispatch } from "react-redux";
+import { setHostel } from "../features/hostHostel";
 
 function HostForm() {
+  const dispatch = useDispatch();
   const [state, setState] = useState({
     hostelName: "",
     hostelOwnerName: "",
@@ -15,6 +18,14 @@ function HostForm() {
       ...state,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleSubmit = () => {
+    dispatch(
+      setHostel({
+        ...state,
+      })
+    );
   };
 
   return (
@@ -94,7 +105,9 @@ function HostForm() {
             <input type="radio" name="nehaRegister" value="no" /> No
           </div>
         </div>
-        <Button link="host/location" innerText="Next" cName="btn-black" />
+        <div onClick={handleSubmit}>
+          <Button link="host/location" innerText="Next" cName="btn-black" />
+        </div>
       </form>
     </div>
   );

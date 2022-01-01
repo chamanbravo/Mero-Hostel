@@ -6,9 +6,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import registerSlice from "./features/register";
 import loggedUser from "./features/user";
+import hostHostel from "./features/hostHostel";
 
 const store = configureStore({
-  reducer: { register: registerSlice, user: loggedUser },
+  reducer: {
+    register: registerSlice,
+    user: loggedUser,
+    hostHostel: hostHostel,
+  },
 });
 
 ReactDOM.render(

@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import Button from "./Button";
+import { useDispatch, useSelector } from "react-redux";
+import { setHostel } from "../features/hostHostel";
 
 function HostAmenitiesForm() {
+  const hostelData = useSelector((state) => state.hostHostel);
+  const dispatch = useDispatch();
+
   const [state, setState] = useState({
     hostelCapacity: "",
     hostelRooms: "",
@@ -67,9 +72,11 @@ function HostAmenitiesForm() {
     }
   }
 
-  // let checkData = {
-  //   checkbox: checkArray.toString(),
-  // };
+  const handleSubmit = () => {
+    dispatch(
+      setHostel({ ...hostelData.value, ...state, amenities: checkArray })
+    );
+  };
 
   return (
     <div className="host-form">
@@ -192,7 +199,9 @@ function HostAmenitiesForm() {
             </label>
           </div>
         </div>
-        <Button link="hostelImages" innerText="Next" cName="btn-black" />
+        <div onClick={handleSubmit}>
+          <Button link="hostelImages" innerText="Next" cName="btn-black" />
+        </div>
       </form>
     </div>
   );
