@@ -4,6 +4,7 @@ import User from "../models/User.js";
 import Hostel from "../models/Hostel.js";
 import multer from "multer";
 import fs from "fs";
+import bcrypt from "bcrypt";
 
 const upload = multer({
   dest: "./public/hostels",
@@ -13,31 +14,40 @@ router.get("/", (req, res) => {
   res.send("<h1>This is the backend</h1>");
 });
 
-router.post("/login", (req, res) => {
+router.post("/login", async (req, res) => {
   const { email, password } = req.body;
-  User.findOne({ email }, (err, user) => {
+  try {
+    const user = await User.findOne({ email });
+    console.log(user);
     if (user) {
-      if (password === user.password) {
+      const isPasswordCorrect = bcrypt.compare(password, user.password);
+      if (isPasswordCorrect) {
         res.send({ user });
         console.log("logged in");
       } else {
-        res.send({ msg: "username/password is wrong" });
-        console.log("username/password is wrong");
+        res.send({ msg: "Invalid credentials" });
+        console.log("Invalid credentials");
       }
-    } else {
-      res.send({ msg: "user not registered" });
-      console.log("user not registered");
     }
-  });
+  } catch (err) {
+    console.log(err);
+    res.send({ msg: "Something went wrong!" });
+  }
 });
 
 router.post("/registeruser", (req, res) => {
   const { firstname, lastname, email, password } = req.body;
+  const hashedPassword = bcrypt.hashSync(password, 10);
   User.findOne({ email }, (error, user) => {
     if (user) {
       res.send({ msg: "email already in use" });
     } else {
-      const newUser = new User({ firstname, lastname, email, password });
+      const newUser = new User({
+        firstname,
+        lastname,
+        email,
+        password: hashedPassword,
+      });
       newUser
         .save()
         .then((addedUser) => {
