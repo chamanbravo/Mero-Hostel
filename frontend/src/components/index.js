@@ -9,6 +9,7 @@ import HostForm from "./HostForm";
 import HostLocation from "./HostLocation";
 import HostAmenitiesForm from "./HostAmenitiesForm";
 import HostImagesForm from "./HostImagesForm";
+import Profile from "./Profile";
 import Host from "./Host";
 import Footer from "./Footer";
 
@@ -20,6 +21,7 @@ export {
   Recommend,
   HostAmenitiesForm,
   HostImagesForm,
+  Profile,
   HostForm,
   Host,
   Footer,

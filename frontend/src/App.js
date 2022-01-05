@@ -6,6 +6,7 @@ import {
   SingleHostelPage,
   SearchResultPage,
   HostFormPage,
+  UserProfilePage,
 } from "./pages";
 import { useSelector } from "react-redux";
 import ProtectedRoutes from "./utils/ProtectedRoutes";
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route exact path="/hostel">
             <SearchResultPage />
+          </Route>
+          <Route exact path="/profile">
+            <UserProfilePage />
           </Route>
           <ProtectedRoutes path="/host" component={HostFormPage} />
         </Switch>

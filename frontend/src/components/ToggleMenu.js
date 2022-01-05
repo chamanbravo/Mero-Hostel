@@ -35,7 +35,7 @@ function ToggleMenu({ menuState }) {
         <div className="register-menu">
           <ul>
             <li onClick={toggleUserMenu}>
-              <Link to="#">Profile</Link>
+              <Link to="/profile">Profile</Link>
             </li>
             <li onClick={toggleUserMenu}>
               <Link to="/host">Host your hostel</Link>
