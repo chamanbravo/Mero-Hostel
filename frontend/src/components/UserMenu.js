@@ -12,12 +12,12 @@ function UserMenu() {
   };
 
   const menuUser = () => {
-    if (user.userName) {
+    if (user.firstName) {
       return (
         <div className="user" onClick={toggleState}>
           <i className="fas fa-bars hammenu"></i>
           <div className="avatar">
-            <p>{user.userName[0]}</p>
+            <p>{user.firstName[0]}</p>
           </div>
         </div>
       );

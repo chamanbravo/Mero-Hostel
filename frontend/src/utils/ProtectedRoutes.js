@@ -15,7 +15,7 @@ function ProtectedRoutes({ component: Component, ...rest }) {
     <Route
       {...rest}
       render={(props) => {
-        if (user.userName) {
+        if (user.firstName) {
           return <Component />;
         } else {
           toggleMenuStateIn();

@@ -20,6 +20,10 @@ const User = mongoose.model(
       type: String,
       required: true,
     },
+    doj: {
+      type: Date,
+      default: new Date(),
+    },
   })
 );
 

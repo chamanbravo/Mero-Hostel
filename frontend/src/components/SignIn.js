@@ -25,7 +25,15 @@ function SignIn() {
       .post("http://localhost:4000/login", user, { withCredentials: true })
       .then((res) => {
         if (res.data.user) {
-          dispatch(setUser({ userName: res.data.user.firstname }));
+          const { firstname, lastname, email, doj } = res.data.user;
+          dispatch(
+            setUser({
+              firstName: firstname,
+              lastName: lastname,
+              email: email,
+              doj: doj,
+            })
+          );
           dispatch(toggle({ toggleState: false }));
         } else {
           alert(res.data.msg);

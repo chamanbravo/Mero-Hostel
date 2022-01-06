@@ -14,7 +14,7 @@ function Header() {
   const dispatch = useDispatch();
 
   const hostbtn = () => {
-    if (!user.userName) {
+    if (!user.firstName) {
       dispatch(toggle({ toggleState: true, sign: "in" }));
     }
   };
@@ -47,7 +47,7 @@ function Header() {
 
           <div className="hostbtn-header">
             <Link
-              to={user.userName ? "/host" : "#"}
+              to={user.firstName ? "/host" : "#"}
               className="host-btn"
               onClick={hostbtn}
             >

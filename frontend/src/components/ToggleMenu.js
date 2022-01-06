@@ -24,31 +24,32 @@ function ToggleMenu({ menuState }) {
   };
 
   const hostbtn = () => {
-    if (!user.userName) {
+    if (!user) {
       dispatch(toggle({ toggleState: true, sign: "in" }));
     }
   };
+  console.log(user);
 
   const menu = () => {
-    if (user.userName) {
+    if (user.firstName) {
       return (
         <div className="register-menu">
           <ul>
-            <li onClick={toggleUserMenu}>
-              <Link to="/profile">Profile</Link>
-            </li>
-            <li onClick={toggleUserMenu}>
-              <Link to="/host">Host your hostel</Link>
-            </li>
+            <Link to="/profile">
+              <li onClick={toggleUserMenu}>Profile</li>
+            </Link>
+            <Link to="/host">
+              <li onClick={toggleUserMenu}>Host your hostel</li>
+            </Link>
           </ul>
           <ul>
-            <li onClick={toggleUserMenu}>
-              <Link to="#">Help</Link>
-            </li>
+            <Link to="#">
+              <li onClick={toggleUserMenu}>Help</li>
+            </Link>
             <li onClick={toggleUserMenu}>
               <p
                 onClick={() => {
-                  dispatch(setUser({ userName: "" }));
+                  dispatch(setUser({}));
                 }}
               >
                 Sign out
@@ -70,14 +71,12 @@ function ToggleMenu({ menuState }) {
             </li>
           </ul>
           <ul>
-            <li onClick={toggleUserMenu}>
-              <Link to={user.userName ? "/host" : "#"} onClick={hostbtn}>
-                Host your hostel
-              </Link>
-            </li>
-            <li onClick={toggleUserMenu}>
-              <Link to="#">Help</Link>
-            </li>
+            <Link to={user ? "/host" : "#"} onClick={hostbtn}>
+              <li onClick={toggleUserMenu}>Host your hostel</li>
+            </Link>
+            <Link to="#">
+              <li onClick={toggleUserMenu}>Help</li>
+            </Link>
           </ul>
           <div className="userMenu-modal-bg" onClick={toggleUserMenu}></div>
         </div>

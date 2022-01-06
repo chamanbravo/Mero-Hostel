@@ -28,9 +28,7 @@ function App() {
           <Route exact path="/hostel">
             <SearchResultPage />
           </Route>
-          <Route exact path="/profile">
-            <UserProfilePage />
-          </Route>
+          <ProtectedRoutes path="/profile" component={UserProfilePage} />
           <ProtectedRoutes path="/host" component={HostFormPage} />
         </Switch>
         <Footer />

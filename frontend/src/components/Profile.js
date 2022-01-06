@@ -16,10 +16,11 @@ function Profile() {
   const ProfileText = () => {
     return (
       <div className="profile-text">
-        <h3>{user.userName.charAt(0)}</h3>
+        <h3>{user.firstName.charAt(0)}</h3>
       </div>
     );
   };
+
   return (
     <div className="profile">
       <div>
@@ -29,8 +30,8 @@ function Profile() {
             <p>update photo</p>
           </div>
           <div>
-            <h3>hi I'm {user.userName}!</h3>
-            <p>joined in {new Date().getFullYear()} </p>
+            <h3>hi I'm {user.firstName}!</h3>
+            <p>joined in {Date.parse(user.doj)} </p>
           </div>
         </div>
         <div className="reviews-box box">

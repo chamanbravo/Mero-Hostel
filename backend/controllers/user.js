@@ -28,8 +28,9 @@ export const registerUser = async (req, res) => {
       email,
       password: hashedPassword,
     });
-    newUser.save().then(res.send({ firstname: newUser.firstname }));
+    newUser.save().then(res.send({ newUser }));
   } catch (err) {
     res.send({ msg: "Something went wrong!" });
+    console.log(err);
   }
 };
