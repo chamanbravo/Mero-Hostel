@@ -59,7 +59,7 @@ function HostImagesForm() {
   data.append("hostelAdmissionFee", hostelAdmissionFee);
   data.append("hostelSecurityCharges", hostelSecurityCharges);
   for (let i of amenities) {
-    data.append("ammenities", i);
+    data.append("amenities", i);
   }
   data.append("thumbnail", state.thumbnail);
 
