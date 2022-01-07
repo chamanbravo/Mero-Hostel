@@ -200,7 +200,7 @@ function HostAmenitiesForm() {
           </div>
         </div>
         <div onClick={handleSubmit}>
-          <Button link="hostelImages" innerText="Next" cName="btn-black" />
+          <Button link="hostelimages" innerText="Next" cName="btn-black" />
         </div>
       </form>
     </div>

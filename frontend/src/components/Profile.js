@@ -31,7 +31,7 @@ function Profile() {
           </div>
           <div>
             <h3>hi I'm {user.firstName}!</h3>
-            <p>joined in {Date.parse(user.doj)} </p>
+            <p>joined in {parseInt(user.doj)} </p>
           </div>
         </div>
         <div className="reviews-box box">

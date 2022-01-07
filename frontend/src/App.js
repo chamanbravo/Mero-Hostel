@@ -1,11 +1,18 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Header, Footer, RegisterModal } from "./components";
+import {
+  Header,
+  Footer,
+  RegisterModal,
+  HostForm,
+  HostLocation,
+  HostAmenitiesForm,
+  HostImagesForm,
+} from "./components";
 import {
   Homepage,
   SingleHostelPage,
   SearchResultPage,
-  HostFormPage,
   UserProfilePage,
 } from "./pages";
 import { useSelector } from "react-redux";
@@ -28,8 +35,24 @@ function App() {
           <Route exact path="/hostel">
             <SearchResultPage />
           </Route>
-          <ProtectedRoutes path="/profile" component={UserProfilePage} />
-          <ProtectedRoutes path="/host" component={HostFormPage} />
+          <ProtectedRoutes exact path="/profile" component={UserProfilePage} />
+          <ProtectedRoutes exact path="/host" component={HostForm} />
+          <ProtectedRoutes
+            exact
+            path="/amenities"
+            component={HostAmenitiesForm}
+          />
+          <ProtectedRoutes exact path="/location" component={HostLocation} />
+          <ProtectedRoutes
+            exact
+            path="/hostelimages"
+            component={HostImagesForm}
+          />
+          <Route>
+            <h2 style={{ marginTop: "5rem", textAlign: "center" }}>
+              Wrong location
+            </h2>
+          </Route>
         </Switch>
         <Footer />
       </Router>

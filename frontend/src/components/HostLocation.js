@@ -11,7 +11,7 @@ function HostLocation() {
   const [state, setState] = useState({
     street: "",
     city: "",
-    state: "",
+    countryState: "",
   });
 
   const handleChange = (e) =>
@@ -74,8 +74,8 @@ function HostLocation() {
             <input
               type="text"
               placeholder="State"
-              name="state"
-              value={state.state}
+              name="countryState"
+              value={state.countryState}
               onChange={handleChange}
             />
           </div>

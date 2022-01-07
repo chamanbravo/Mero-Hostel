@@ -106,7 +106,7 @@ function HostForm() {
           </div>
         </div>
         <div onClick={handleSubmit}>
-          <Button link="host/location" innerText="Next" cName="btn-black" />
+          <Button link="/location" innerText="Next" cName="btn-black" />
         </div>
       </form>
     </div>
