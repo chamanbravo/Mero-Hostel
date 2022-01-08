@@ -1,15 +1,22 @@
 import express from "express";
 const router = express.Router();
 import { login, registerUser } from "../controllers/user.js";
-import { registerHostel, cpUpload } from "../controllers/Hostel.js";
+import {
+  registerHostel,
+  cpUpload,
+  listOfHostels,
+  singleHostel,
+} from "../controllers/hostel.js";
 
 router.get("/", (req, res) => {
-  res.send("<h1>This is the backend</h1>");
+  res.json("This is the backend");
 });
 
 router.post("/login", login);
 router.post("/registeruser", registerUser);
 
 router.post("/registerhostel", cpUpload, registerHostel);
+router.get("/hostel", listOfHostels);
+router.post("/singlehostel", singleHostel);
 
 export default router;

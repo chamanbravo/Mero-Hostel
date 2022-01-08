@@ -25,9 +25,10 @@ function SignIn() {
       .post("http://localhost:4000/login", user, { withCredentials: true })
       .then((res) => {
         if (res.data.user) {
-          const { firstname, lastname, email, doj } = res.data.user;
+          const { _id, firstname, lastname, email, doj } = res.data.user;
           dispatch(
             setUser({
+              id: _id,
               firstName: firstname,
               lastName: lastname,
               email: email,

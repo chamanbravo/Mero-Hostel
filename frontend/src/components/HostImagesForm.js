@@ -75,7 +75,7 @@ function HostImagesForm() {
     axios
       .post("http://localhost:4000/registerhostel", data)
       .then((res) => {
-        console.log(res);
+        alert(res.data.msg);
       })
       .catch((err) => console.log(err));
   };

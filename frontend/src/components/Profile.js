@@ -16,7 +16,7 @@ function Profile() {
   const ProfileText = () => {
     return (
       <div className="profile-text">
-        <h3>{user.firstName.charAt(0)}</h3>
+        <h3>{user.firstName.charAt(0) + user.lastName.charAt(0)}</h3>
       </div>
     );
   };

@@ -8,7 +8,13 @@ function HostelGallery({ gallery }) {
     <div className="gallery-slider">
       <AwesomeSlider>
         {gallery.map((img, index) => {
-          return <img data-src={img} alt="mero hostel" key={index} />;
+          return (
+            <img
+              data-src={`http://localhost:4000/hostels/${img}`}
+              alt="mero hostel"
+              key={index}
+            />
+          );
         })}
       </AwesomeSlider>
     </div>

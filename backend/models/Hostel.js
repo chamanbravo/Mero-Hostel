@@ -3,6 +3,10 @@ import mongoose from "mongoose";
 const Hostel = mongoose.model(
   "Hostel",
   new mongoose.Schema({
+    id: {
+      type: String,
+      required: true,
+    },
     hostelName: {
       type: String,
       required: true,
@@ -35,7 +39,7 @@ const Hostel = mongoose.model(
       type: String,
       required: true,
     },
-    state: {
+    countryState: {
       type: String,
       required: true,
     },

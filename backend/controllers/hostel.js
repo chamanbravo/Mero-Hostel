@@ -1,6 +1,7 @@
 import Hostel from "../models/Hostel.js";
 import fs from "fs";
 import multer from "multer";
+import { v4 as uuidv4 } from "uuid";
 
 const upload = multer({
   dest: "./public/hostels",
@@ -34,7 +35,7 @@ export const registerHostel = async (req, res, next) => {
     let thumbnailName,
       galleryArray = [];
     const thumbnail = req.files["thumbnail"][0];
-    let oldFileName = thumbnail.filename;
+    let oldFileName = thumbnail.filename.split(" ").join("");
     let fileType = thumbnail.mimetype.split("/")[1];
     let newFileName =
       Date.now() +
@@ -53,7 +54,7 @@ export const registerHostel = async (req, res, next) => {
 
     const gallery = req.files["gallery"];
     for (let img of gallery) {
-      let oldFileName = img.filename;
+      let oldFileName = img.filename.split(" ").join("");
       let fileType = img.mimetype.split("/")[1];
       let newFileName =
         Date.now() +
@@ -71,6 +72,7 @@ export const registerHostel = async (req, res, next) => {
       );
     }
     const newHostel = await new Hostel({
+      id: uuidv4(),
       hostelName,
       hostelOwnerName,
       hostelOwnerNumber,
@@ -79,7 +81,7 @@ export const registerHostel = async (req, res, next) => {
       nehaRegister,
       street,
       city,
-      state: countryState,
+      countryState,
       hostelCapacity,
       hostelRooms,
       hostelPrice,
@@ -93,5 +95,26 @@ export const registerHostel = async (req, res, next) => {
   } catch (err) {
     res.send({ msg: "Something went wrong" });
     console.log(err);
+  }
+};
+
+export const listOfHostels = async (req, res) => {
+  const data = await Hostel.find({});
+  try {
+    res.send({ data });
+  } catch (err) {
+    res.send({ msg: "something went wrong" });
+  }
+};
+
+export const singleHostel = async (req, res) => {
+  let { hostelId } = req.body;
+  try {
+    const data = await Hostel.findOne({
+      id: hostelId,
+    });
+    res.send({ data });
+  } catch (err) {
+    res.send({ msg: "Something went wrong!" });
   }
 };

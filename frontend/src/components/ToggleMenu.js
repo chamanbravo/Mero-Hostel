@@ -28,7 +28,6 @@ function ToggleMenu({ menuState }) {
       dispatch(toggle({ toggleState: true, sign: "in" }));
     }
   };
-  console.log(user);
 
   const menu = () => {
     if (user.firstName) {
