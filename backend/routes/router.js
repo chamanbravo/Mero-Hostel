@@ -6,6 +6,7 @@ import {
   cpUpload,
   listOfHostels,
   singleHostel,
+  userHostel,
 } from "../controllers/hostel.js";
 
 router.get("/", (req, res) => {
@@ -18,5 +19,6 @@ router.post("/registeruser", registerUser);
 router.post("/registerhostel", cpUpload, registerHostel);
 router.get("/hostel", listOfHostels);
 router.post("/singlehostel", singleHostel);
+router.post("/userHostel", userHostel);
 
 export default router;

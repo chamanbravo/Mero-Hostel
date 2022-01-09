@@ -63,6 +63,14 @@ const Hostel = mongoose.model(
       type: String,
       required: true,
     },
+    stars: {
+      type: Number,
+      default: 0,
+    },
+    hostelReviews: {
+      type: Array,
+      default: [],
+    },
     amenities: {
       type: Array,
       required: true,
@@ -73,6 +81,22 @@ const Hostel = mongoose.model(
     },
     gallery: {
       type: Array,
+      required: true,
+    },
+    hostedDate: {
+      type: Date,
+      default: new Date(),
+    },
+    locationDesc: {
+      type: String,
+      required: true,
+    },
+    hostelRules: {
+      type: String,
+      required: true,
+    },
+    hostedBy: {
+      type: String,
       required: true,
     },
   })

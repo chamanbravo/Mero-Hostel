@@ -8,6 +8,7 @@ import Button from "./Button";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { toggle } from "../features/register";
+import { scrollToTop } from "../utils/helper";
 
 function Header() {
   const user = useSelector((state) => state.user.value);
@@ -23,7 +24,7 @@ function Header() {
     <div className="header">
       <div className="navbar">
         <div className="menu">
-          <Link to="/">
+          <Link to="/" onClick={scrollToTop}>
             <img src={logo} className="logo" alt="logo" />
           </Link>
         </div>

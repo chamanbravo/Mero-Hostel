@@ -6,6 +6,7 @@ import axios from "axios";
 
 function HostImagesForm() {
   const hostelData = useSelector((state) => state.hostHostel.value);
+  const userId = useSelector((user) => user.user.value.id);
   const {
     hostelName,
     hostelOwnerName,
@@ -22,6 +23,8 @@ function HostImagesForm() {
     hostelAdmissionFee,
     hostelSecurityCharges,
     amenities,
+    locationDesc,
+    hostelRules,
   } = hostelData;
 
   const [state, setState] = useState({
@@ -58,6 +61,9 @@ function HostImagesForm() {
   data.append("hostelPrice", hostelPrice);
   data.append("hostelAdmissionFee", hostelAdmissionFee);
   data.append("hostelSecurityCharges", hostelSecurityCharges);
+  data.append("locationDesc", locationDesc);
+  data.append("hostelRules", hostelRules);
+  data.append("userId", userId);
   for (let i of amenities) {
     data.append("amenities", i);
   }

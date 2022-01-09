@@ -12,6 +12,7 @@ function HostLocation() {
     street: "",
     city: "",
     countryState: "",
+    locationDesc: "",
   });
 
   const handleChange = (e) =>
@@ -82,6 +83,16 @@ function HostLocation() {
           <div className="input-field">
             <h4>Country/Region</h4>
             <p>Nepal</p>
+          </div>
+          <div className="input-field">
+            <h4>Location Description</h4>
+            <input
+              type="text"
+              placeholder="give your location in a descriptive way"
+              name="locationDesc"
+              value={state.locationDesc}
+              onChange={handleChange}
+            />
           </div>
         </div>
         <div onClick={handleSubmit}>

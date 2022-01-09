@@ -1,8 +1,18 @@
 .hostel-page {
   margin: 5rem 1rem;
+
+  h3 {
+    font-weight: 500;
+  }
+  p {
+    max-width: 50ch;
+  }
+  .btn-color {
+    margin-top: 1rem;
+  }
 }
 
-.hostel-desc {
+.hostel-header {
   margin-bottom: 1rem;
   h1 {
     font-weight: 500;
@@ -11,9 +21,9 @@
   .sub-desc {
     display: inline-flex;
     gap: 1rem;
-    h3 {
-      font-weight: 500;
-    }
+  }
+  .sub-header {
+    margin-top: 1rem;
   }
 }
 
@@ -22,6 +32,10 @@
   height: 1px;
   background-color: #ddd;
   margin: 2rem 0;
+}
+
+.description {
+  margin-top: 1.5rem;
 }
 
 @media (min-width: 768px) {

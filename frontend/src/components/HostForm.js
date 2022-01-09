@@ -85,15 +85,15 @@ function HostForm() {
         <div className="checkbox-field" onChange={handleChange}>
           <h4>Hostel type</h4>
           <div className="hostelType">
-            <input type="radio" name="hostelType" value="boys" />
+            <input type="radio" name="hostelType" value="Boys" />
             Boys Hostel
           </div>
           <div className="">
-            <input type="radio" name="hostelType" value="girls" />
+            <input type="radio" name="hostelType" value="Girls" />
             Girls Hostel
           </div>
         </div>
-        <div className="nehaRegister" onChange={handleChange}>
+        <div className="checkbox-field" onChange={handleChange}>
           <h4>
             Is your Hostel is registered in Nepal Hostel Association (NeHA)?
           </h4>

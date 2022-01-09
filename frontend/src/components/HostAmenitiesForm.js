@@ -13,6 +13,7 @@ function HostAmenitiesForm() {
     hostelPrice: "",
     hostelAdmissionFee: "",
     hostelSecurityCharges: "",
+    hostelRules: "",
   });
 
   const handleChange = (e) => {
@@ -78,6 +79,7 @@ function HostAmenitiesForm() {
     );
   };
 
+  console.log(hostelData.value);
   return (
     <div className="host-form">
       <div className="host-user">
@@ -198,6 +200,15 @@ function HostAmenitiesForm() {
               Air Conditioning
             </label>
           </div>
+        </div>
+        <div className="input-field">
+          <h4>Hostel Rules</h4>
+          <textarea
+            placeholder="Hostel Rules"
+            name="hostelRules"
+            value={state.hostelRules}
+            onChange={handleChange}
+          />
         </div>
         <div onClick={handleSubmit}>
           <Button link="hostelimages" innerText="Next" cName="btn-black" />

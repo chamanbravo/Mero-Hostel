@@ -30,6 +30,9 @@ export const registerHostel = async (req, res, next) => {
       hostelAdmissionFee,
       hostelSecurityCharges,
       amenities,
+      locationDesc,
+      hostelRules,
+      userId,
     } = req.body;
 
     let thumbnailName,
@@ -90,6 +93,9 @@ export const registerHostel = async (req, res, next) => {
       amenities,
       thumbnail: thumbnailName,
       gallery: galleryArray,
+      locationDesc,
+      hostelRules,
+      hostedBy: userId,
     });
     newHostel.save().then(res.send({ msg: "Hostel successfully hosted" }));
   } catch (err) {
@@ -116,5 +122,15 @@ export const singleHostel = async (req, res) => {
     res.send({ data });
   } catch (err) {
     res.send({ msg: "Something went wrong!" });
+  }
+};
+
+export const userHostel = async (req, res) => {
+  let { userId } = req.body;
+  try {
+    const data = await Hostel.findOne({ hostedBy: userId });
+    res.send({ data });
+  } catch (e) {
+    res.send({ msg: "something went wrong!" });
   }
 };
