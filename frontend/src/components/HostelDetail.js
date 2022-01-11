@@ -67,7 +67,13 @@ function HostelDetail({
             <h3 className="sub-header">Hostel Rules</h3>
             <p>{hostelRules}</p>
           </div>
-          <Button link="#" cName="btn-color" innerText="Contact" />
+          <div
+            onClick={() =>
+              (window.location.href = `tel: ${hostelContactNumber}`)
+            }
+          >
+            <Button link="#" cName="btn-color" innerText="Contact" />
+          </div>
         </div>
       </div>
       {/* <div className="hr-bar" /> */}
