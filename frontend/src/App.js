@@ -14,6 +14,7 @@ import {
   SingleHostelPage,
   SearchResultPage,
   UserProfilePage,
+  ErrorPage,
 } from "./pages";
 import { useSelector } from "react-redux";
 import ProtectedRoutes from "./utils/ProtectedRoutes";
@@ -49,9 +50,7 @@ function App() {
             component={HostImagesForm}
           />
           <Route>
-            <h2 style={{ marginTop: "5rem", textAlign: "center" }}>
-              Wrong location
-            </h2>
+            <ErrorPage />
           </Route>
         </Switch>
         <Footer />
