@@ -24,6 +24,10 @@ const User = mongoose.model(
       type: Date,
       default: new Date(),
     },
+    profilePic: {
+      type: String,
+      default: "",
+    },
   })
 );
 

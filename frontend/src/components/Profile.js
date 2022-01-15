@@ -3,17 +3,17 @@ import { useSelector } from "react-redux";
 import "./Profile.scss";
 import axios from "axios";
 import HostelCard from "./HostelCard";
+import ProfilePicUpdate from "./ProfilePicUpdate";
 
 function Profile() {
   const user = useSelector((state) => state.user.value);
-  let userId = user.id;
-  let userProfile = false;
+  let { id, firstName, lastName, doj, profilePic } = user;
 
   let [state, setState] = useState([]);
 
   useEffect(() => {
     axios
-      .post("http://localhost:4000/userhostel", { userId })
+      .post("http://localhost:4000/userhostel", { id })
       .then((res) => {
         let data = res.data.data;
         setState(data);
@@ -28,14 +28,14 @@ function Profile() {
   const ProfileImg = () => {
     return (
       <div className="profile-img">
-        <img src={`#`} alt="#" />
+        <img src={`#`} alt="#" className="profile-pic" />
       </div>
     );
   };
   const ProfileText = () => {
     return (
       <div className="profile-text">
-        <h3>{user.firstName.charAt(0) + user.lastName.charAt(0)}</h3>
+        <h3>{firstName.charAt(0) + lastName.charAt(0)}</h3>
       </div>
     );
   };
@@ -63,12 +63,12 @@ function Profile() {
     <div className="profile">
       <div className="profile-box box">
         <div className="user-box">
-          {userProfile ? <ProfileImg /> : <ProfileText />}
-          <p>update photo</p>
+          {profilePic ? <ProfileImg /> : <ProfileText />}
+          <p className="update-pic-link">update photo</p>
         </div>
         <div>
-          <h3>{`${user.firstName} ${user.lastName}`}</h3>
-          <p>joined in {parseInt(user.doj)} </p>
+          <h3>{`${firstName} ${lastName}`}</h3>
+          <p>joined in {parseInt(doj)} </p>
         </div>
         <LoadHostelCard />
       </div>
@@ -77,6 +77,7 @@ function Profile() {
           <h4>Reviews by You</h4>
         </div>
       </div>
+      <ProfilePicUpdate user={user} />
     </div>
   );
 }

@@ -71,6 +71,7 @@ function HostelDetail({
             onClick={() =>
               (window.location.href = `tel: ${hostelContactNumber}`)
             }
+            className="link-btn"
           >
             <Button link="#" cName="btn-color" innerText="Contact" />
           </div>

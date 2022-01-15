@@ -46,6 +46,13 @@ function HostImagesForm() {
     });
   };
 
+  if (state.gallery.length > 2) {
+    alert("only 4 allowed");
+    setState({
+      ...state,
+      gallery: [],
+    });
+  }
   const data = new FormData();
   data.append("hostelName", hostelName);
   data.append("hostelOwnerName", hostelOwnerName);
@@ -105,10 +112,10 @@ function HostImagesForm() {
           </div>
           <div className="input-field">
             <h4>Hostel Gallery(2-4)</h4>
-            <input type="file" multiple onChange={handleGalleryChange} />
+            <input type="file" multiple="4" onChange={handleGalleryChange} />
           </div>
         </div>
-        <div onClick={handleSubmit}>
+        <div className="link-btn" onClick={handleSubmit}>
           <Button link="/profile" innerText="Host" cName="btn-black" />
         </div>
       </form>

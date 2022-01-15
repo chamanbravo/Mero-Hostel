@@ -126,9 +126,9 @@ export const singleHostel = async (req, res) => {
 };
 
 export const userHostel = async (req, res) => {
-  let { userId } = req.body;
+  let { id } = req.body;
   try {
-    const data = await Hostel.findOne({ hostedBy: userId });
+    const data = await Hostel.findOne({ hostedBy: id });
     res.send({ data });
   } catch (e) {
     res.send({ msg: "something went wrong!" });
