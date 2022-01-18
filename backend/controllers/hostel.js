@@ -38,7 +38,7 @@ export const registerHostel = async (req, res, next) => {
     let thumbnailName,
       galleryArray = [];
     const thumbnail = req.files["thumbnail"][0];
-    let oldFileName = thumbnail.filename.split(" ").join("");
+    let oldFileName = thumbnail.filename;
     let fileType = thumbnail.mimetype.split("/")[1];
     let newFileName =
       Date.now() +
@@ -57,7 +57,7 @@ export const registerHostel = async (req, res, next) => {
 
     const gallery = req.files["gallery"];
     for (let img of gallery) {
-      let oldFileName = img.filename.split(" ").join("");
+      let oldFileName = img.filename;
       let fileType = img.mimetype.split("/")[1];
       let newFileName =
         Date.now() +

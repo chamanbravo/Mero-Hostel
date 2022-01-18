@@ -1,6 +1,11 @@
 import express from "express";
 const router = express.Router();
-import { login, registerUser } from "../controllers/user.js";
+import {
+  login,
+  registerUser,
+  userPic,
+  profileUpload,
+} from "../controllers/user.js";
 import {
   registerHostel,
   cpUpload,
@@ -20,5 +25,7 @@ router.post("/registerhostel", cpUpload, registerHostel);
 router.get("/hostel", listOfHostels);
 router.post("/singlehostel", singleHostel);
 router.post("/userHostel", userHostel);
+
+router.post("/userpic", profileUpload, userPic);
 
 export default router;

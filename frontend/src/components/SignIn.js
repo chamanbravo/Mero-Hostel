@@ -25,7 +25,8 @@ function SignIn() {
       .post("http://localhost:4000/login", user, { withCredentials: true })
       .then((res) => {
         if (res.data.user) {
-          const { _id, firstname, lastname, email, doj } = res.data.user;
+          const { _id, firstname, lastname, email, doj, profilePic } =
+            res.data.user;
           dispatch(
             setUser({
               id: _id,
@@ -33,6 +34,7 @@ function SignIn() {
               lastName: lastname,
               email: email,
               doj: doj,
+              profilePic: profilePic,
             })
           );
           dispatch(toggle({ toggleState: false }));

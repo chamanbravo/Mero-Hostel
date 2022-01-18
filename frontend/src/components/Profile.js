@@ -8,8 +8,10 @@ import ProfilePicUpdate from "./ProfilePicUpdate";
 function Profile() {
   const user = useSelector((state) => state.user.value);
   let { id, firstName, lastName, doj, profilePic } = user;
-
+  console.log(user);
   let [state, setState] = useState([]);
+
+  let [picUpdateModal, setPicUpdateModal] = useState(false);
 
   useEffect(() => {
     axios
@@ -23,12 +25,14 @@ function Profile() {
       });
   }, []);
 
-  console.log(state);
-
   const ProfileImg = () => {
     return (
       <div className="profile-img">
-        <img src={`#`} alt="#" className="profile-pic" />
+        <img
+          src={`http://localhost:4000/users/${profilePic}`}
+          alt="#"
+          className="profile-pic"
+        />
       </div>
     );
   };
@@ -64,7 +68,12 @@ function Profile() {
       <div className="profile-box box">
         <div className="user-box">
           {profilePic ? <ProfileImg /> : <ProfileText />}
-          <p className="update-pic-link">update photo</p>
+          <p
+            className="update-pic-link"
+            onClick={() => setPicUpdateModal(!picUpdateModal)}
+          >
+            update photo
+          </p>
         </div>
         <div>
           <h3>{`${firstName} ${lastName}`}</h3>
@@ -77,7 +86,9 @@ function Profile() {
           <h4>Reviews by You</h4>
         </div>
       </div>
-      <ProfilePicUpdate user={user} />
+      {picUpdateModal && (
+        <ProfilePicUpdate user={user} modalState={setPicUpdateModal} />
+      )}
     </div>
   );
 }

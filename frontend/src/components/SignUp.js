@@ -24,13 +24,16 @@ function SignUp() {
     e.preventDefault();
     axios.post("http://localhost:4000/registerUser", newUser).then((res) => {
       if (res.data.newUser) {
-        const { firstname, lastname, email, doj } = res.data.newUser;
+        const { _id, firstname, lastname, email, doj, profilePic } =
+          res.data.newUser;
         dispatch(
           setUser({
+            id: _id,
             firstName: firstname,
             lastName: lastname,
             email: email,
             doj: doj,
+            profilePic: profilePic,
           })
         );
         dispatch(toggle({ toggleState: false }));

@@ -1,12 +1,29 @@
 import React, { useState } from "react";
 import "./ProfilePicUpdate.scss";
+import axios from "axios";
 
-function ProfilePicUpdat({ user }) {
-  let { firstName, lastName, profilePic } = user;
+function ProfilePicUpdat({ user, modalState }) {
+  let { firstName, lastName, profilePic, id } = user;
   let [state, setState] = useState();
 
   let handleChange = (e) => {
     setState(e.target.files[0]);
+  };
+
+  let data = new FormData();
+  data.append("profilePic", state);
+  data.append("userName", firstName);
+  data.append("id", id);
+
+  const uploadProfile = async () => {
+    modalState(false);
+    try {
+      let post = await axios.post("http://localhost:4000/userpic", data);
+      console.log(post.data.msg);
+      modalState(false);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const ProfileImg = () => {
@@ -19,7 +36,11 @@ function ProfilePicUpdat({ user }) {
             className="profile-pic"
           />
         ) : (
-          <img src={`#`} alt="#" />
+          <img
+            src={`http://localhost:4000/users/${profilePic}`}
+            alt="#"
+            className="profile-pic"
+          />
         )}
       </div>
     );
@@ -43,7 +64,7 @@ function ProfilePicUpdat({ user }) {
 
   return (
     <div>
-      <div className="profile-update-bg" />
+      <div className="profile-update-bg" onClick={() => modalState(false)} />
       <div className="profile-pic-update">
         {profilePic ? <ProfileImg /> : <ProfileText />}
         <div className="update-pic">
@@ -61,8 +82,12 @@ function ProfilePicUpdat({ user }) {
           </label>
           {state ? (
             <div className="profile-btns">
-              <button className="submit-btn">Submit</button>
-              <button className="cancel-btn">Cancel</button>
+              <button className="submit-btn" onClick={uploadProfile}>
+                Submit
+              </button>
+              <button className="cancel-btn" onClick={() => modalState(false)}>
+                Cancel
+              </button>
             </div>
           ) : (
             ""
