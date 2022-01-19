@@ -2,13 +2,14 @@ import React from "react";
 import HostelCard from "./HostelCard";
 import "./SearchResults.scss";
 
-function SearchResults(searchHostels) {
-  let foundResults = searchHostels.searchHostels;
+function SearchResults({ searchHostels }) {
   const renderResults = () => {
-    if (foundResults.length > 0) {
+    if (searchHostels === undefined) {
+      return <h1 style={{ textAlign: "center" }}>Loading</h1>;
+    } else if (searchHostels.length > 0) {
       return (
         <div className="hostels-grid">
-          {foundResults.map((hostel) => {
+          {searchHostels.map((hostel) => {
             return <HostelCard key={hostel.id} hostel={hostel} />;
           })}
         </div>

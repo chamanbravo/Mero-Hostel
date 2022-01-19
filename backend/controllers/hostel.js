@@ -134,3 +134,13 @@ export const userHostel = async (req, res) => {
     res.send({ msg: "something went wrong!" });
   }
 };
+
+export const searchHostels = async (req, res) => {
+  let { searchLocation } = req.body;
+  try {
+    const data = await Hostel.find({ city: searchLocation });
+    res.send({ data });
+  } catch (e) {
+    res.send({ msg: "something went wrong!" });
+  }
+};

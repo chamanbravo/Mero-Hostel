@@ -1,22 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { data } from "../context/mockData/data";
 import { SearchResults } from "../components";
+import axios from "axios";
 
 function SearchResultPage() {
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);
   const searchLocation = searchParams.get("search");
 
-  let searchHostel = [];
+  let [searchHostel, setSearchHostel] = useState();
 
-  data.forEach((hostels) => {
-    if (hostels.location === searchLocation) {
-      searchHostel.push(hostels);
+  useEffect(() => {
+    try {
+      axios
+        .post("http://localhost:4000/searchhostel", {
+          searchLocation,
+        })
+        .then((res) => {
+          setSearchHostel(res.data.data);
+        });
+    } catch (err) {
+      console.log(err);
     }
-  });
-
-  console.log(searchHostel);
+  }, [searchLocation]);
 
   return (
     <div>

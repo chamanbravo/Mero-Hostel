@@ -12,6 +12,7 @@ import {
   listOfHostels,
   singleHostel,
   userHostel,
+  searchHostels,
 } from "../controllers/hostel.js";
 
 router.get("/", (req, res) => {
@@ -27,5 +28,7 @@ router.post("/singlehostel", singleHostel);
 router.post("/userHostel", userHostel);
 
 router.post("/userpic", profileUpload, userPic);
+
+router.post("/searchhostel", searchHostels);
 
 export default router;
