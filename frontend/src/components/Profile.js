@@ -8,7 +8,6 @@ import ProfilePicUpdate from "./ProfilePicUpdate";
 function Profile() {
   const user = useSelector((state) => state.user.value);
   let { id, firstName, lastName, doj, profilePic } = user;
-  console.log(user);
   let [state, setState] = useState([]);
 
   let [picUpdateModal, setPicUpdateModal] = useState(false);
