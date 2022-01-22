@@ -5,10 +5,26 @@ import { useSelector } from "react-redux";
 
 function UserMenu() {
   const user = useSelector((state) => state.user.value);
+  let { firstName, lastName, profilePic } = user;
 
   const [toggle, setToggle] = useState(false);
   const toggleState = () => {
     setToggle(!toggle);
+  };
+
+  const ProfileImg = () => {
+    return (
+      <div className="profile-img">
+        <img
+          src={`http://localhost:4000/users/${profilePic}`}
+          alt="#"
+          className="profile-pic"
+        />
+      </div>
+    );
+  };
+  const ProfileText = () => {
+    return <p>{firstName.charAt(0) + lastName.charAt(0)}</p>;
   };
 
   const menuUser = () => {
@@ -17,7 +33,7 @@ function UserMenu() {
         <div className="user" onClick={toggleState}>
           <i className="fas fa-bars hammenu"></i>
           <div className="avatar">
-            <p>{user.firstName[0]}</p>
+            {profilePic ? <ProfileImg /> : <ProfileText />}
           </div>
         </div>
       );
