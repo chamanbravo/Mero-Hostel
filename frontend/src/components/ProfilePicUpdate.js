@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import "./ProfilePicUpdate.scss";
+import { useDispatch } from "react-redux";
+import { setUser } from "../features/user";
 import axios from "axios";
 
 function ProfilePicUpdat({ user, modalState }) {
-  let { firstName, lastName, profilePic, id } = user;
+  let { firstName, lastName, profilePic, id, email } = user;
+  const dispatch = useDispatch();
   let [state, setState] = useState();
 
   let handleChange = (e) => {
@@ -18,8 +21,11 @@ function ProfilePicUpdat({ user, modalState }) {
   const uploadProfile = async () => {
     modalState(false);
     try {
-      let post = await axios.post("http://localhost:4000/userpic", data);
-      console.log(post.data.msg);
+      let picUpdate = await axios.post("http://localhost:4000/userpic", data);
+      let newProfilePic = picUpdate.data.msg;
+      dispatch(
+        setUser({ firstName, lastName, id, email, profilePic: newProfilePic })
+      );
       modalState(false);
     } catch (err) {
       console.log(err);

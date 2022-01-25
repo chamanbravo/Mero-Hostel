@@ -64,6 +64,7 @@ export const userPic = async (req, res) => {
       () => {}
     );
     await User.updateOne({ _id: id }, { profilePic: newFileName });
+    res.send({ msg: newFileName });
   } catch (err) {
     res.send({ msg: "something went wrong!" });
     console.log(err);
