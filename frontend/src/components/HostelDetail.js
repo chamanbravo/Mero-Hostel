@@ -2,6 +2,7 @@ import React from "react";
 import HostelGallery from "./HostelGallery";
 import "./HostelDetail.scss";
 import Button from "./Button";
+import HostelReview from "./HostelReview";
 
 function HostelDetail({
   id,
@@ -62,7 +63,7 @@ function HostelDetail({
             <p>{locationDesc}</p>
             <h3 className="sub-header">Amenities</h3>
             {amenities.map((amenity, i) => {
-              return <p index={i}>{amenity}</p>;
+              return <p key={i}>{amenity}</p>;
             })}
             <h3 className="sub-header">Hostel Rules</h3>
             <p>{hostelRules}</p>
@@ -77,7 +78,8 @@ function HostelDetail({
           </div>
         </div>
       </div>
-      {/* <div className="hr-bar" /> */}
+      <div className="hr-bar" />
+      <HostelReview review={hostelReviews} />
     </div>
   );
 }

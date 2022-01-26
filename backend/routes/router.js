@@ -5,6 +5,7 @@ import {
   registerUser,
   userPic,
   profileUpload,
+  sendUserInfo,
 } from "../controllers/user.js";
 import {
   registerHostel,
@@ -30,5 +31,7 @@ router.post("/userHostel", userHostel);
 router.post("/userpic", profileUpload, userPic);
 
 router.post("/searchhostel", searchHostels);
+
+router.post("/api/senduserinfo", sendUserInfo);
 
 export default router;
