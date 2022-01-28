@@ -75,7 +75,6 @@ export const sendUserInfo = async (req, res) => {
   try {
     const { userId } = req.body;
     const user = await User.find({ _id: userId });
-    console.log(user);
     res.send({ user });
   } catch (err) {
     res.send({ msg: "something went wrong!" });
