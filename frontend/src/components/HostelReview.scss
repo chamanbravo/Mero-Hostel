@@ -36,6 +36,30 @@
   }
 }
 
+.submit-review {
+  margin: 1rem 0;
+  .input-field {
+    margin-bottom: 0;
+    max-width: 40rem;
+    textarea {
+      border: none;
+      outline: none;
+      height: 5rem;
+      padding: 0.5rem 0.5rem 0.5rem 0;
+      resize: none;
+      border-bottom: 2px solid #c4c2c2;
+      font-size: 1.1rem;
+      font-family: Jost;
+      width: 100%;
+    }
+  }
+  button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+
 @media (min-width: 768px) {
   .all-reviews {
     display: grid;
