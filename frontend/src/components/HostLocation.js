@@ -86,7 +86,7 @@ function HostLocation() {
           </div>
           <div className="input-field">
             <h4>Location Description</h4>
-            <input
+            <textarea
               type="text"
               placeholder="give your location in a descriptive way"
               name="locationDesc"

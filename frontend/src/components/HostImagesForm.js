@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./HostImagesForm.scss";
 import Button from "./Button";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -97,7 +96,7 @@ function HostImagesForm() {
     <div className="host-form">
       <div className="host-user">
         <div className="text">
-          <h2>Hoetel Images</h2>
+          <h2>Hostel Images</h2>
           <p>
             Hostel Images are the most important part of your hostel. It helps
             to make your hostel more visible.
