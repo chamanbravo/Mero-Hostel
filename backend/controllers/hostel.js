@@ -105,7 +105,20 @@ export const registerHostel = async (req, res, next) => {
 };
 
 export const listOfHostels = async (req, res) => {
-  const data = await Hostel.find({});
+  const data = await Hostel.find(
+    {},
+    {
+      id: 1,
+      hostelName: 1,
+      hostelType: 1,
+      hostelPrice: 1,
+      city: 1,
+      thumbnail: 1,
+      stars: 1,
+      hostelReviews: 1,
+      _id: 0,
+    }
+  );
   try {
     res.send({ data });
   } catch (err) {
@@ -128,7 +141,20 @@ export const singleHostel = async (req, res) => {
 export const userHostel = async (req, res) => {
   let { id } = req.body;
   try {
-    const data = await Hostel.findOne({ hostedBy: id });
+    const data = await Hostel.findOne(
+      { hostedBy: id },
+      {
+        id: 1,
+        hostelName: 1,
+        hostelType: 1,
+        hostelPrice: 1,
+        city: 1,
+        thumbnail: 1,
+        stars: 1,
+        hostelReviews: 1,
+        _id: 0,
+      }
+    );
     res.send({ data });
   } catch (e) {
     res.send({ msg: "something went wrong!" });
@@ -138,7 +164,26 @@ export const userHostel = async (req, res) => {
 export const searchHostels = async (req, res) => {
   let { searchLocation } = req.body;
   try {
-    const data = await Hostel.find({ city: searchLocation });
+    const data = await Hostel.find(
+      {
+        $or: [
+          { city: { $regex: searchLocation, $options: "i" } },
+          { street: { $regex: searchLocation, $options: "i" } },
+          { countryState: { $regex: searchLocation, $options: "i" } },
+        ],
+      },
+      {
+        id: 1,
+        hostelName: 1,
+        hostelType: 1,
+        hostelPrice: 1,
+        city: 1,
+        thumbnail: 1,
+        stars: 1,
+        hostelReviews: 1,
+        _id: 0,
+      }
+    );
     res.send({ data });
   } catch (e) {
     res.send({ msg: "something went wrong!" });

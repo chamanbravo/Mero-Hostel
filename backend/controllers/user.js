@@ -74,7 +74,10 @@ export const userPic = async (req, res) => {
 export const sendUserInfo = async (req, res) => {
   try {
     const { userId } = req.body;
-    const user = await User.find({ _id: userId });
+    const user = await User.find(
+      { _id: userId },
+      { _id: 0, profilePic: 1, firstname: 1, lastname: 1 }
+    );
     res.send({ user });
   } catch (err) {
     res.send({ msg: "something went wrong!" });
