@@ -189,3 +189,16 @@ export const searchHostels = async (req, res) => {
     res.send({ msg: "something went wrong!" });
   }
 };
+
+export const getComments = async (req, res) => {
+  let { comment, hostelId, commentBy } = req.body;
+  await Hostel.updateOne(
+    { id: hostelId },
+    { $push: { hostelReviews: { comment, commentBy } } }
+  );
+  res.send({ comment, commentBy });
+  try {
+  } catch (err) {
+    res.send({ msg: "something went wrong!" });
+  }
+};

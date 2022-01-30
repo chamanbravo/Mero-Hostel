@@ -14,6 +14,7 @@ import {
   singleHostel,
   userHostel,
   searchHostels,
+  getComments,
 } from "../controllers/hostel.js";
 
 router.get("/", (req, res) => {
@@ -33,5 +34,7 @@ router.post("/userpic", profileUpload, userPic);
 router.post("/searchhostel", searchHostels);
 
 router.post("/api/senduserinfo", sendUserInfo);
+
+router.post("/getcomments", getComments);
 
 export default router;

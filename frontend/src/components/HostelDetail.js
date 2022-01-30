@@ -79,7 +79,7 @@ function HostelDetail({
         </div>
       </div>
       <div className="hr-bar" />
-      <HostelReview review={hostelReviews} />
+      <HostelReview review={hostelReviews} hostelId={id} />
     </div>
   );
 }
