@@ -36,6 +36,23 @@
   }
 }
 
+.comment-profile-text {
+  background: rgba(54, 51, 51, 0.867);
+  color: #fff;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  h3 {
+    margin: auto;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  pointer-events: none;
+}
+
 .submit-review {
   margin: 1rem 0;
   .input-field {

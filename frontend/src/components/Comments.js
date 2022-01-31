@@ -3,7 +3,8 @@ import axios from "axios";
 
 function Comments({ comment, commentBy }) {
   const [userInfo, setUserInfo] = useState({
-    name: "",
+    firstname: "",
+    lastname: "",
     profilePic: "",
   });
 
@@ -14,23 +15,36 @@ function Comments({ comment, commentBy }) {
       .then((res) => {
         let data = res.data.user[0];
         let { firstname, lastname, profilePic } = data;
-        setUserInfo({ name: `${firstname} ${lastname}`, profilePic });
+        setUserInfo({ firstname, lastname, profilePic });
       })
       .catch((e) => {
         console.log(e);
       });
   }, []);
 
+  const ProfileImg = () => {
+    return (
+      <div className="comment-profile-img">
+        <img
+          src={`http://localhost:4000/users/${userInfo.profilePic}`}
+          alt={userInfo.name}
+        />
+      </div>
+    );
+  };
+  const ProfileText = () => {
+    return (
+      <div className="comment-profile-text">
+        <h3>{userInfo.firstname.charAt(0) + userInfo.lastname.charAt(0)}</h3>
+      </div>
+    );
+  };
+
   return (
     <div className="review">
       <div className="user-profile">
-        <div className="comment-profile-img">
-          <img
-            src={`http://localhost:4000/users/${userInfo.profilePic}`}
-            alt={userInfo.name}
-          />
-        </div>
-        <p className="user-name">{userInfo.name}</p>
+        {userInfo.profilePic ? <ProfileImg /> : <ProfileText />}
+        <p className="user-name">{`${userInfo.firstname} ${userInfo.lastname}`}</p>
       </div>
       <div className="comment">
         <p>{comment}</p>
