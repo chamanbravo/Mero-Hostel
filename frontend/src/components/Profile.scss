@@ -55,6 +55,14 @@
   border-radius: 20px;
 }
 
+.user-reviews {
+  margin: 1rem 0;
+  border: 2px solid #dddd;
+  padding: 1rem 1rem;
+  margin-bottom: 2rem;
+  border-radius: 20px;
+}
+
 @media (min-width: 768px) {
   .profile {
     margin: 6rem 1rem 4rem 1rem;
@@ -71,7 +79,7 @@
       width: 280px;
     }
   }
-  .box {
+  .reviews-box {
     width: 400px;
   }
 }
@@ -83,7 +91,7 @@
       width: 300px;
     }
   }
-  .box {
+  .reviews-box {
     width: 500px;
   }
 }
