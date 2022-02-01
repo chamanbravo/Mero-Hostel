@@ -141,7 +141,7 @@ export const singleHostel = async (req, res) => {
 export const userHostel = async (req, res) => {
   let { id } = req.body;
   try {
-    const data = await Hostel.findOne(
+    const userHostelDetails = await Hostel.findOne(
       { hostedBy: id },
       {
         id: 1,
@@ -155,7 +155,37 @@ export const userHostel = async (req, res) => {
         _id: 0,
       }
     );
-    res.send({ data });
+
+    const hostelDetails = await Hostel.find(
+      {
+        hostelReviews: { $elemMatch: { commentBy: id } },
+      },
+      {
+        _id: 0,
+        id: 1,
+        hostelName: 1,
+        stars: 1,
+        hostelReviews: 1,
+      }
+    );
+
+    let userReviews = [];
+    for (let i of hostelDetails) {
+      for (let j of i.hostelReviews) {
+        if (j.commentBy == id) {
+          let obj = {
+            id: i.id,
+            hostelName: i.hostelName,
+            stars: i.stars,
+            reviews: i.hostelReviews.length,
+            comment: j.comment,
+          };
+          userReviews.push(obj);
+        }
+      }
+    }
+
+    res.send({ userHostelDetails, userReviews });
   } catch (e) {
     res.send({ msg: "something went wrong!" });
   }
