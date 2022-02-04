@@ -4,10 +4,10 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setUser } from "../features/user";
 import { toggle } from "../features/register";
+import { popupModal } from "../features/popupModal";
 
 function SignIn() {
   const dispatch = useDispatch();
-
   const [user, setLogUser] = useState({ email: "", password: "" });
 
   const handleChange = (e) => {
@@ -39,8 +39,11 @@ function SignIn() {
           );
           dispatch(toggle({ toggleState: false }));
         } else {
-          alert(res.data.msg);
+          dispatch(popupModal({ message: res.data.msg, cName: "red" }));
         }
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
 

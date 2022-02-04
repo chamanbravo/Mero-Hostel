@@ -1,0 +1,49 @@
+.message-modal {
+  position: fixed;
+  z-index: 999;
+  top: 4rem;
+  right: 6rem;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 0.8rem 1rem;
+  font-weight: 400;
+  transition: all 0.5s ease-in;
+  animation: popup 0.4s;
+  border-radius: 5px;
+}
+
+.green {
+  background-color: rgb(94, 235, 94);
+}
+
+.red {
+  background-color: rgb(209, 24, 24);
+}
+
+@keyframes popup {
+  0% {
+    top: 2rem;
+    opacity: 0%;
+  }
+  100% {
+    top: 4rem;
+    opacity: 100%;
+  }
+}
+
+@media (min-width: 1084px) {
+  .message-modal {
+    top: 6rem;
+    right: 6rem;
+  }
+  @keyframes popup {
+    0% {
+      top: 2rem;
+      opacity: 0%;
+    }
+    100% {
+      top: 6rem;
+      opacity: 100%;
+    }
+  }
+}
