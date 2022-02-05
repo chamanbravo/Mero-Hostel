@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "./Button";
 import { useDispatch, useSelector } from "react-redux";
 import { setHostel } from "../features/hostHostel";
+import { popupModal } from "../features/popupModal";
 
 function HostAmenitiesForm() {
   const hostelData = useSelector((state) => state.hostHostel);
@@ -73,7 +74,18 @@ function HostAmenitiesForm() {
     }
   }
 
+  let checkFeilds =
+    state.hostelCapacity &&
+    state.hostelRooms &&
+    state.hostelPrice &&
+    state.hostelAdmissionFee &&
+    state.hostelSecurityCharges &&
+    state.hostelRules;
+
   const handleSubmit = () => {
+    if (!checkFeilds) {
+      return dispatch(popupModal({ message: "Empty fields!", cName: "red" }));
+    }
     dispatch(
       setHostel({ ...hostelData.value, ...state, amenities: checkArray })
     );
@@ -211,7 +223,11 @@ function HostAmenitiesForm() {
           />
         </div>
         <div onClick={handleSubmit}>
-          <Button link="hostelimages" innerText="Next" cName="btn-black" />
+          <Button
+            link={checkFeilds ? "hostelimages" : "#"}
+            innerText="Next"
+            cName="btn-black"
+          />
         </div>
       </form>
     </div>

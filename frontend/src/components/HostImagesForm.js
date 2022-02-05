@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Button from "./Button";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
+import { popupModal } from "../features/popupModal";
 
 function HostImagesForm() {
+  const dispatch = useDispatch();
   const hostelData = useSelector((state) => state.hostHostel.value);
   const userId = useSelector((user) => user.user.value.id);
   const {
@@ -75,7 +77,12 @@ function HostImagesForm() {
   }
   data.append("thumbnail", state.thumbnail);
 
+  let checkFeilds = state.thumbnail && state.gallery;
+
   const handleSubmit = () => {
+    if (!checkFeilds) {
+      return dispatch(popupModal({ message: "Empty fields!", cName: "red" }));
+    }
     for (let i = 0; i < state.gallery.length; i++) {
       const file = state.gallery[i];
       data.append("gallery", file);
@@ -115,7 +122,11 @@ function HostImagesForm() {
           </div>
         </div>
         <div className="link-btn" onClick={handleSubmit}>
-          <Button link="/profile" innerText="Host" cName="btn-black" />
+          <Button
+            link={checkFeilds ? "/profile" : "#"}
+            innerText="Host"
+            cName="btn-black"
+          />
         </div>
       </form>
     </div>

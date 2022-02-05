@@ -4,6 +4,7 @@ import "./HostLocation.scss";
 import Button from "./Button";
 import { useDispatch, useSelector } from "react-redux";
 import { setHostel } from "../features/hostHostel";
+import { popupModal } from "../features/popupModal";
 
 function HostLocation() {
   const dispatch = useDispatch();
@@ -29,7 +30,13 @@ function HostLocation() {
     zoom: 13,
   };
 
+  let checkFeilds =
+    state.street && state.city && state.countryState && state.locationDesc;
+
   const handleSubmit = () => {
+    if (!checkFeilds) {
+      return dispatch(popupModal({ message: "Empty fields!", cName: "red" }));
+    }
     dispatch(
       setHostel({
         ...hostelData.value,
@@ -96,7 +103,11 @@ function HostLocation() {
           </div>
         </div>
         <div onClick={handleSubmit}>
-          <Button link="amenities" innerText="Next" cName="btn-black" />
+          <Button
+            link={checkFeilds ? "amenities" : "#"}
+            innerText="Next"
+            cName="btn-black"
+          />
         </div>
       </form>
     </div>

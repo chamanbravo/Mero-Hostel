@@ -4,6 +4,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setUser } from "../features/user";
 import { toggle } from "../features/register";
+import { popupModal } from "../features/popupModal";
 
 function SignUp() {
   const dispatch = useDispatch();
@@ -20,8 +21,14 @@ function SignUp() {
     setNewUser({ ...newUser, [name]: value });
   };
 
+  let checkFields =
+    newUser.firstname && newUser.lastname && newUser.email && newUser.password;
+
   const registerUser = (e) => {
     e.preventDefault();
+    if (!checkFields) {
+      return dispatch(popupModal({ message: "Empty Fields", cName: "red" }));
+    }
     axios.post("http://localhost:4000/registerUser", newUser).then((res) => {
       if (res.data.newUser) {
         const { _id, firstname, lastname, email, doj, profilePic } =

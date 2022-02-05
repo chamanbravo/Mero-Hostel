@@ -3,6 +3,7 @@ import "./HostForm.scss";
 import Button from "./Button";
 import { useDispatch } from "react-redux";
 import { setHostel } from "../features/hostHostel";
+import { popupModal } from "../features/popupModal";
 
 function HostForm() {
   const dispatch = useDispatch();
@@ -11,6 +12,8 @@ function HostForm() {
     hostelOwnerName: "",
     hostelOwnerNumber: "",
     hostelContactNumber: "",
+    hostelType: "",
+    nehaRegister: "",
   });
 
   const handleChange = (e) => {
@@ -20,7 +23,18 @@ function HostForm() {
     });
   };
 
+  let checkFeilds =
+    state.hostelName &&
+    state.hostelOwnerName &&
+    state.hostelOwnerNumber &&
+    state.hostelContactNumber &&
+    state.hostelType &&
+    state.nehaRegister;
+
   const handleSubmit = () => {
+    if (!checkFeilds) {
+      return dispatch(popupModal({ message: "Empty fields!", cName: "red" }));
+    }
     dispatch(
       setHostel({
         ...state,
@@ -106,7 +120,11 @@ function HostForm() {
           </div>
         </div>
         <div onClick={handleSubmit}>
-          <Button link="/location" innerText="Next" cName="btn-black" />
+          <Button
+            link={checkFeilds ? "/location" : "#"}
+            innerText="Next"
+            cName="btn-black"
+          />
         </div>
       </form>
     </div>

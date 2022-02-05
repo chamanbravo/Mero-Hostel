@@ -5,6 +5,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { toggle } from "../features/register";
+import { popupModal } from "../features/popupModal";
 
 function HostelReview({ review, hostelId }) {
   const [comment, setComment] = useState("");
@@ -12,20 +13,22 @@ function HostelReview({ review, hostelId }) {
   const dispatch = useDispatch();
 
   const sendComment = async () => {
+    if (!comment) {
+      return dispatch(popupModal({ message: "Empty comment!", cName: "red" }));
+    }
     if (!commentBy) {
-      dispatch(toggle({ toggleState: true, sign: "in" }));
-    } else {
-      setComment("");
-      try {
-        await axios.post("http://localhost:4000/getcomments", {
-          comment,
-          hostelId,
-          commentBy,
-        });
-        window.location.reload();
-      } catch (err) {
-        console.log(err);
-      }
+      return dispatch(toggle({ toggleState: true, sign: "in" }));
+    }
+    setComment("");
+    try {
+      await axios.post("http://localhost:4000/getcomments", {
+        comment,
+        hostelId,
+        commentBy,
+      });
+      // window.location.reload();
+    } catch (err) {
+      console.log(err);
     }
   };
 
