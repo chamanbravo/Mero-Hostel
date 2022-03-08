@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   Header,
   Footer,
@@ -42,33 +42,19 @@ function App() {
         <Header />
         {register.toggleState && <RegisterModal />}
         {modalContent.cName && <PopupMessage modalContent={modalContent} />}
-        <Switch>
-          <Route exact path="/">
-            <Homepage />
+        <Routes>
+          <Route path="/" element={<Homepage />}/>
+          <Route path="/hostel/:id" element={<SingleHostelPage />} />
+          <Route path="/hostel" element={<SearchResultPage />}/>
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/profile" element={<UserProfilePage />} />
+            <Route path="/host" element={<HostForm />} />
+            <Route path="/amenities" element={<HostAmenitiesForm />} />
+            <Route path="/location" element={<HostLocation />} />
+            <Route path="/hostelimages" element={<HostImagesForm />} />
           </Route>
-          <Route exact path="/hostel/:id">
-            <SingleHostelPage />
-          </Route>
-          <Route exact path="/hostel">
-            <SearchResultPage />
-          </Route>
-          <ProtectedRoutes exact path="/profile" component={UserProfilePage} />
-          <ProtectedRoutes exact path="/host" component={HostForm} />
-          <ProtectedRoutes
-            exact
-            path="/amenities"
-            component={HostAmenitiesForm}
-          />
-          <ProtectedRoutes exact path="/location" component={HostLocation} />
-          <ProtectedRoutes
-            exact
-            path="/hostelimages"
-            component={HostImagesForm}
-          />
-          <Route>
-            <ErrorPage />
-          </Route>
-        </Switch>
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
         <Footer />
       </Router>
     </div>

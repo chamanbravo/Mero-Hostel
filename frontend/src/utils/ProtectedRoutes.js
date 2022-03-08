@@ -1,9 +1,9 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 import { toggle } from "../features/register";
 import { useDispatch, useSelector } from "react-redux";
 
-function ProtectedRoutes({ component: Component, ...rest }) {
+function ProtectedRoutes() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
 
@@ -11,21 +11,13 @@ function ProtectedRoutes({ component: Component, ...rest }) {
     dispatch(toggle({ toggleState: true, sign: "in" }));
   };
 
-  return (
-    <Route
-      {...rest}
-      render={(props) => {
-        if (user.firstName) {
-          return <Component />;
-        } else {
-          toggleMenuStateIn();
-          return (
-            <Redirect to={{ pathname: "/", state: { from: props.location } }} />
-          );
-        }
-      }}
-    />
-  );
+  if (!user.firstName){
+    toggleMenuStateIn()
+    return <Navigate to='/' />
+  }
+
+  return <Outlet />
+    
 }
 
 export default ProtectedRoutes;

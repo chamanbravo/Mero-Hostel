@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router-dom";
+// import { withRouter } from "react-router-dom";
 import { HostelDetail } from "../components";
 import axios from "axios";
 
@@ -29,4 +29,4 @@ function SingleHostelPage(id) {
   return state.id === undefined ? <Loader /> : <HostelDetail {...state} />;
 }
 
-export default withRouter(SingleHostelPage);
+export default SingleHostelPage;
