@@ -91,7 +91,6 @@ function HostAmenitiesForm() {
     );
   };
 
-  console.log(hostelData.value);
   return (
     <div className="host-form">
       <div className="host-user">
@@ -224,7 +223,7 @@ function HostAmenitiesForm() {
         </div>
         <div onClick={handleSubmit}>
           <Button
-            link={checkFeilds ? "hostelimages" : "#"}
+            link={checkFeilds ? "/hostelimages" : "#"}
             innerText="Next"
             cName="btn-black"
           />

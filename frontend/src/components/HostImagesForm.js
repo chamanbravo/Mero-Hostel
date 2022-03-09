@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import { useSelector, useDispatch } from "react-redux";
+import { Navigate } from "react-router-dom";
 import axios from "axios";
 import { popupModal } from "../features/popupModal";
 
@@ -31,6 +32,7 @@ function HostImagesForm() {
   const [state, setState] = useState({
     thumbnail: "",
     gallery: "",
+    res: ''
   });
 
   const handleThumbnailChange = (e) => {
@@ -95,6 +97,10 @@ function HostImagesForm() {
       .post("http://localhost:4000/registerhostel", data)
       .then((res) => {
         alert(res.data.msg);
+        setState({
+          ...state,
+          msg: res.data.msg,
+        });
       })
       .catch((err) => console.log(err));
   };
@@ -122,11 +128,13 @@ function HostImagesForm() {
           </div>
         </div>
         <div className="link-btn" onClick={handleSubmit}>
-          <Button
+          {/* <Button
             link={checkFeilds ? "/profile" : "#"}
             innerText="Host"
             cName="btn-black"
-          />
+          /> */}
+          <button onClick={(e) => {e.preventDefault()}}>host</button>
+          {state.msg && <Navigate to='/profile' />} 
         </div>
       </form>
     </div>

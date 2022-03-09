@@ -26,6 +26,8 @@ function Profile() {
         console.log(e);
       });
   }, []);
+  
+  console.log(userHostel);
 
   const ProfileImg = () => {
     return (

@@ -104,7 +104,7 @@ function HostLocation() {
         </div>
         <div onClick={handleSubmit}>
           <Button
-            link={checkFeilds ? "amenities" : "#"}
+            link={checkFeilds ? "/amenities" : "#"}
             innerText="Next"
             cName="btn-black"
           />

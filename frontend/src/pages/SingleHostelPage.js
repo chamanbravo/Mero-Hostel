@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-// import { withRouter } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { HostelDetail } from "../components";
 import axios from "axios";
 
-function SingleHostelPage(id) {
-  const hostelId = id.match.params.id;
+function SingleHostelPage() {
+  let { id } = useParams();
+  const hostelId = id;
   const [state, setstate] = useState({});
 
   useEffect(() => {
