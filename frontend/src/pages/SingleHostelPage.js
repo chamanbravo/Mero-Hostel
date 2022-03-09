@@ -4,7 +4,7 @@ import { HostelDetail } from "../components";
 import axios from "axios";
 
 function SingleHostelPage() {
-  let { id } = useParams();
+  let { id } = useParams()
   const hostelId = id;
   const [state, setstate] = useState({});
 
