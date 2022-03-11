@@ -81,12 +81,13 @@ function Profile() {
                 <Link to={`/hostel/${comment.id}`}>
                   <h3 className="hostel-name">{comment.hostelName}</h3>
                 </Link>
+                <i class="fas fa-trash" aria-hidden="true"></i>
+              </div>
                 <div className="rating">
                   <i className="fas fa-star"></i>
                   <p className="stars">{comment.stars}</p>
                   <p className="reviews">({comment.reviews} reviews)</p>
                 </div>
-              </div>
               <p>{comment.comment}</p>
             </div>
           );
