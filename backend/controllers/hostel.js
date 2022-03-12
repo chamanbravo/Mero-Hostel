@@ -1,16 +1,16 @@
-import Hostel from "../models/Hostel.js";
-import fs from "fs";
-import multer from "multer";
-import { v4 as uuidv4 } from "uuid";
+import Hostel from '../models/Hostel.js'
+import fs from 'fs'
+import multer from 'multer'
+import { v4 as uuidv4 } from 'uuid'
 
 const upload = multer({
-  dest: "./public/hostels",
-});
+  dest: './public/hostels',
+})
 
 export const cpUpload = upload.fields([
-  { name: "thumbnail", maxCount: 1 },
-  { name: "gallery", maxCount: 4 },
-]);
+  { name: 'thumbnail', maxCount: 1 },
+  { name: 'gallery', maxCount: 4 },
+])
 
 export const registerHostel = async (req, res, next) => {
   try {
@@ -33,46 +33,46 @@ export const registerHostel = async (req, res, next) => {
       locationDesc,
       hostelRules,
       userId,
-    } = req.body;
+    } = req.body
 
     let thumbnailName,
-      galleryArray = [];
-    const thumbnail = req.files["thumbnail"][0];
-    let oldFileName = thumbnail.filename;
-    let fileType = thumbnail.mimetype.split("/")[1];
+      galleryArray = []
+    const thumbnail = req.files['thumbnail'][0]
+    let oldFileName = thumbnail.filename
+    let fileType = thumbnail.mimetype.split('/')[1]
     let newFileName =
       Date.now() +
-      "_" +
+      '_' +
       req.body.hostelName +
-      "_" +
+      '_' +
       Math.floor(Math.random() * 1000) +
-      "." +
-      fileType;
-    thumbnailName = newFileName;
+      '.' +
+      fileType
+    thumbnailName = newFileName
     fs.rename(
       `./public/hostels/${oldFileName}`,
       `./public/hostels/${newFileName}`,
       () => {}
-    );
+    )
 
-    const gallery = req.files["gallery"];
+    const gallery = req.files['gallery']
     for (let img of gallery) {
-      let oldFileName = img.filename;
-      let fileType = img.mimetype.split("/")[1];
+      let oldFileName = img.filename
+      let fileType = img.mimetype.split('/')[1]
       let newFileName =
         Date.now() +
-        "_" +
+        '_' +
         req.body.hostelName +
-        "_" +
+        '_' +
         Math.floor(Math.random() * 1000) +
-        "." +
-        fileType;
-      galleryArray.push(newFileName);
+        '.' +
+        fileType
+      galleryArray.push(newFileName)
       fs.rename(
         `./public/hostels/${oldFileName}`,
         `./public/hostels/${newFileName}`,
         () => {}
-      );
+      )
     }
     const newHostel = await new Hostel({
       id: uuidv4(),
@@ -96,13 +96,12 @@ export const registerHostel = async (req, res, next) => {
       locationDesc,
       hostelRules,
       hostedBy: userId,
-    });
-    newHostel.save().then(res.send({ msg: "Hostel successfully hosted" }));
+    })
+    newHostel.save().then(res.send({ msg: 'Hostel successfully hosted' }))
   } catch (err) {
-    res.send({ msg: "Something went wrong" });
-    console.log(err);
+    res.send({ msg: 'Something went wrong' })
   }
-};
+}
 
 export const listOfHostels = async (req, res) => {
   const data = await Hostel.find(
@@ -118,29 +117,29 @@ export const listOfHostels = async (req, res) => {
       hostelReviews: 1,
       _id: 0,
     }
-  );
+  )
   try {
-    res.send({ data });
+    res.send({ data })
   } catch (err) {
-    res.send({ msg: "something went wrong" });
+    res.send({ msg: 'something went wrong' })
   }
-};
+}
 
 export const singleHostel = async (req, res) => {
-  let { hostelId } = req.body;
+  let { hostelId } = req.body
   try {
     const data = await Hostel.findOne({
       id: hostelId,
-    });
-    res.send({ data });
+    })
+    res.send({ data })
   } catch (err) {
-    res.send({ msg: "Something went wrong!" });
+    res.send({ msg: 'Something went wrong!' })
   }
-};
+}
 
 export const userHostel = async (req, res) => {
-  let { id } = req.body;
   try {
+    let { id } = req.body
     const userHostelDetails = await Hostel.findOne(
       { hostedBy: id },
       {
@@ -154,7 +153,7 @@ export const userHostel = async (req, res) => {
         hostelReviews: 1,
         _id: 0,
       }
-    );
+    )
 
     const hostelDetails = await Hostel.find(
       {
@@ -167,39 +166,39 @@ export const userHostel = async (req, res) => {
         stars: 1,
         hostelReviews: 1,
       }
-    );
+    )
 
-    let userReviews = [];
+    let userReviews = []
     for (let i of hostelDetails) {
       for (let j of i.hostelReviews) {
         if (j.commentBy == id) {
           let obj = {
-            id: i.id,
+            hostelId: i.id,
             hostelName: i.hostelName,
             stars: i.stars,
             reviews: i.hostelReviews.length,
             comment: j.comment,
-          };
-          userReviews.push(obj);
+            id: j.id,
+          }
+          userReviews.push(obj)
         }
       }
     }
-
-    res.send({ userHostelDetails, userReviews });
+    res.send({ userHostelDetails, userReviews })
   } catch (e) {
-    res.send({ msg: "something went wrong!" });
+    res.send({ msg: 'something went wrong!' })
   }
-};
+}
 
 export const searchHostels = async (req, res) => {
-  let { searchLocation } = req.body;
+  let { searchLocation } = req.body
   try {
     const data = await Hostel.find(
       {
         $or: [
-          { city: { $regex: searchLocation, $options: "i" } },
-          { street: { $regex: searchLocation, $options: "i" } },
-          { countryState: { $regex: searchLocation, $options: "i" } },
+          { city: { $regex: searchLocation, $options: 'i' } },
+          { street: { $regex: searchLocation, $options: 'i' } },
+          { countryState: { $regex: searchLocation, $options: 'i' } },
         ],
       },
       {
@@ -213,22 +212,70 @@ export const searchHostels = async (req, res) => {
         hostelReviews: 1,
         _id: 0,
       }
-    );
-    res.send({ data });
+    )
+    res.send({ data })
   } catch (e) {
-    res.send({ msg: "something went wrong!" });
+    res.send({ msg: 'something went wrong!' })
   }
-};
+}
 
 export const getComments = async (req, res) => {
-  let { comment, hostelId, commentBy } = req.body;
-  await Hostel.updateOne(
-    { id: hostelId },
-    { $push: { hostelReviews: { comment, commentBy } } }
-  );
-  res.send({ comment, commentBy });
+  let { comment, hostelId, commentBy } = req.body
   try {
+    await Hostel.updateOne(
+      { id: hostelId },
+      {
+        $push: {
+          hostelReviews: {
+            comment,
+            commentBy,
+            id: Math.floor(Math.random() * 5000),
+          },
+        },
+      }
+    )
+    res.send({ comment, commentBy })
   } catch (err) {
-    res.send({ msg: "something went wrong!" });
+    res.send({ msg: 'something went wrong!' })
   }
-};
+}
+
+export const removeComment = async (req, res) => {
+  let { userId, commentId } = req.body
+  try {
+    await Hostel.updateOne({ $pull: { hostelReviews: { id: commentId } } })
+
+    const hostelDetails = await Hostel.find(
+      {
+        hostelReviews: { $elemMatch: { commentBy: userId } },
+      },
+      {
+        _id: 0,
+        id: 1,
+        hostelName: 1,
+        stars: 1,
+        hostelReviews: 1,
+      }
+    )
+
+    let userReviews = []
+    for (let i of hostelDetails) {
+      for (let j of i.hostelReviews) {
+        if (j.commentBy == userId) {
+          let obj = {
+            hostelId: i.id,
+            hostelName: i.hostelName,
+            stars: i.stars,
+            reviews: i.hostelReviews.length,
+            comment: j.comment,
+            id: j.id,
+          }
+          userReviews.push(obj)
+        }
+      }
+    }
+    res.send({ userReviews })
+  } catch (err) {
+    res.send({ msg: 'something went wrong!' })
+  }
+}

@@ -15,6 +15,7 @@ import {
   userHostel,
   searchHostels,
   getComments,
+  removeComment
 } from "../controllers/hostel.js";
 
 router.get("/", (req, res) => {
@@ -36,5 +37,6 @@ router.post("/searchhostel", searchHostels);
 router.post("/api/senduserinfo", sendUserInfo);
 
 router.post("/getcomments", getComments);
+router.post("/removeComment", removeComment)
 
 export default router;
