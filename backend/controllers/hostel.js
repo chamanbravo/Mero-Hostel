@@ -279,3 +279,11 @@ export const removeComment = async (req, res) => {
     res.send({ msg: 'something went wrong!' })
   }
 }
+
+export const removeHostel = async (req, res) => {
+  let { hostelId } = req.body
+  try {
+    await Hostel.deleteOne({ id: hostelId })
+    res.send({})
+  } catch (err) {}
+}

@@ -40,6 +40,19 @@ function Profile() {
       })
   }
 
+  let removeHostel = (hostelId) => {
+    axios
+      .post('http://localhost:4000/removehostel', { hostelId })
+      .then((res) => {
+        let data = res.data
+        let { userHostelDetails } = data
+        setUserHostel(userHostelDetails)
+      })
+      .catch((e) => {
+        console.log(e)
+      })
+  }
+
   const ProfileImg = () => {
     return (
       <div className='profile-img'>
@@ -80,7 +93,11 @@ function Profile() {
       <div className='user-hosted'>
         <div className='head-title'>
           <h4>Hostel Hosted By you</h4>
-          <i className='fas fa-trash' aria-hidden='true'></i>
+          <i
+            className='fas fa-trash'
+            aria-hidden='true'
+            onClick={() => removeHostel(id, userHostel.id)}
+          ></i>
         </div>
         <HostelCard hostel={userHostel} />
       </div>
@@ -100,7 +117,7 @@ function Profile() {
                 <i
                   className='fas fa-trash'
                   aria-hidden='true'
-                  onClick={() => removeComment(user.id, comment.id)}
+                  onClick={() => removeComment(id, comment.id)}
                 ></i>
               </div>
               <div className='rating'>
