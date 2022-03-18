@@ -234,7 +234,8 @@ export const getComments = async (req, res) => {
         },
       }
     )
-    res.send({ comment, commentBy })
+    let hostel = await Hostel.findOne({ id: hostelId })
+    res.send({ reviews: hostel.hostelReviews })
   } catch (err) {
     res.send({ msg: 'something went wrong!' })
   }

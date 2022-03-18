@@ -99,6 +99,9 @@ function HostImagesForm() {
           ...state,
           msg: res.data.msg,
         })
+        return dispatch(
+          popupModal({ message: 'Hostel Hosted!', cName: 'green' })
+        )
       })
       .catch((err) => console.log(err))
   }
