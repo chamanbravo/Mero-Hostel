@@ -283,7 +283,21 @@ export const removeComment = async (req, res) => {
 export const removeHostel = async (req, res) => {
   let { hostelId } = req.body
   try {
+    let hostel = await Hostel.findOne({ id: hostelId })
+
+    fs.unlink(`./public/hostels/${hostel.thumbnail}`, () => {
+      console.log('thumnail removed')
+    })
+
+    for (let i of hostel.gallery) {
+      fs.unlink(`./public/hostels/${i}`, () => {
+        console.log('gallery image removed')
+      })
+    }
+
     await Hostel.deleteOne({ id: hostelId })
     res.send({})
-  } catch (err) {}
+  } catch (err) {
+    console.log(err)
+  }
 }

@@ -96,7 +96,7 @@ function Profile() {
           <i
             className='fas fa-trash'
             aria-hidden='true'
-            onClick={() => removeHostel(id, userHostel.id)}
+            onClick={() => removeHostel(userHostel.id)}
           ></i>
         </div>
         <HostelCard hostel={userHostel} />
