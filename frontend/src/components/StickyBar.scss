@@ -1,0 +1,46 @@
+.sticky-bar {
+  position: fixed;
+  bottom: 0;
+  z-index: 13;
+  background: #fff;
+  width: 100%;
+}
+
+.sticky-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.6rem 0;
+}
+
+.bm {
+  padding: 0 1rem;
+}
+.bm a {
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bm p {
+  color: #b0b0b0;
+  padding-top: 0.4rem;
+  font-size: 0.7rem;
+}
+.icon {
+  color: #b0b0b0;
+  font-size: 1.4rem;
+}
+.selected .icon {
+  color: #ff385c;
+}
+.selected p {
+  color: #000;
+}
+
+@media (min-width: 768px) {
+  .sticky-bar {
+    display: none !important;
+  }
+}
