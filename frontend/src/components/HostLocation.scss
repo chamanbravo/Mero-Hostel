@@ -5,7 +5,26 @@
 
 .mapBox {
   height: 600px;
-  width: 100%;
+  // width: 100%;
+  .click-info {
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 1rem;
+    h1 {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+  }
+}
+
+.SuperAwesomePin {
+  width: 250px;
+  height: 250px;
+  background-color: aqua;
 }
 
 .host-location-form {

@@ -26,7 +26,11 @@ function HostImagesForm() {
     amenities,
     locationDesc,
     hostelRules,
+    latitude,
+    longitude,
   } = hostelData
+
+  console.log(hostelData)
 
   const [state, setState] = useState({
     thumbnail: '',
@@ -73,6 +77,8 @@ function HostImagesForm() {
   data.append('locationDesc', locationDesc)
   data.append('hostelRules', hostelRules)
   data.append('userId', userId)
+  data.append('longitude', longitude)
+  data.append('latitude', latitude)
   for (let i of amenities) {
     data.append('amenities', i)
   }
