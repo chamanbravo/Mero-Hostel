@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
 
 const Hostel = mongoose.model(
-  "Hostel",
+  'Hostel',
   new mongoose.Schema({
     id: {
       type: String,
@@ -40,6 +40,14 @@ const Hostel = mongoose.model(
       required: true,
     },
     countryState: {
+      type: String,
+      required: true,
+    },
+    longitude: {
+      type: String,
+      required: true,
+    },
+    latitude: {
       type: String,
       required: true,
     },
@@ -100,6 +108,6 @@ const Hostel = mongoose.model(
       required: true,
     },
   })
-);
+)
 
-export default Hostel;
+export default Hostel
