@@ -33,6 +33,8 @@ export const registerHostel = async (req, res, next) => {
       locationDesc,
       hostelRules,
       userId,
+      latitude,
+      longitude,
     } = req.body
 
     let thumbnailName,
@@ -95,6 +97,8 @@ export const registerHostel = async (req, res, next) => {
       gallery: galleryArray,
       locationDesc,
       hostelRules,
+      latitude,
+      longitude,
       hostedBy: userId,
     })
     newHostel.save().then(res.send({ msg: 'Hostel successfully hosted' }))
