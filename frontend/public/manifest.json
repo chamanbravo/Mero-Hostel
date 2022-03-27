@@ -1,0 +1,28 @@
+{
+  "name": "Mero Hostel",
+  "short_name": "Mero Hostel",
+  "icons": [
+    {
+      "src": "./icons/icon-92x92.png",
+      "sizes": "92x92",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f0f2f5",
+  "theme_color": "#96f2d7",
+  "description": "Find hostels all over Nepal"
+}
