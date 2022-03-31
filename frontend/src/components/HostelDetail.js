@@ -19,7 +19,6 @@ function HostelDetail({
   hostelReviews,
   amenities,
   hostelType,
-  locationDesc,
   hostelRules,
   longitude,
   latitude,
@@ -42,6 +41,13 @@ function HostelDetail({
     )
   }
 
+  let rules = () => {
+    let rules = hostelRules.split('\n')
+    return rules.map((rule, i) => {
+      return <li key={i}>{rule}</li>
+    })
+  }
+
   return (
     <div className='hostel-page'>
       <div className='hostel-detail'>
@@ -59,17 +65,21 @@ function HostelDetail({
           </div>
           <div className='description'>
             <h1>Description</h1>
-            <p>Hostel Price per head: Rs {hostelPrice}</p>
-            <p>Hostel Admisson Fee: Rs {hostelAdmissionFee}</p>
-            <p>Hostel Security Charges: Rs {hostelSecurityCharges}</p>
-            <h3 className='sub-header'>Loaction</h3>
-            <p>{locationDesc}</p>
+            <p>
+              Hostel Price per head: <b>Rs {hostelPrice}</b>
+            </p>
+            <p>
+              Hostel Admisson Fee: <b>Rs {hostelAdmissionFee}</b>
+            </p>
+            <p>
+              Hostel Security Charges: <b>Rs {hostelSecurityCharges}</b>
+            </p>
             <h3 className='sub-header'>Amenities</h3>
             {amenities.map((amenity, i) => {
-              return <p key={i}>{amenity}</p>
+              return <p key={i}>{amenity.split('_').join(' ')}</p>
             })}
             <h3 className='sub-header'>Hostel Rules</h3>
-            <p>{hostelRules}</p>
+            <p>{rules()}</p>
           </div>
           <div
             onClick={() =>
