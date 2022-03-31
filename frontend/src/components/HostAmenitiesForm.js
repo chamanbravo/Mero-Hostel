@@ -26,10 +26,10 @@ function HostAmenitiesForm() {
 
   const [amenities, setAmenities] = useState({
     Wifi: false,
-    ParkingSpace: false,
+    Parking_Space: false,
     Laundary: false,
     Furniture: false,
-    AirConditioning: false,
+    Air_Conditioning: false,
   })
 
   const onChangeWifi = () => {
