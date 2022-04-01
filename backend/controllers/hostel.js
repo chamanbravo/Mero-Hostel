@@ -116,6 +116,7 @@ export const listOfHostels = async (req, res) => {
       hostelType: 1,
       hostelPrice: 1,
       city: 1,
+      street: 1,
       thumbnail: 1,
       stars: 1,
       hostelReviews: 1,
@@ -200,6 +201,7 @@ export const searchHostels = async (req, res) => {
     const data = await Hostel.find(
       {
         $or: [
+          { hostelName: { $regex: searchLocation, $options: 'i' } },
           { city: { $regex: searchLocation, $options: 'i' } },
           { street: { $regex: searchLocation, $options: 'i' } },
           { countryState: { $regex: searchLocation, $options: 'i' } },
@@ -211,6 +213,7 @@ export const searchHostels = async (req, res) => {
         hostelType: 1,
         hostelPrice: 1,
         city: 1,
+        street: 1,
         thumbnail: 1,
         stars: 1,
         hostelReviews: 1,
