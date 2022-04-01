@@ -121,7 +121,7 @@ export const listOfHostels = async (req, res) => {
       hostelReviews: 1,
       _id: 0,
     }
-  )
+  ).limit(6)
   try {
     res.send({ data })
   } catch (err) {
