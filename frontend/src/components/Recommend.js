@@ -8,7 +8,7 @@ function Recommend() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/hostel")
+      .get("https://merohostel.herokuapp.com/hostel")
       .then((res) => {
         let data = res.data.data;
         sethostelData(data);
