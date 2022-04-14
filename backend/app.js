@@ -2,10 +2,14 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import mongoose from 'mongoose'
+import dotenv from 'dotenv'
 import router from './routes/router.js'
 
+dotenv.config()
+const app = express()
+
 mongoose
-  .connect('mongodb://localhost:27017/meroHostel', {
+  .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -16,7 +20,6 @@ mongoose
     console.log(err)
   })
 
-const app = express()
 app.use(express.static('./public'))
 app.use(bodyParser.json({ extended: true }))
 app.use(
