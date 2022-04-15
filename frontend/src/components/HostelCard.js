@@ -38,7 +38,7 @@ function HostelCard({ hostel }) {
     <Link to={`/hostel/${id}`} onClick={scrollToTop}>
       <div className='hostel-card'>
         <img
-          src={`http://localhost:4000/hostels/${thumbnail}`}
+          src={`https://merohostel.herokuapp.com/hostels/${thumbnail}`}
           className='hostel-pic'
           alt={hostelName}
         />

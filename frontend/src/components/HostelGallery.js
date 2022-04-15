@@ -10,7 +10,7 @@ function HostelGallery({ gallery }) {
         {gallery.map((img, index) => {
           return (
             <img
-              data-src={`http://localhost:4000/hostels/${img}`}
+              data-src={`https://merohostel.herokuapp.com/hostels/${img}`}
               alt="mero hostel"
               key={index}
             />

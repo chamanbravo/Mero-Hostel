@@ -16,7 +16,7 @@ function UserMenu() {
     return (
       <div className="profile-img">
         <img
-          src={`http://localhost:4000/users/${profilePic}`}
+          src={`https://merohostel.herokuapp.com/users/${profilePic}`}
           alt="#"
           className="profile-pic"
         />

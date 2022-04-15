@@ -13,7 +13,7 @@ function SearchResultPage() {
   useEffect(() => {
     try {
       axios
-        .post("http://localhost:4000/searchhostel", {
+        .post("https://merohostel.herokuapp.com/searchhostel", {
           searchLocation,
         })
         .then((res) => {

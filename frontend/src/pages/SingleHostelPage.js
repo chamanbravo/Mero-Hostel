@@ -11,7 +11,7 @@ function SingleHostelPage() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.post("http://localhost:4000/singlehostel", {
+        const res = await axios.post("https://merohostel.herokuapp.com/singlehostel", {
           hostelId,
         });
         let data = res.data.data;

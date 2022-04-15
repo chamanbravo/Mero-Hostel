@@ -22,7 +22,7 @@ function SignIn() {
   const loginUser = (e) => {
     e.preventDefault()
     axios
-      .post('http://localhost:4000/login', user, { withCredentials: true })
+      .post('https://merohostel.herokuapp.com/login', user, { withCredentials: true })
       .then((res) => {
         if (res.data.user) {
           const { _id, firstname, lastname, email, doj, profilePic } =

@@ -29,7 +29,7 @@ function SignUp() {
     if (!checkFields) {
       return dispatch(popupModal({ message: "Empty Fields", cName: "red" }));
     }
-    axios.post("http://localhost:4000/registerUser", newUser).then((res) => {
+    axios.post("https://merohostel.herokuapp.com/registerUser", newUser).then((res) => {
       if (res.data.newUser) {
         const { _id, firstname, lastname, email, doj, profilePic } =
           res.data.newUser;

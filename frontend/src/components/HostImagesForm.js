@@ -99,7 +99,7 @@ function HostImagesForm() {
 
   const registerHostel = async () => {
     await axios
-      .post('http://localhost:4000/registerhostel', data)
+      .post('https://merohostel.herokuapp.com/registerhostel', data)
       .then((res) => {
         setState({
           ...state,

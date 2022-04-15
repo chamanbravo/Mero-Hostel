@@ -11,7 +11,7 @@ function Comments({ comment, commentBy }) {
   let userId = commentBy;
   useEffect(() => {
     axios
-      .post("http://localhost:4000/api/senduserinfo", { userId })
+      .post("https://merohostel.herokuapp.com/api/senduserinfo", { userId })
       .then((res) => {
         let data = res.data.user[0];
         let { firstname, lastname, profilePic } = data;
@@ -26,7 +26,7 @@ function Comments({ comment, commentBy }) {
     return (
       <div className="comment-profile-img">
         <img
-          src={`http://localhost:4000/users/${userInfo.profilePic}`}
+          src={`https://merohostel.herokuapp.com/users/${userInfo.profilePic}`}
           alt={userInfo.name}
         />
       </div>

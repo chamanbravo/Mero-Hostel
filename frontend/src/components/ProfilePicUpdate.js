@@ -21,7 +21,7 @@ function ProfilePicUpdat({ user, modalState }) {
   const uploadProfile = async () => {
     modalState(false);
     try {
-      let picUpdate = await axios.post("http://localhost:4000/userpic", data);
+      let picUpdate = await axios.post("https://merohostel.herokuapp.com/userpic", data);
       let newProfilePic = picUpdate.data.msg;
       dispatch(
         setUser({ firstName, lastName, id, email, profilePic: newProfilePic })
@@ -43,7 +43,7 @@ function ProfilePicUpdat({ user, modalState }) {
           />
         ) : (
           <img
-            src={`http://localhost:4000/users/${profilePic}`}
+            src={`https://merohostel.herokuapp.com/users/${profilePic}`}
             alt="#"
             className="profile-pic"
           />

@@ -23,7 +23,7 @@ function HostelReview({ review, hostelId }) {
     setComment('')
     try {
       await axios
-        .post('http://localhost:4000/getcomments', {
+        .post('https://merohostel.herokuapp.com/getcomments', {
           comment,
           hostelId,
           commentBy,

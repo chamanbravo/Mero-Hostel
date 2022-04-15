@@ -15,7 +15,7 @@ function Profile() {
 
   useEffect(() => {
     axios
-      .post('http://localhost:4000/userhostel', { id })
+      .post('https://merohostel.herokuapp.com/userhostel', { id })
       .then((res) => {
         let data = res.data
         let { userHostelDetails, userReviews } = data
@@ -29,7 +29,7 @@ function Profile() {
 
   let removeComment = (userId, commentId) => {
     axios
-      .post('http://localhost:4000/removecomment', { userId, commentId })
+      .post('https://merohostel.herokuapp.com/removecomment', { userId, commentId })
       .then((res) => {
         let data = res.data
         let { userReviews } = data
@@ -42,7 +42,7 @@ function Profile() {
 
   let removeHostel = (hostelId) => {
     axios
-      .post('http://localhost:4000/removehostel', { hostelId })
+      .post('https://merohostel.herokuapp.com/removehostel', { hostelId })
       .then((res) => {
         let data = res.data
         let { userHostelDetails } = data
@@ -57,7 +57,7 @@ function Profile() {
     return (
       <div className='profile-img'>
         <img
-          src={`http://localhost:4000/users/${profilePic}`}
+          src={`https://merohostel.herokuapp.com/users/${profilePic}`}
           alt='#'
           className='profile-pic'
         />
