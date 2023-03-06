@@ -1,0 +1,23 @@
+{
+  "name": "MeroHostel",
+  "version": "1.0.0",
+  "repository": "https://github.com/chamanbravo/Fiverr-clone.git",
+  "author": "Chaman Bravo <chamanpro9@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "api",
+    "web"
+  ],
+  "scripts": {
+    "start": "concurrently -n \"api,web\" -c \"green,cyan\" \"yarn workspace api start\" \"yarn workspace web start\"",
+    "dev": "concurrently -n \"api,web\" -c \"green,cyan\" \"yarn workspace api run dev\" \"yarn workspace web dev\"",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
+    "concurrently": "^7.2.0",
+    "husky": "^7.0.0"
+  }
+}
