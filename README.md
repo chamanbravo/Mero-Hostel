@@ -1,5 +1,3 @@
-# Fiverr-clone
-
 ## Prerequisites
 
 - Node.js 14+

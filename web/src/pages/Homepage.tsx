@@ -1,4 +1,3 @@
-import React from "react";
 import { Hero, ExploreNearby, Recommend, Host } from "../components";
 
 function Homepage() {

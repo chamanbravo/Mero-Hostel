@@ -1,8 +1,8 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
+import App from "./App";
 import registerSlice from "./features/register";
 import loggedUser from "./features/user";
 import hostHostel from "./features/hostHostel";

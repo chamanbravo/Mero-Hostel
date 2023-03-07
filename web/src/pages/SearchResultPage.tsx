@@ -25,11 +25,7 @@ function SearchResultPage() {
     }
   }, [searchLocation]);
 
-  return (
-    <div>
-      <SearchResults searchHostels={searchHostel} />
-    </div>
-  );
+  return <SearchResults searchHostels={searchHostel} />;
 }
 
 export default SearchResultPage;
