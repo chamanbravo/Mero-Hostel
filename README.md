@@ -1,28 +1,26 @@
-![Design preview of Merohostel website](./preview/desktop.png)
+## Prerequisites
 
-### Features of Mero Hostel
+- Node.js 14+
+- MongoDB
+- Docker
+- VS-Code Extensions (Prettier, ESLint, etc)
+- Command Line Tools
 
-Users are able to:
+## Run in Development
 
-- View the optimal layout for each page depending on their device's screen size
-- Search for hostels
-- show location of hostels in map
-- general user registration
-- general user login
-- site admin register
-- site admin login
-- host a hostel
-- search hostels
-- find hostels by geographical region
-- recommend hostels
+```
+# Get the latest snapshot
+git clone https://github.com/chamanbravo/Mero-Hostel.git
 
-### Folder Structure
+# Change directory
+cd Mero-Hostel
 
-- frontend
-  - React.js
-- backend
-  - Node.js
+# Install dependencies
+yarn install
 
-## Author
+#Create .env file in /api with the following contents:
+MONGODB_URI = ''
 
-- [Chaman Budhathoki](http://www.chamanbudhathoki.com.np)
+# Then simply start
+yarn dev
+```
