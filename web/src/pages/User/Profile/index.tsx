@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import HostelCard from "../HostelCard";
-import ProfilePicUpdate from "./../ProfilePicUpdate";
+import HostelCard from "../../../components/HostelCard";
+import ProfilePicUpdate from "../../../components/ProfilePicUpdate";
 import { Link } from "react-router-dom";
-import { backendUrl } from "../../utils/helper";
+import { backendUrl } from "../../../utils/helper";
 import "./index.scss";
 
 function Profile() {
@@ -28,7 +28,7 @@ function Profile() {
       });
   }, []);
 
-  let removeComment = (userId, commentId) => {
+  let removeComment = (userId: string, commentId: string) => {
     axios
       .post(`${backendUrl}/removecomment`, { userId, commentId })
       .then((res) => {
@@ -41,7 +41,7 @@ function Profile() {
       });
   };
 
-  let removeHostel = (hostelId) => {
+  let removeHostel = (hostelId: string) => {
     axios
       .post(`${backendUrl}/removehostel`, { hostelId })
       .then((res) => {

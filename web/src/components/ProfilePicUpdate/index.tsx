@@ -1,16 +1,29 @@
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { setUser } from "../../features/user";
 import { backendUrl } from "../../utils/helper";
 import "./index.scss";
 
-function ProfilePicUpdat({ user, modalState }) {
+type ProfilePicUpdatProps = {
+  user: {
+    firstName: string;
+    lastName: string;
+    profilePic: string;
+    id: string;
+    email: string;
+  };
+  modalState: (state: boolean) => void;
+};
+
+function ProfilePicUpdat({ user, modalState }: ProfilePicUpdatProps) {
   let { firstName, lastName, profilePic, id, email } = user;
   const dispatch = useDispatch();
   let [state, setState] = useState();
 
-  let handleChange = (e) => {
+  let handleChange = (e: {
+    target: { files: SetStateAction<undefined>[] };
+  }) => {
     setState(e.target.files[0]);
   };
 
@@ -83,7 +96,7 @@ function ProfilePicUpdat({ user, modalState }) {
             <input
               type="file"
               accept=".png, .jpg, .jpeg"
-              onChange={handleChange}
+              onChange={(e) => handleChange}
             />
             Upload Profile Picture
           </label>

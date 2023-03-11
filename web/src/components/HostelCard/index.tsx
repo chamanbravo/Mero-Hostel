@@ -2,7 +2,36 @@ import { Link } from "react-router-dom";
 import { backendUrl, scrollToTop } from "../../utils/helper";
 import "./index.scss";
 
-function HostelCard({ hostel }) {
+type HostelCardProps = {
+  hostel: {
+    id: string;
+    hostelName: string;
+    hostelPrice: number;
+    hostelContactNumber: number;
+    hostelAdmissionFee: number;
+    hostelSecurityCharges: number;
+    thumbnail: string;
+    city: string;
+    street: string;
+    stars: number;
+    hostelReviews: {
+      id: string;
+      hostelId: string;
+      review: string;
+      rating: number;
+      userId: string;
+      userName: string;
+      userImage: string;
+    }[];
+    amenities: string[];
+    hostelType: string;
+    hostelRules: string;
+    longitude: number;
+    latitude: number;
+  };
+};
+
+function HostelCard({ hostel }: HostelCardProps) {
   const {
     id,
     hostelName,

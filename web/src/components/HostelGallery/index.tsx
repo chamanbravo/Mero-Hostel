@@ -4,7 +4,11 @@ import "react-awesome-slider/dist/styles.css";
 import { backendUrl } from "../../utils/helper";
 import "./index.scss";
 
-function HostelGallery({ gallery }) {
+type HostelGalleryProps = {
+  gallery: string[];
+};
+
+function HostelGallery({ gallery }: HostelGalleryProps) {
   return (
     <div className="gallery-slider">
       <AwesomeSlider>

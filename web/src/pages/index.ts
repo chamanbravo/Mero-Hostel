@@ -1,13 +1,5 @@
-import Homepage from "./Homepage";
-import SingleHostelPage from "./SingleHostelPage";
-import SearchResultPage from "./SearchResultPage";
-import UserProfilePage from "./UserProfilePage";
-import ErrorPage from "./ErrorPage";
-
-export {
-  Homepage,
-  SingleHostelPage,
-  SearchResultPage,
-  UserProfilePage,
-  ErrorPage,
-};
+export { default as Homepage } from "./Home";
+export { default as SingleHostelPage } from "./Hostel";
+export { default as SearchResultPage } from "./SearchResult";
+export { default as UserProfilePage } from "./User";
+export { default as ErrorPage } from "./Error";

@@ -1,9 +1,36 @@
 import { Key } from "react";
-import HostelGallery from "./../HostelGallery";
-import Button from "./../Button";
-import HostelReview from "./../HostelReview";
-import HostelMap from "./../HostelMap";
+import HostelGallery from "../../../components/HostelGallery";
+import Button from "../../../components/Button";
+import HostelReview from "../../../components/HostelReview";
+import HostelMap from "../../../components/HostelMap";
 import "./index.scss";
+
+type HostelDetailProps = {
+  id: string;
+  hostelName: string;
+  hostelPrice: number;
+  hostelContactNumber: number;
+  hostelAdmissionFee: number;
+  hostelSecurityCharges: number;
+  gallery: string[];
+  city: string;
+  street: string;
+  stars: number;
+  hostelReviews: {
+    id: string;
+    hostelId: string;
+    review: string;
+    rating: number;
+    userId: string;
+    userName: string;
+    userImage: string;
+  }[];
+  amenities: string[];
+  hostelType: string;
+  hostelRules: string;
+  longitude: number;
+  latitude: number;
+};
 
 function HostelDetail({
   id,
@@ -22,7 +49,7 @@ function HostelDetail({
   hostelRules,
   longitude,
   latitude,
-}) {
+}: HostelDetailProps) {
   const BoysHostel = () => {
     return (
       <h3 className="mini-details">

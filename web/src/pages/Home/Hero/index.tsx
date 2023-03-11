@@ -1,5 +1,5 @@
-import SearchBar from "../SearchBar";
-import hostelimg from "../../assets/hostelimg.png";
+import SearchBar from "../../../components/SearchBar";
+import hostelimg from "../../../assets/hostelimg.png";
 import "./index.scss";
 
 function Hero() {

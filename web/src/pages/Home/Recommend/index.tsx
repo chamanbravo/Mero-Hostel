@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import HostelCard from "../HostelCard";
-import { backendUrl } from "../../utils/helper";
+import HostelCard from "../../../components/HostelCard";
+import { backendUrl } from "../../../utils/helper";
 import "./index.scss";
 
 function Recommend() {
