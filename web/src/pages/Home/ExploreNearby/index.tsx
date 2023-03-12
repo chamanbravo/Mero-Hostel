@@ -1,4 +1,4 @@
-import { places } from "../../context/mockData/places";
+import { places } from "../../../context/mockData/places";
 import { Link } from "react-router-dom";
 import "./index.scss";
 

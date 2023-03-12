@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { SearchResults } from "../components";
 import axios from "axios";
-import { backendUrl } from "../utils/helper";
+import { backendUrl } from "../../utils/helper";
+import SearchResults from "./SearchResults";
 
 function SearchResultPage() {
   const { search } = useLocation();

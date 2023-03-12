@@ -1,7 +1,12 @@
 import GoogleMapReact from "google-map-react";
 import "./index.scss";
 
-function HostelMap({ lat, lng }) {
+type HostelMapProps = {
+  lat: string;
+  lng: string;
+};
+
+function HostelMap({ lat, lng }: HostelMapProps) {
   let center = { lat: parseFloat(lat), lng: parseFloat(lng) };
   let zoom = 18;
 

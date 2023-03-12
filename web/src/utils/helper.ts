@@ -1,4 +1,4 @@
-export const scrollToTop = () => {
+export const scrollToTop = (): void => {
   return window.scroll({ top: 0, left: 0 });
 };
 

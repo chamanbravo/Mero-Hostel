@@ -42,7 +42,7 @@ function HostAmenitiesForm() {
   const onChangeParkingSpace = () => {
     setAmenities((initialState) => ({
       ...amenities,
-      ParkingSpace: !initialState.ParkingSpace,
+      ParkingSpace: !initialState.Parking_Space,
     }));
   };
 
@@ -63,11 +63,11 @@ function HostAmenitiesForm() {
   const onChangeAirConditioning = () => {
     setAmenities((initialState) => ({
       ...amenities,
-      AirConditioning: !initialState.AirConditioning,
+      AirConditioning: !initialState.Air_Conditioning,
     }));
   };
 
-  let checkArray = [];
+  let checkArray: string[] = [];
   for (var key in amenities) {
     if (amenities[key] === true) {
       checkArray.push(key);
@@ -175,7 +175,7 @@ function HostAmenitiesForm() {
             <label className="form-check-label">
               <input
                 type="checkbox"
-                checked={amenities.ParkingSpace}
+                checked={amenities.Parking_Space}
                 onChange={onChangeParkingSpace}
               />
               Parking Space
@@ -205,7 +205,7 @@ function HostAmenitiesForm() {
             <label className="form-check-label">
               <input
                 type="checkbox"
-                checked={amenities.AirConditioning}
+                checked={amenities.Air_Conditioning}
                 onChange={onChangeAirConditioning}
               />
               Air Conditioning

@@ -8,7 +8,20 @@ import { toggle } from "../../features/register";
 import { popupModal } from "../../features/popupModal";
 import { backendUrl } from "../../utils/helper";
 
-function HostelReview({ review, hostelId }) {
+type HostelReviewProps = {
+  review: {
+    id: string;
+    hostelId: string;
+    review: string;
+    rating: number;
+    userId: string;
+    userName: string;
+    userImage: string;
+  }[];
+  hostelId: string;
+};
+
+function HostelReview({ review, hostelId }: HostelReviewProps) {
   const [comment, setComment] = useState("");
   const [reviews, setReviews] = useState(review);
   const commentBy = useSelector((state) => state.user.value.id);

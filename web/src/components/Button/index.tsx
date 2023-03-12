@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import "./index.scss";
 
-function Button({ link, cName, innerText }) {
+type ButtonProps = {
+  link: string;
+  cName: string;
+  innerText: string;
+};
+
+function Button({ link, cName, innerText }: ButtonProps) {
   return (
     <Link to={link} className={cName}>
       {innerText}

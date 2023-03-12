@@ -1,17 +1,9 @@
+import "./index.scss";
+
 function ErrorPage() {
-  const width = window.innerWidth > 765;
+  const width: Boolean = window.innerWidth > 765;
   return (
-    <div
-      className="error-page"
-      style={{
-        margin: "6rem 1rem 4rem 1rem",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: "2rem",
-        color: "#484848",
-      }}
-    >
+    <div className="error-page">
       <div className="error-text">
         <h1 style={{ fontSize: "6rem" }}>Oops!</h1>
         <h3 style={{ fontSize: "2rem", fontWeight: "400", maxWidth: "25ch" }}>

@@ -4,7 +4,11 @@ import { toggle } from "../../features/register";
 import { setUser } from "../../features/user";
 import "./index.scss";
 
-function ToggleMenu({ menuState }) {
+type ToggleMenuProps = {
+  menuState: (state: boolean) => void;
+};
+
+function ToggleMenu({ menuState }: ToggleMenuProps) {
   const user = useSelector((state) => state.user.value);
   const dispatch = useDispatch();
 

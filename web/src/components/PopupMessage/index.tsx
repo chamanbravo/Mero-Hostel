@@ -1,7 +1,13 @@
-import React from "react";
 import "./index.scss";
 
-function PopupMessage({ modalContent }) {
+type modalContentProps = {
+  modalContent: {
+    message: string;
+    cName: string;
+  };
+};
+
+function PopupMessage({ modalContent }: modalContentProps) {
   return (
     <div className={`message-modal ${modalContent.cName}`}>
       <p>{modalContent.message}</p>
