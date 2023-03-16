@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { toggle } from "../../features/register";
+import { useDispatch } from "react-redux";
+import { toggle } from "../../store/register";
 import { scrollToTop } from "../../utils/helper";
+import { useAppSelector } from "../../store";
 import "./index.scss";
 
 function StickyBar() {
-  const user = useSelector((state) => state.user.value);
+  const user = useAppSelector((state) => state.user);
   const [menu, setMenu] = useState(0);
   const dispatch = useDispatch();
   const toggleMenuStateIn = () => {

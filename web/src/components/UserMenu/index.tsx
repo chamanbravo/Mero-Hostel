@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import ToggleMenu from "../ToggleMenu";
 import { backendUrl } from "../../utils/helper";
+import { useAppSelector } from "../../store";
 import "./index.scss";
 
 function UserMenu() {
-  const user = useSelector((state) => state.user.value);
+  const user = useAppSelector((state) => state.user);
   let { firstName, lastName, profilePic } = user;
 
   const [toggle, setToggle] = useState(false);

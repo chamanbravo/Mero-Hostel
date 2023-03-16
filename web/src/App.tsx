@@ -18,13 +18,14 @@ import {
   UserProfilePage,
   ErrorPage,
 } from "./pages";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import ProtectedRoutes from "./utils/ProtectedRoutes";
-import { popupModal } from "./features/popupModal";
+import { popupModal } from "./store/popupModal";
+import { useAppSelector } from "./store";
 
 function App() {
-  const register = useSelector((state) => state.register.value);
-  const modalContent = useSelector((state) => state.popupModal.value);
+  const register = useAppSelector((state: any) => state.register);
+  const modalContent = useAppSelector((state: any) => state.popupModal);
   const dispatch = useDispatch();
 
   useEffect(() => {

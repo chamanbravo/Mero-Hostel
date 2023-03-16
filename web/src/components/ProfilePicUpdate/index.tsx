@@ -1,7 +1,7 @@
 import { SetStateAction, useState } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
-import { setUser } from "../../features/user";
+import { setUser } from "../../store/user";
 import { backendUrl } from "../../utils/helper";
 import "./index.scss";
 

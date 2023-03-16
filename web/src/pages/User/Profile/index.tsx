@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import HostelCard from "../../../components/HostelCard";
 import ProfilePicUpdate from "../../../components/ProfilePicUpdate";
-import { Link } from "react-router-dom";
 import { backendUrl } from "../../../utils/helper";
+import { useAppSelector } from "../../../store";
 import "./index.scss";
 
 function Profile() {
-  const user = useSelector((state) => state.user.value);
+  const user = useAppSelector((state) => state.user);
   let { id, firstName, lastName, doj, profilePic } = user;
   let [userHostel, setUserHostel] = useState([]);
   let [userComments, setUserComments] = useState([]);
-  let [picUpdateModal, setPicUpdateModal] = useState(false);
+  let [picUpdateModal, setPicUpdateModal] = useState<Boolean>(false);
 
   useEffect(() => {
     axios
@@ -74,15 +74,15 @@ function Profile() {
     );
   };
 
-  const LoadHostelCard = () => {
-    if (userHostel == null) return "";
+  const LoadHostelCard = (): JSX.Element => {
+    if (userHostel == null) return <h1>No data found!</h1>;
     if (userHostel.id === undefined) return <Loader />;
-    if (userHostel) return <UserHostedHostel />;
+    return <UserHostedHostel />;
   };
 
-  const LoadUserComments = () => {
-    if (userComments == null) return "";
-    if (userComments) return <UserComments />;
+  const LoadUserComments = (): JSX.Element => {
+    if (userComments == null) return <h1>No comments found</h1>;
+    return <UserComments />;
   };
 
   const Loader = () => {

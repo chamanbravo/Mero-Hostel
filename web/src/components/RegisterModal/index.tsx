@@ -1,12 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import SignIn from "../SignIn";
 import SignUp from "../SignUp";
-import { toggle } from "../../features/register";
+import { toggle } from "../../store/register";
+import { useAppSelector } from "../../store";
 import "./index.scss";
 
 function RegisterModal() {
   const dispatch = useDispatch();
-  const register = useSelector((state) => state.register.value);
+  const register = useAppSelector((state) => state.register);
 
   const closeModal = () => {
     dispatch(toggle({ toggleState: false }));

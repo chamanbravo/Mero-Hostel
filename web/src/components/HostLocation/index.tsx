@@ -1,14 +1,15 @@
 import { useState } from "react";
 import GoogleMapReact from "google-map-react";
 import Button from "./../Button";
-import { useDispatch, useSelector } from "react-redux";
-import { setHostel } from "../../features/hostHostel";
-import { popupModal } from "../../features/popupModal";
+import { useDispatch } from "react-redux";
+import { setHostel } from "../../store/hostHostel";
+import { popupModal } from "../../store/popupModal";
 import "./index.scss";
+import { useAppSelector } from "../../store";
 
 function HostLocation() {
   const dispatch = useDispatch();
-  const hostelData = useSelector((state) => state.hostHostel);
+  const hostelData = useAppSelector((state) => state.hostHostel);
   const [state, setState] = useState({
     street: "",
     city: "",

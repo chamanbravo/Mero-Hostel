@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { toggle } from "../../features/register";
-import { setUser } from "../../features/user";
+import { useDispatch } from "react-redux";
+import { toggle } from "../../store/register";
+import { setUser } from "../../store/user";
 import "./index.scss";
+import { useAppSelector } from "../../store";
 
 type ToggleMenuProps = {
   menuState: (state: boolean) => void;
 };
 
 function ToggleMenu({ menuState }: ToggleMenuProps) {
-  const user = useSelector((state) => state.user.value);
+  const user = useAppSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const toggleUserMenu = () => {

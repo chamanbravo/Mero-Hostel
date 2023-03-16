@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import logo from "../../assets/logo.png";
 import SearchBar from "../SearchBar";
 import UserMenu from "../UserMenu";
 import Button from "../Button";
-import { toggle } from "../../features/register";
+import { toggle } from "../../store/register";
 import { scrollToTop } from "../../utils/helper";
+import { useAppDispatch, useAppSelector } from "../../store";
 import "./index.scss";
 
 function Header() {
-  const user = useSelector((state) => state.user.value);
-  const dispatch = useDispatch();
+  const user = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
 
   const hostbtn = () => {
     if (!user.firstName) {

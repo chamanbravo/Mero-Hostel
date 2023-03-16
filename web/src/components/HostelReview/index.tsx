@@ -1,12 +1,12 @@
 import { Key, useState } from "react";
-import "./index.scss";
-import Comments from "./../Comments";
 import axios from "axios";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { toggle } from "../../features/register";
-import { popupModal } from "../../features/popupModal";
+import Comments from "./../Comments";
+import { toggle } from "../../store/register";
+import { popupModal } from "../../store/popupModal";
 import { backendUrl } from "../../utils/helper";
+import { useAppSelector } from "../../store";
+import "./index.scss";
 
 type HostelReviewProps = {
   review: {
@@ -24,7 +24,7 @@ type HostelReviewProps = {
 function HostelReview({ review, hostelId }: HostelReviewProps) {
   const [comment, setComment] = useState("");
   const [reviews, setReviews] = useState(review);
-  const commentBy = useSelector((state) => state.user.value.id);
+  const commentBy = useAppSelector((state) => state.user.id);
   const dispatch = useDispatch();
 
   const sendComment = async () => {

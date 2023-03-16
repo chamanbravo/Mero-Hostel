@@ -3,14 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const message = createSlice({
   name: "message",
   initialState: {
-    value: {
-      message: "",
-      cName: "",
-    },
+    message: "",
+    cName: "",
   },
   reducers: {
     popupModal: (state, action) => {
-      state.value = action.payload;
+      state = action.payload;
     },
   },
 });

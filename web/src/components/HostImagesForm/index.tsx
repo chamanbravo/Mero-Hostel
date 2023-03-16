@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import axios from "axios";
-import { popupModal } from "../../features/popupModal";
+import { popupModal } from "../../store/popupModal";
 import { backendUrl } from "../../utils/helper";
+import { useAppSelector } from "../../store";
 
 function HostImagesForm() {
   const dispatch = useDispatch();
-  const hostelData = useSelector((state) => state.hostHostel.value);
-  const userId = useSelector((user) => user.user.value.id);
+  const hostelData = useAppSelector((state) => state.hostHostel);
+  const userId = useAppSelector((user) => user.user.id);
   const {
     hostelName,
     hostelOwnerName,

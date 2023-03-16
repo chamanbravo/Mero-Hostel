@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setHostel } from "../../features/hostHostel";
-import { popupModal } from "../../features/popupModal";
+import { setHostel } from "../../store/hostHostel";
+import { popupModal } from "../../store/popupModal";
 import Button from "./../Button";
 import "./index.scss";
 

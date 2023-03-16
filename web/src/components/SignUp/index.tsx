@@ -1,9 +1,9 @@
 import { FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
-import { setUser } from "../../features/user";
-import { toggle } from "../../features/register";
-import { popupModal } from "../../features/popupModal";
+import { setUser } from "../../store/user";
+import { toggle } from "../../store/register";
+import { popupModal } from "../../store/popupModal";
 import { backendUrl } from "../../utils/helper";
 import "../TextBox.scss";
 

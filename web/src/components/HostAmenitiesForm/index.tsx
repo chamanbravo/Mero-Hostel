@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Button from "../Button";
-import { useDispatch, useSelector } from "react-redux";
-import { setHostel } from "../../features/hostHostel";
-import { popupModal } from "../../features/popupModal";
+import { useDispatch } from "react-redux";
+import { setHostel } from "../../store/hostHostel";
+import { popupModal } from "../../store/popupModal";
+import { useAppSelector } from "../../store";
 
 function HostAmenitiesForm() {
-  const hostelData = useSelector((state) => state.hostHostel);
+  const hostelData = useAppSelector((state) => state.hostHostel);
   const dispatch = useDispatch();
 
   const [state, setState] = useState({

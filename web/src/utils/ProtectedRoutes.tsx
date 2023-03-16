@@ -1,8 +1,8 @@
 import { Outlet, Navigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../store";
 
 function ProtectedRoutes() {
-  const user = useSelector((state) => state.user.value);
+  const user = useAppSelector((state) => state.user);
 
   if (!user.firstName) {
     return <Navigate to="/" />;
