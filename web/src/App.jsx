@@ -10,6 +10,8 @@ import SearchData from "./pages/SearchData";
 import RegisterHostel from "./pages/RegisterHostel";
 import HostelDetail from "./pages/HostelDetail";
 import Book from "./pages/Book";
+import "react-toastify/dist/ReactToastify.css";
+
 const App = () => {
   return (
     <>

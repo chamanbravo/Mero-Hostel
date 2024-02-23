@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import Button from "../components/Button";
 import { useFormik } from "formik";
 import { bookSchema } from "../Schemas/bookSchemas";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { bookingHostel } from "../features/UserDetailSlice";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Book = () => {
-  const { response, userItem } = useSelector((state) => state.userDetail);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -29,6 +29,7 @@ const Book = () => {
       validationSchema: bookSchema,
       onSubmit: (values) => {
         dispatch(bookingHostel(values));
+        toast.success("Hostel Booked Successfully")
         resetForm();
       },
     });

@@ -14,7 +14,9 @@ export const loginUser = createAsyncThunk(
       const result = await response.json();
       if (response.ok) {
         localStorage.setItem("token", result.token);
-        return result.token;
+        console.log("this is userDetails", response.ok);
+
+        return { token: result.token, ok: response.ok };
       } else {
         return rejectWithValue({ message: result.message });
       }
@@ -62,9 +64,7 @@ export const recommendedHostel = createAsyncThunk(
   "recommendedHostel",
   async (data, { rejectWithValue }) => {
     try {
-      const response = await fetch(
-        `${url}api/hostel/show?skip=0&limit=6`
-      );
+      const response = await fetch(`${url}api/hostel/show?skip=0&limit=6`);
       const result = await response.json();
       return result.hostel;
     } catch (error) {
@@ -77,9 +77,7 @@ export const searchHostelOne = createAsyncThunk(
   "searchHostelOne",
   async (data, { rejectWithValue }) => {
     try {
-      const response = await fetch(
-        `${url}api/hostel/search?location=${data}`
-      );
+      const response = await fetch(`${url}api/hostel/search?location=${data}`);
       const result = await response.json();
 
       return result;
@@ -93,16 +91,13 @@ export const hostelRegister = createAsyncThunk(
   "hostelRegister",
   async (data, { rejectWithValue }) => {
     try {
-      const response = await fetch(
-        `${url}api/hostel/register`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
+      const response = await fetch(`${url}api/hostel/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
       const result = await response.json();
       console.log("post", result);
       return response.ok;
@@ -116,9 +111,7 @@ export const hostelDetail = createAsyncThunk(
   "hostelDetail",
   async (data, { rejectWithValue }) => {
     try {
-      const response = await fetch(
-        `${url}api/hostel/show/${data}`
-      );
+      const response = await fetch(`${url}api/hostel/show/${data}`);
       const result = await response.json();
       return result.message;
     } catch (error) {
@@ -165,14 +158,10 @@ export const tokenData = createAsyncThunk(
   }
 );
 
-export const clearUser =createAsyncThunk(
-  "clearUser",
-  ()=>{
-    localStorage.removeItem("token");
-    return false;
-  }
-  
-)
+export const clearUser = createAsyncThunk("clearUser", () => {
+  localStorage.removeItem("token");
+  return false;
+});
 
 const initialState = {
   token: localStorage.getItem("token") || null,
@@ -183,6 +172,7 @@ const initialState = {
   hostelInfo: [],
   response: false,
   userItem: [],
+  ok: false,
 };
 
 const userDetailSlice = createSlice({
@@ -196,7 +186,8 @@ const userDetailSlice = createSlice({
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.token = action.payload;
+        state.token = action.payload.token;
+        state.ok = action.payload.ok;
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;
@@ -294,7 +285,7 @@ const userDetailSlice = createSlice({
       })
       .addCase(clearUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.token=null;
+        state.token = null;
       })
       .addCase(clearUser.rejected, (state, action) => {
         state.loading = false;

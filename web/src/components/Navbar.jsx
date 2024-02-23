@@ -12,9 +12,9 @@ const Navbar = () => {
   const [login, setLogin] = useState(false);
   const [register, setRegister] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [detailHostel, setDetailHostel] = useState(false);
+ 
 
-  const { token, contentpush } = useSelector((state) => state.userDetail);
+  const { token } = useSelector((state) => state.userDetail);
 
   const dispatch = useDispatch();
 
@@ -35,15 +35,9 @@ const Navbar = () => {
     setRegister(false);
   };
 
-  const handleHostel = () => {
-    setDetailHostel(!detailHostel);
-  };
-
+ 
   const handleLogout = () => {
     dispatch(clearUser());
-    // localStorage.removeItem("token");
-
-    // window.location.reload();
   };
 
   const setToken = !!token;

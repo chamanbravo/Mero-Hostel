@@ -14,6 +14,8 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
+import {ToastContainer,toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RecommendedHostel = () => {
   const { searchItem, loading, token } = useSelector(
@@ -38,8 +40,11 @@ const RecommendedHostel = () => {
     return <h1>Loading...</h1>;
   }
 
-  console.log("the token is", token);
+  const handleViewMore=()=>{
+    toast.error("Please Login to View More Hostels");
 
+
+  }
   return (
     <>
       <main className="container mt-10">
@@ -109,9 +114,12 @@ const RecommendedHostel = () => {
                 <NavLink to="/hostel/search?q=all">View More</NavLink>
               </Button>
               ):(
-                <Button disabled>
+               <>
+                <Button disabled onClick={handleViewMore}>
                 <NavLink  >View More</NavLink>
               </Button>
+              <ToastContainer />
+               </>
               )
             )}
           </div>

@@ -65,7 +65,9 @@ const Filter = ({handlePrice,handleStars}) => {
                     value={1}
                     onChange={handlePrice}
                   />
-                  <label className="rating-label">1000</label>
+                  <label className="rating-label">
+                    
+                  1000</label>
                 </div>
                 <div>
                   <input

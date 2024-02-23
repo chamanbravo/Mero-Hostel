@@ -2,12 +2,13 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
-import { Formik, useFormik } from "formik";
+import {  useFormik } from "formik";
 import { hostelSchema } from "../Schemas/hostelSchemas";
 import { hostelRegister } from "../features/UserDetailSlice";
+import { toast } from "react-toastify";
 
 const RegisterHostel = () => {
-  const { token, contentpush } = useSelector((state) => state.userDetail);
+  const { token } = useSelector((state) => state.userDetail);
   const dispatch = useDispatch();
   const setToken = !!token;
   const navigate = useNavigate();
@@ -36,8 +37,7 @@ const RegisterHostel = () => {
     validationSchema: hostelSchema,
     onSubmit: (values) => {
       dispatch(hostelRegister(values));
-
-      console.log(values);
+      toast.success("Hostel Registered Successfully")
       resetForm();
     },
   });
