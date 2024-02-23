@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.container {
+  @apply max-w-screen-2xl  mx-auto px-10 lg:px-0  overflow-hidden;
+}
+
+.pointer {
+  @apply hover:cursor-pointer;
+}
+
+.shadowin {
+  @apply hover:shadow-inner transition-all ease-in duration-200;
+}
+.search {
+  @apply h-full  bg-[#ff385c] text-white rounded-[50%] w-9 p-[0.5rem] text-center size-[1rem] hover:bg-white hover:text-[#ff385c] transition-all ease-in duration-500 pointer;
+}
+.font {
+  @apply hover:text-red-500 font-medium transition-all ease-in duration-150;
+}
+.dropdown {
+  @apply hover:bg-gray-300 transition-all ease-in duration-300;
+}
+.hostelLabel {
+  @apply p-2 font-semibold text-lg md:text-2xl;
+}
+
+.hostelInput {
+  @apply capitalize outline-none py-2 px-3 shadow-inner rounded-md w-52;
+}
+
+.rating-label{
+  @apply pl-2 text-lg;
+}

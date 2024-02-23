@@ -1,0 +1,36 @@
+# specify the version of docker-compose
+version: "3.8"
+
+# define the services/containers to be run
+services:
+  api: 
+    # api service depends on the db service so the db service will be started before the api service
+
+    # specify the build context for the api service
+    build: .
+    
+    # specify the ports to expose for the api service
+    # the first number is the port on the host machine
+    # the second number is the port inside the container
+    ports: 
+      - 5000:5000
+
+    # specify environment variables for the api service
+    # for demo purposes, we're using a local mongodb instance
+    env_file:
+      - .env
+    
+    # establish docker compose watch mode for the api service
+    develop:
+      # specify the files to watch for changes
+      watch:
+        # it'll watch for changes in package.json and package-lock.json and rebuild the container and image if there are any changes
+        - path: package.json
+          action: rebuild
+        - path: package-lock.json
+          action: rebuild
+        
+        # it'll watch for changes in the backend directory and sync the changes with the container real time
+        - path: .
+          target: /app
+          action: sync
