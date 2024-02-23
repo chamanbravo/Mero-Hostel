@@ -15,12 +15,11 @@ git clone https://github.com/chamanbravo/Mero-Hostel.git
 # Change directory
 cd Mero-Hostel
 
-# Install dependencies
-yarn install
+# setup .env for api
 
-#Create .env file in /api with the following contents:
-MONGODB_URI = ''
+# Install dependencies
+npm install
 
 # Then simply start
-yarn dev
+npm run dev
 ```
