@@ -8,12 +8,9 @@
     "web"
   ],
   "scripts": {
-    "start": "concurrently -n \"api,web\" -c \"green,cyan\" \"yarn workspace api start\" \"yarn workspace web start\"",
-    "dev": "concurrently -n \"api,web\" -c \"green,cyan\" \"yarn workspace api run dev\" \"yarn workspace web dev\""
+    "dev": "concurrently -n \"api,web\" -c \"green,cyan\" \"npm run dev --workspace api\" \"npm run dev --workspace web\""
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.0.2",
-    "@commitlint/config-conventional": "^17.0.2",
     "concurrently": "^7.2.0"
   }
 }
