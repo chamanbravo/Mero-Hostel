@@ -1,9 +1,0 @@
-export { default as Header } from "./Header";
-export { default as RegisterModal } from "./RegisterModal";
-export { default as HostForm } from "./HostForm";
-export { default as HostLocation } from "./HostLocation";
-export { default as HostAmenitiesForm } from "./HostAmenitiesForm";
-export { default as StickyBar } from "./StickyBar";
-export { default as HostImagesForm } from "./HostImagesForm";
-export { default as PopupMessage } from "./PopupMessage";
-export { default as Footer } from "./Footer";
