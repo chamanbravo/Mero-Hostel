@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { IoMdPerson } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { NavLink } from "react-router-dom";
@@ -7,12 +7,12 @@ import Register from "./Register";
 import { useDispatch, useSelector } from "react-redux";
 import Search from "./Search";
 import { clearUser } from "../features/UserDetailSlice";
+import { ToastContainer, toast } from "react-toastify";
 
 const Navbar = () => {
   const [login, setLogin] = useState(false);
   const [register, setRegister] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
- 
 
   const { token } = useSelector((state) => state.userDetail);
 
@@ -35,9 +35,12 @@ const Navbar = () => {
     setRegister(false);
   };
 
- 
   const handleLogout = () => {
+    toast.success("Logout successful", {
+      position: "top-center",
+    });
     dispatch(clearUser());
+
   };
 
   const setToken = !!token;
@@ -104,7 +107,6 @@ const Navbar = () => {
                     <ul className="my-2">
                       {setToken ? (
                         <>
-                          
                           <li className="dropdown p-3 ">
                             {" "}
                             <NavLink to="/hostel/search?q=all">Hostel</NavLink>
@@ -154,6 +156,7 @@ const Navbar = () => {
       {register && !setToken && (
         <Register handleCross={handleCross} handleLogin={handleLogin} />
       )}
+      
     </>
   );
 };

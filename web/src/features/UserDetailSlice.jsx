@@ -14,9 +14,7 @@ export const loginUser = createAsyncThunk(
       const result = await response.json();
       if (response.ok) {
         localStorage.setItem("token", result.token);
-        console.log("this is userDetails", response.ok);
-
-        return { token: result.token, ok: response.ok };
+        return result.token;
       } else {
         return rejectWithValue({ message: result.message });
       }
@@ -172,7 +170,7 @@ const initialState = {
   hostelInfo: [],
   response: false,
   userItem: [],
-  ok: false,
+  isLoggedIn: false,
 };
 
 const userDetailSlice = createSlice({
@@ -186,8 +184,8 @@ const userDetailSlice = createSlice({
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.token = action.payload.token;
-        state.ok = action.payload.ok;
+        state.isLoggedIn =true;
+        state.token = action.payload;
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;
@@ -285,7 +283,8 @@ const userDetailSlice = createSlice({
       })
       .addCase(clearUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.token = null;
+        state.token = action.payload;
+        state.ok=action.payload;
       })
       .addCase(clearUser.rejected, (state, action) => {
         state.loading = false;

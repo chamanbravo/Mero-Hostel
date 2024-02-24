@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { signInSchema } from "../Schemas/loginSchemas";
 import Button from "./Button";
@@ -14,28 +14,20 @@ const Login = ({ handleCross, handleRegister }) => {
   };
   const dispatch = useDispatch();
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const { ok } = useSelector((state) => state.userDetail);
-  console.log("this is login ok",ok)
+  const { isLoggedIn } = useSelector((state) => state.userDetail);
+  console.log("this is login isLoggedIn", isLoggedIn);
 
   const { values, errors, handleBlur, handleChange, handleSubmit, touched } =
     useFormik({
       initialValues,
       validationSchema: signInSchema,
       onSubmit: async (values, action) => {
-        handleLoginToast(values, action);
+       await dispatch(loginUser(values));
+        action.resetForm();
       },
     });
 
-  const handleLoginToast = (values, action) => {
-    dispatch(loginUser(values));
-    if (ok) {
-      setShowSuccessMessage(true); // Set the state to show success message
-      action.resetForm();
-     
-    }
-    setShowSuccessMessage(true); // Set the state to show success message
-    action.resetForm();
-  };
+ 
 
   return (
     <section className="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-30">

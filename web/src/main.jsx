@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Provider store={store}>
       <React.StrictMode>
         <App />
-        <ToastContainer />
+        <ToastContainer position="top-center" />
       </React.StrictMode>
     </Provider>
   </ChakraProvider>
