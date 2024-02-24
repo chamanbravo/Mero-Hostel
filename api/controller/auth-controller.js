@@ -37,6 +37,7 @@ const login = async (req, res) => {
         msg: "User login successfully",
         token: await userExist.generateToken(),
         userId: userExist._id.toString(),
+        user:userExist
       });
     } else {
       res.status(400).json({ message: "Invalid email or password" });

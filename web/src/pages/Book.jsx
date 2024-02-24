@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Button from "../components/Button";
 import { useFormik } from "formik";
 import { bookSchema } from "../Schemas/bookSchemas";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { bookingHostel } from "../features/UserDetailSlice";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
@@ -13,9 +13,10 @@ const Book = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const token = localStorage.getItem("token");
-
+  const {token }= useSelector((state)=>state.userDetail)
   const decode = jwtDecode(token);
+
+ 
 
   const { errors, values, handleChange, handleSubmit, touched, resetForm } =
     useFormik({

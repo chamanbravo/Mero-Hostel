@@ -39,7 +39,7 @@ const Navbar = () => {
     toast.success("Logout successful", {
       position: "top-center",
     });
-    dispatch(clearUser());
+       dispatch(clearUser());
 
   };
 

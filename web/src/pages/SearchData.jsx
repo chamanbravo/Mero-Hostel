@@ -20,6 +20,7 @@ import {
 } from "@chakra-ui/react";
 import DropDownFilter from "../components/DropDownFilter";
 import Filter from "../components/Filter";
+import { Star } from "../components/Star";
 
 const SearchData = () => {
   const { searchItem, token } = useSelector((state) => state.userDetail);
@@ -175,19 +176,6 @@ const SearchData = () => {
   return (
     <>
       <main className="container mt-10">
-        <div>
-          {query === "all" ? (
-            <h1 className="text-2xl font-bold text-center capitalize">
-              All Hostels
-            </h1>
-          ) : (
-            <h1 className="text-2xl font-bold text-center capitalize">
-              Search Result {query}
-            </h1>
-          )}
-        </div>
-        <hr className="my-10" />
-
         <section className=" flex justify-evenly items-center">
           <h1 className="font-bold text-2xl">Filter</h1>
 
@@ -200,12 +188,17 @@ const SearchData = () => {
         </section>
         <hr className=" my-10" />
 
-        <div className="flex  gap-6 flex-wrap border border-black justify-center mt-10 ">
+        <div className="flex gap-6 flex-wrap md:flex-nowrap justify-center mt-10 ">
           <Filter handlePrice={handlePrice} handleStars={handleStars} />
 
+          <div className="flex flex-wrap justify-center items-center gap-7 " >
           {currentHostels.map((hostel, index) => {
             return (
-              <Card maxW="sm" key={index} className="border border-black my-10 w-full sm:w-5/6">
+              <Card
+                maxW="sm"
+                key={index}
+                className="border  border-black my-10 w-full sm:w-5/6"
+              >
                 <CardBody>
                   <Image
                     src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
@@ -213,11 +206,16 @@ const SearchData = () => {
                     borderRadius="lg"
                   />
                   <Stack mt="6" spacing="3">
-                    <Heading size="md" className="capitalize">
-                      {hostel.hostelName}
-                    </Heading>
+                    <div className="flex justify-between">
+                      <Heading size="md" className="capitalize">
+                        {hostel.hostelName}
+                      </Heading>
+                      <div className="flex">
+                        <Star value={hostel.hostelRating} />
+                      </div>{" "}
+                    </div>
                     <Text className="capitalize text-lg ">
-                      {hostel.hostelDescription}
+                      {hostel.hostelDescription.slice(0,25)}
                     </Text>
                     <div className="flex gap-16">
                       <Text color="blue.600" fontSize="2xl">
@@ -256,6 +254,7 @@ const SearchData = () => {
               </Card>
             );
           })}
+          </div>
         </div>
         <div className="flex justify-center items-center gap-5 ">
           {Array.from({
