@@ -7,7 +7,6 @@ const Card = () => {
 
 
   const {isLoggedIn}=useSelector((state)=>state.userDetail)
-  console.log(isLoggedIn)
   const imagesDetails = [
     {
       img: "/places/anamnagar.jpg",

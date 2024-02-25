@@ -134,7 +134,7 @@ const Navbar = () => {
                   <div
                     className={`fixed inset-0 top-24  left-[90%] lg:left-[92.27%] 
                     xl:left-[93.4%] text-center 2xl:left-[88.3%] w-36 lg:w-36 2xl:w-36 ${
-                      setToken ? "h-1/5" : "h-1/5"
+                      setToken ? "h-1/4" : "h-1/5"
                     } md:left-[87%] bg-white border rounded-xl shadow-lg`}
                   >
                     <ul className="my-2">

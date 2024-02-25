@@ -5,6 +5,10 @@ const bookSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  userGmail: {
+    type: String,
+    required: true,
+  },
   userContact: {
     type: String,
     required: true,
@@ -26,3 +30,4 @@ const bookSchema = new mongoose.Schema({
 const Book = new mongoose.model("Book", bookSchema);
 
 export default Book;
+

@@ -15,6 +15,7 @@ const Book = () => {
 
   const {token }= useSelector((state)=>state.userDetail)
   const decode = jwtDecode(token);
+  
 
  
 
@@ -26,11 +27,11 @@ const Book = () => {
         hostelName: "",
         hostelContact: "",
         hostelLocation: "",
+        userGmail:decode.email,
       },
       validationSchema: bookSchema,
       onSubmit: (values) => {
         dispatch(bookingHostel(values));
-        toast.success("Hostel Booked Successfully")
         resetForm();
       },
     });
@@ -64,6 +65,21 @@ const Book = () => {
                 />
                 {errors.userName && touched.userName ? (
                   <p className="text-red-600 italic">{errors.userName}</p>
+                ) : null}
+              </div>
+
+              <div className="flex items-center flex-col">
+                <label className="hostelLabel">UserGmail</label>
+                <input
+                  type="gmail"
+                  placeholder="Enter Usergmail"
+                  className="hostelInput-email"
+                  name="userGmail"
+                  value={values.userGmail}
+                  onChange={handleChange}
+                />
+                {errors.userGmail && touched.userGmail ? (
+                  <p className="text-red-600 italic">{errors.userGmail}</p>
                 ) : null}
               </div>
 

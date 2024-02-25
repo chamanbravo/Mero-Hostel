@@ -19,7 +19,7 @@ export const loginUser = createAsyncThunk(
         localStorage.setItem("token", result.token);
         return result.token;
       } else {
-        toast.error("Invalid email or password")
+        toast.error("Invalid email or password");
         return rejectWithValue({ message: result.message });
       }
     } catch (error) {
@@ -100,8 +100,13 @@ export const hostelRegister = createAsyncThunk(
         },
         body: JSON.stringify(data),
       });
-      const result = await response.json();
-      return response.ok;
+      if (response.ok) {
+        toast.success("Hostel Registered Successfully");
+        return response.ok;
+      } else {
+        toast.error("Hostel Registration Failed");
+        return rejectWithValue({ message: "Hostel Registration Failed" });
+      }
     } catch (error) {
       return rejectWithValue({ message: error.message });
     }
@@ -132,7 +137,13 @@ export const bookingHostel = createAsyncThunk(
         },
         body: JSON.stringify(data),
       });
-      return response.ok;
+      if (response.ok) {
+        toast.success("Booking Successful");
+        return response.ok;
+      } else {
+        toast.error("Booking Failed");
+        return rejectWithValue({ message: "Booking Failed" });
+      }
     } catch (error) {
       return rejectWithValue({ message: error.message });
     }
@@ -164,6 +175,27 @@ export const clearUser = createAsyncThunk("clearUser", () => {
   return false;
 });
 
+export const profileUser = createAsyncThunk(
+  "profileUser",
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/auth/userDetails",
+        {
+          method: "Get",
+          headers: {
+            Authorization: `Bearer ${data}`,
+          },
+        }
+      );
+      const result = await response.json();
+      return { user: result.user, userdetails: result.userdetails };
+    } catch (error) {
+      return rejectWithValue({ message: error.message });
+    }
+  }
+);
+
 const initialState = {
   token: localStorage.getItem("token") || null,
   loading: false,
@@ -174,6 +206,8 @@ const initialState = {
   response: false,
   userItem: [],
   isLoggedIn: false,
+  userdetails: [],
+  user:[]
 };
 
 const userDetailSlice = createSlice({
@@ -290,6 +324,19 @@ const userDetailSlice = createSlice({
         state.ok = action.payload;
       })
       .addCase(clearUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload.message;
+      })
+      .addCase(profileUser.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(profileUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.userdetails = action.payload.userdetails;
+        state.user = action.payload.user;
+
+      })
+      .addCase(profileUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload.message;
       });

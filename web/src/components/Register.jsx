@@ -12,6 +12,7 @@ const Register = ({ handleCross, handleLogin }) => {
     lastname: "",
     email: "",
     password: "",
+    phone:""
   };
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const dispatch = useDispatch();
@@ -125,6 +126,22 @@ const Register = ({ handleCross, handleLogin }) => {
                 />
                 {errors.email && touched.email ? (
                   <p className="text-red-600 italic">{errors.email}</p>
+                ) : null}
+              </div>
+              <div className="flex flex-col">
+                <label className="pt-2 font-bold">Phone</label>
+                <input
+                  type="text"
+                  className="py-2 outline-none border-b-2 focus:border-b-2 focus:border-blue-500 transition-all ease-in duration-300"
+                  placeholder="Phone "
+                  name="phone"
+                  id="phone"
+                  value={values.phone}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                {errors.phone && touched.phone ? (
+                  <p className="text-red-600 italic">{errors.phone}</p>
                 ) : null}
               </div>
 

@@ -1,8 +1,9 @@
 import User from "../model/user-model.js";
+import Book from "../model/book-model.js";
 
 const register = async (req, res) => {
   try {
-    const { email, password, isAdmin, lastname, firstname } = req.body;
+    const { email, password, isAdmin, lastname, firstname, phone } = req.body;
     const userExist = await User.findOne({ email: email });
     if (userExist) {
       return res.status(400).json({ message: "User already exists" });
@@ -13,6 +14,7 @@ const register = async (req, res) => {
 
       email,
       password,
+      phone,
 
       isAdmin,
     });
@@ -37,7 +39,7 @@ const login = async (req, res) => {
         msg: "User login successfully",
         token: await userExist.generateToken(),
         userId: userExist._id.toString(),
-        user:userExist
+        user: userExist,
       });
     } else {
       res.status(400).json({ message: "Invalid email or password" });
@@ -65,4 +67,14 @@ const userToken = async (req, res) => {
     console.log("Error from the userToken controller", error);
   }
 };
-export  { login, register, user, userToken };
+
+const userHostel = async (req, res) => {
+  try {
+    const { email } = req.user;
+    const exist = await Book.find({ userGmail: email });
+    res.status(200).json({ user: exist,userdetails:req.user });
+  } catch (error) {
+    console.log("Error from the userHostel controller", error);
+  }
+};
+export { login, register, user, userToken, userHostel };

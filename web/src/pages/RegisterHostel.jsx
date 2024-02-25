@@ -37,7 +37,6 @@ const RegisterHostel = () => {
     validationSchema: hostelSchema,
     onSubmit: (values) => {
       dispatch(hostelRegister(values));
-      toast.success("Hostel Registered Successfully")
       resetForm();
     },
   });
