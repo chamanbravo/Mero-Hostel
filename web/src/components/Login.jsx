@@ -15,7 +15,6 @@ const Login = ({ handleCross, handleRegister }) => {
   const dispatch = useDispatch();
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const { isLoggedIn } = useSelector((state) => state.userDetail);
-  console.log("this is login isLoggedIn", isLoggedIn);
 
   const { values, errors, handleBlur, handleChange, handleSubmit, touched } =
     useFormik({
@@ -23,16 +22,23 @@ const Login = ({ handleCross, handleRegister }) => {
       validationSchema: signInSchema,
       onSubmit: async (values, action) => {
        await dispatch(loginUser(values));
-        action.resetForm();
+       action.resetForm();
+
+      //  if(isLoggedIn){
+      //   toast.success("Login Successful")
+      // }
+
       },
     });
+
+    
 
  
 
   return (
     <section className="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-30">
       <div className="container flex justify-center items-center w-full">
-        <div className="rounded-2xl bg-white p-4 flex justify-between items-center w-4/5 md:w-2/3 lg:w-[50rem] py-16 relative">
+        <div className="rounded-2xl bg-white p-4 flex justify-between items-center w-4/5 md:w-2/3 lg:w-[50rem] relative">
           <div className="absolute top-0 right-0 m-4">
             <RxCrossCircled
               size={20}

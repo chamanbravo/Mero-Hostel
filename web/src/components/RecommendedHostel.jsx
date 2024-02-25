@@ -14,8 +14,8 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import {ToastContainer,toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import {toast} from 'react-toastify';
+
 import { Star } from "./Star";
 
 const RecommendedHostel = () => {
@@ -127,7 +127,6 @@ const RecommendedHostel = () => {
                 <Button disabled onClick={handleViewMore}>
                 <NavLink  >View More</NavLink>
               </Button>
-              <ToastContainer />
                </>
               )
             )}

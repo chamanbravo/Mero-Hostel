@@ -11,8 +11,11 @@ import RegisterHostel from "./pages/RegisterHostel";
 import HostelDetail from "./pages/HostelDetail";
 import Book from "./pages/Book";
 import "react-toastify/dist/ReactToastify.css";
+import Profile from "./pages/Profile";
 
 const App = () => {
+  
+
   return (
     <>
       <Router>
@@ -25,13 +28,15 @@ const App = () => {
           <Route path="/hostel/search" element={<SearchData />} />
           <Route path="/hostel/register" element={<RegisterHostel />} />
           <Route path="/hostel/show/:id" element={<HostelDetail />} />
-          <Route path="/hostel/book/:id" element={<Book/>}/>
+          <Route path="/user/profile" element={<Profile />} />
+          <Route path="/hostel/book/:id" element={<Book />} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
       </Router>
     </>
   );
-};7
+};
+7;
 
 export default App;

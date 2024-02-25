@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 const url = import.meta.env.VITE_URL;
 export const loginUser = createAsyncThunk(
   "loginUser",
@@ -12,11 +13,13 @@ export const loginUser = createAsyncThunk(
         body: JSON.stringify(data),
       });
       const result = await response.json();
-      console.log(result)
       if (response.ok) {
+        toast.success("Login Successful");
+
         localStorage.setItem("token", result.token);
         return result.token;
       } else {
+        toast.error("Invalid email or password")
         return rejectWithValue({ message: result.message });
       }
     } catch (error) {
@@ -98,7 +101,6 @@ export const hostelRegister = createAsyncThunk(
         body: JSON.stringify(data),
       });
       const result = await response.json();
-      console.log("post", result);
       return response.ok;
     } catch (error) {
       return rejectWithValue({ message: error.message });
@@ -149,7 +151,6 @@ export const tokenData = createAsyncThunk(
       });
 
       const result = await response.json();
-      console.log(result);
       return result;
     } catch (error) {
       return rejectWithValue({ message: error.message });
@@ -159,6 +160,7 @@ export const tokenData = createAsyncThunk(
 
 export const clearUser = createAsyncThunk("clearUser", () => {
   localStorage.removeItem("token");
+  toast.success("Logout Successful");
   return false;
 });
 
@@ -185,7 +187,7 @@ const userDetailSlice = createSlice({
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.isLoggedIn =true;
+        state.isLoggedIn = true;
         state.token = action.payload;
       })
       .addCase(loginUser.rejected, (state, action) => {
@@ -285,7 +287,7 @@ const userDetailSlice = createSlice({
       .addCase(clearUser.fulfilled, (state, action) => {
         state.loading = false;
         state.token = action.payload;
-        state.ok=action.payload;
+        state.ok = action.payload;
       })
       .addCase(clearUser.rejected, (state, action) => {
         state.loading = false;

@@ -8,7 +8,7 @@ import { hostelRegister } from "../features/UserDetailSlice";
 import { toast } from "react-toastify";
 
 const RegisterHostel = () => {
-  const { token } = useSelector((state) => state.userDetail);
+  const { token,isLoggedIn } = useSelector((state) => state.userDetail);
   const dispatch = useDispatch();
   const setToken = !!token;
   const navigate = useNavigate();
@@ -43,6 +43,9 @@ const RegisterHostel = () => {
   });
   if (values.hostelRating > 5) {
     values.hostelRating = 5;
+  }
+  if(!isLoggedIn){
+    navigate('/')
   }
   return (
     <>

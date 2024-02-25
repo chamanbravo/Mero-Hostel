@@ -58,7 +58,7 @@ const SearchData = () => {
       let sortedDataRating = sortedHostelsByRating(sortedData);
       const sortedDataPrice = sortedHostelsByPrice(sortedDataRating);
       setSortedHostels(sortedDataPrice);
-      console.log(sortedHostels);
+     
     }
   }, [searchItem, filterMain, filterSecondary, stars, price]);
 
@@ -173,6 +173,8 @@ const SearchData = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+ 
+
   return (
     <>
       <main className="container mt-10">
@@ -191,69 +193,69 @@ const SearchData = () => {
         <div className="flex gap-6 flex-wrap md:flex-nowrap justify-center mt-10 ">
           <Filter handlePrice={handlePrice} handleStars={handleStars} />
 
-          <div className="flex flex-wrap justify-center items-center gap-7 " >
-          {currentHostels.map((hostel, index) => {
-            return (
-              <Card
-                maxW="sm"
-                key={index}
-                className="border  border-black my-10 w-full sm:w-5/6"
-              >
-                <CardBody>
-                  <Image
-                    src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                    alt="Green double couch with wooden legs"
-                    borderRadius="lg"
-                  />
-                  <Stack mt="6" spacing="3">
-                    <div className="flex justify-between">
-                      <Heading size="md" className="capitalize">
-                        {hostel.hostelName}
-                      </Heading>
-                      <div className="flex">
-                        <Star value={hostel.hostelRating} />
-                      </div>{" "}
-                    </div>
-                    <Text className="capitalize text-lg ">
-                      {hostel.hostelDescription.slice(0,25)}
-                    </Text>
-                    <div className="flex gap-16">
-                      <Text color="blue.600" fontSize="2xl">
-                        {hostel.hostelLocation}
+          <div className="flex flex-wrap justify-center items-center gap-7 ">
+            { currentHostels.map((hostel, index) => {
+              return (
+                <Card
+                  maxW="sm"
+                  key={index}
+                  className="border  border-black my-10 w-full sm:w-5/6"
+                >
+                  <CardBody>
+                    <Image
+                      src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                      alt="Green double couch with wooden legs"
+                      borderRadius="lg"
+                    />
+                    <Stack mt="6" spacing="3">
+                      <div className="flex justify-between">
+                        <Heading size="md" className="capitalize">
+                          {hostel.hostelName}
+                        </Heading>
+                        <div className="flex">
+                          <Star value={hostel.hostelRating} />
+                        </div>{" "}
+                      </div>
+                      <Text className="capitalize text-lg ">
+                        {hostel.hostelDescription.slice(0, 25)}
                       </Text>
+                      <div className="flex gap-16">
+                        <Text color="blue.600" fontSize="2xl">
+                          {hostel.hostelLocation}
+                        </Text>
 
-                      <Text color="blue.600" fontSize="2xl">
-                        Rs.{hostel.hostelPrice}
-                      </Text>
-                    </div>
-                  </Stack>
-                </CardBody>
-                <Divider />
-                <CardFooter>
-                  <ButtonGroup spacing="2">
-                    <Button
-                      variant="solid"
-                      colorScheme="blue"
-                      onClick={() => {
-                        handleRegister(hostel._id);
-                      }}
-                    >
-                      Book Now
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      colorScheme="blue"
-                      onClick={() => {
-                        handleDetail(hostel._id);
-                      }}
-                    >
-                      View Details
-                    </Button>
-                  </ButtonGroup>
-                </CardFooter>
-              </Card>
-            );
-          })}
+                        <Text color="blue.600" fontSize="2xl">
+                          Rs.{hostel.hostelPrice}
+                        </Text>
+                      </div>
+                    </Stack>
+                  </CardBody>
+                  <Divider />
+                  <CardFooter>
+                    <ButtonGroup spacing="2">
+                      <Button
+                        variant="solid"
+                        colorScheme="blue"
+                        onClick={() => {
+                          handleRegister(hostel._id);
+                        }}
+                      >
+                        Book Now
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        colorScheme="blue"
+                        onClick={() => {
+                          handleDetail(hostel._id);
+                        }}
+                      >
+                        View Details
+                      </Button>
+                    </ButtonGroup>
+                  </CardFooter>
+                </Card>
+              );
+            })}
           </div>
         </div>
         <div className="flex justify-center items-center gap-5 ">
