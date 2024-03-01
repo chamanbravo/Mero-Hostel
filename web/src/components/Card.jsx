@@ -1,7 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Card = () => {
+
+
+  const {isLoggedIn,token}=useSelector((state)=>state.userDetail)
   const imagesDetails = [
     {
       img: "/places/anamnagar.jpg",
@@ -44,8 +49,12 @@ const Card = () => {
       link: "/hostel/search?q=sankhamul",
     },
   ];
+  
 
   const navigate = useNavigate();
+  const handleLink=()=>{
+    toast.error('Please login to continue')
+  }
   return (
     <main className="grid md:grid-cols-4 grid-cols-2 pointer  ">
       {imagesDetails.map((curElem, index) => {
@@ -57,7 +66,9 @@ const Card = () => {
               alt={curElem.title}
             />
 
-            <h5
+          {
+            token ? (
+              <h5
               className="text-lg font-semibold"
               onClick={() => {
                 navigate(`${curElem.link}`);
@@ -65,6 +76,15 @@ const Card = () => {
             >
               {curElem.title}
             </h5>
+            ):(
+              <h5
+              className="text-lg font-semibold"
+              onClick={handleLink}
+            >
+              {curElem.title}
+            </h5>
+            )
+          }
           </div>
         );
       })}

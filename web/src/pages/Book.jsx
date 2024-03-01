@@ -6,16 +6,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { bookingHostel } from "../features/UserDetailSlice";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Book = () => {
-  const { response, userItem } = useSelector((state) => state.userDetail);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const token = localStorage.getItem("token");
-
+  const {token }= useSelector((state)=>state.userDetail)
   const decode = jwtDecode(token);
+  
+
+ 
 
   const { errors, values, handleChange, handleSubmit, touched, resetForm } =
     useFormik({
@@ -25,6 +27,7 @@ const Book = () => {
         hostelName: "",
         hostelContact: "",
         hostelLocation: "",
+        userGmail:decode.email,
       },
       validationSchema: bookSchema,
       onSubmit: (values) => {
@@ -62,6 +65,21 @@ const Book = () => {
                 />
                 {errors.userName && touched.userName ? (
                   <p className="text-red-600 italic">{errors.userName}</p>
+                ) : null}
+              </div>
+
+              <div className="flex items-center flex-col">
+                <label className="hostelLabel">UserGmail</label>
+                <input
+                  type="gmail"
+                  placeholder="Enter Usergmail"
+                  className="hostelInput-email"
+                  name="userGmail"
+                  value={values.userGmail}
+                  onChange={handleChange}
+                />
+                {errors.userGmail && touched.userGmail ? (
+                  <p className="text-red-600 italic">{errors.userGmail}</p>
                 ) : null}
               </div>
 

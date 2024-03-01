@@ -3,7 +3,7 @@ import React from 'react'
 const DropDownFilter = ({filterMain,handleMainFilterChange,filterSecondary,handleSecondaryFilterChange}) => {
   return (
     <>
-    <div className="flex gap-10">
+    <div className="flex gap-5">
             <select
               name="FilterMain"
               className="p-2 outline-none"

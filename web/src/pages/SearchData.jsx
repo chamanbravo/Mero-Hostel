@@ -20,6 +20,7 @@ import {
 } from "@chakra-ui/react";
 import DropDownFilter from "../components/DropDownFilter";
 import Filter from "../components/Filter";
+import { Star } from "../components/Star";
 
 const SearchData = () => {
   const { searchItem, token } = useSelector((state) => state.userDetail);
@@ -57,7 +58,6 @@ const SearchData = () => {
       let sortedDataRating = sortedHostelsByRating(sortedData);
       const sortedDataPrice = sortedHostelsByPrice(sortedDataRating);
       setSortedHostels(sortedDataPrice);
-      console.log(sortedHostels);
     }
   }, [searchItem, filterMain, filterSecondary, stars, price]);
 
@@ -156,7 +156,7 @@ const SearchData = () => {
         return filteredData.filter((hostel) => hostel.hostelPrice >= 2000);
 
       case 1:
-        return filteredData.filter((hostel) => hostel.hostelPrice >= 1000);
+        return filteredData.filter((hostel) => hostel.hostelPrice <= 1000);
 
       default:
         return filteredData;
@@ -175,19 +175,6 @@ const SearchData = () => {
   return (
     <>
       <main className="container mt-10">
-        <div>
-          {query === "all" ? (
-            <h1 className="text-2xl font-bold text-center capitalize">
-              All Hostels
-            </h1>
-          ) : (
-            <h1 className="text-2xl font-bold text-center capitalize">
-              Search Result {query}
-            </h1>
-          )}
-        </div>
-        <hr className="my-10" />
-
         <section className=" flex justify-evenly items-center">
           <h1 className="font-bold text-2xl">Filter</h1>
 
@@ -200,62 +187,81 @@ const SearchData = () => {
         </section>
         <hr className=" my-10" />
 
-        <div className="flex  gap-6 flex-wrap justify-center mt-10 ">
+        <div className="flex gap-6 flex-wrap md:flex-nowrap justify-center mt-10 w-full ">
           <Filter handlePrice={handlePrice} handleStars={handleStars} />
 
-          {currentHostels.map((hostel, index) => {
-            return (
-              <Card maxW="sm" key={index} className="my-10 w-full sm:w-5/6">
-                <CardBody>
-                  <Image
-                    src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                    alt="Green double couch with wooden legs"
-                    borderRadius="lg"
-                  />
-                  <Stack mt="6" spacing="3">
-                    <Heading size="md" className="capitalize">
-                      {hostel.hostelName}
-                    </Heading>
-                    <Text className="capitalize text-lg ">
-                      {hostel.hostelDescription}
-                    </Text>
-                    <div className="flex gap-16">
-                      <Text color="blue.600" fontSize="2xl">
-                        {hostel.hostelLocation}
-                      </Text>
+          <div className="flex flex-wrap w-full md: md:w-5/6 justify-center items-center gap-7 ">
+            {currentHostels.length>0 ? (
+              currentHostels.map((hostel, index) => {
+                return (
+                  <Card
+                    maxW="sm"
+                    key={index}
+                    className="border  border-black my-10 w-full sm:w-5/6"
+                  >
+                    <CardBody>
+                      <Image
+                        src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                        alt="Green double couch with wooden legs"
+                        borderRadius="lg"
+                      />
+                      <Stack mt="6" spacing="3">
+                        <div className="flex justify-between">
+                          <Heading size="md" className="capitalize">
+                            {hostel.hostelName}
+                          </Heading>
+                          <div className="flex">
+                            <Star value={hostel.hostelRating} />
+                          </div>{" "}
+                        </div>
+                        <Text className="capitalize text-lg ">
+                          {hostel.hostelDescription.slice(0, 25)}
+                        </Text>
+                        <div className="flex gap-16">
+                          <Text color="blue.600" fontSize="2xl">
+                            {hostel.hostelLocation}
+                          </Text>
 
-                      <Text color="blue.600" fontSize="2xl">
-                        Rs.{hostel.hostelPrice}
-                      </Text>
-                    </div>
-                  </Stack>
-                </CardBody>
-                <Divider />
-                <CardFooter>
-                  <ButtonGroup spacing="2">
-                    <Button
-                      variant="solid"
-                      colorScheme="blue"
-                      onClick={() => {
-                        handleRegister(hostel._id);
-                      }}
-                    >
-                      Book Now
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      colorScheme="blue"
-                      onClick={() => {
-                        handleDetail(hostel._id);
-                      }}
-                    >
-                      View Details
-                    </Button>
-                  </ButtonGroup>
-                </CardFooter>
-              </Card>
-            );
-          })}
+                          <Text color="blue.600" fontSize="2xl">
+                            Rs.{hostel.hostelPrice}
+                          </Text>
+                        </div>
+                      </Stack>
+                    </CardBody>
+                    <Divider />
+                    <CardFooter>
+                      <ButtonGroup spacing="2">
+                        <Button
+                          variant="solid"
+                          colorScheme="blue"
+                          onClick={() => {
+                            handleRegister(hostel._id);
+                          }}
+                        >
+                          Book Now
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          colorScheme="blue"
+                          onClick={() => {
+                            handleDetail(hostel._id);
+                          }}
+                        >
+                          View Details
+                        </Button>
+                      </ButtonGroup>
+                    </CardFooter>
+                  </Card>
+                );
+              })
+            ) : (
+              <>
+                <h1 className="text-center font-bold text-2xl ">
+                  No Hostel Found
+                </h1>
+              </>
+            )}
+          </div>
         </div>
         <div className="flex justify-center items-center gap-5 ">
           {Array.from({

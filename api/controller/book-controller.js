@@ -1,10 +1,11 @@
 import Book from "../model/book-model.js";
 const bookController = async (req, res) => {
   try {
-    const { userName, userContact, hostelName, hostelContact, hostelLocation } =
+    const { userName, userContact, hostelName, hostelContact, userGmail,hostelLocation } =
       req.body;
     const book = await Book.create({
       userName,
+      userGmail,
       userContact,
       hostelName,
       hostelContact,

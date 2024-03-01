@@ -38,8 +38,12 @@ const registerSchema = loginSchema.extend({
     .trim()
     .min(3, { message: "Lastname must be a valid" })
     .max(255, { message: "Lastname must be a atmost 255 characters" }),
+  phone: z
+    .string({ required_error: "Phone number is required" })
+    .trim()
+    .min(10, { message: "Phone number must be a valid" })
+    .max(15, { message: "Phone number must be a atmost 10 characters" }),
 });
 
-// module.exports = { loginSchema, registerSchema };
 
-export  { loginSchema, registerSchema };
+export { loginSchema, registerSchema };

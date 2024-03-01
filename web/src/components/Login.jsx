@@ -1,11 +1,11 @@
-/* eslint-disable */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { signInSchema } from "../Schemas/loginSchemas";
 import Button from "./Button";
 import { RxCrossCircled } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../features/UserDetailSlice.jsx";
+import { toast } from "react-toastify";
 
 const Login = ({ handleCross, handleRegister }) => {
   const initialValues = {
@@ -13,21 +13,32 @@ const Login = ({ handleCross, handleRegister }) => {
     password: "",
   };
   const dispatch = useDispatch();
-  const { values, errors, handleBur, handleChange, handleSubmit, touched } =
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const { isLoggedIn } = useSelector((state) => state.userDetail);
+
+  const { values, errors, handleBlur, handleChange, handleSubmit, touched } =
     useFormik({
       initialValues,
       validationSchema: signInSchema,
-      onSubmit: (values, action) => {
-        dispatch(loginUser(values));
-        action.resetForm();
+      onSubmit: async (values, action) => {
+       await dispatch(loginUser(values));
+       action.resetForm();
+
+      //  if(isLoggedIn){
+      //   toast.success("Login Successful")
+      // }
+
       },
     });
-  const { token } = useSelector((state) => state.userDetail);
+
+    
+
+ 
 
   return (
-    <section className="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-30  ">
+    <section className="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-30">
       <div className="container flex justify-center items-center w-full">
-        <div className=" rounded-2xl   bg-white p-4 flex justify-between items-center w-4/5 md:w-2/3 lg:w-[50rem] py-16 relative">
+        <div className="rounded-2xl bg-white p-4 flex justify-between items-center w-4/5 md:w-2/3 lg:w-[50rem] relative">
           <div className="absolute top-0 right-0 m-4">
             <RxCrossCircled
               size={20}
@@ -35,7 +46,7 @@ const Login = ({ handleCross, handleRegister }) => {
               onClick={handleCross}
             />
           </div>
-          <div className=" md:w-1/3 hidden md:flex  ">
+          <div className="md:w-1/3 hidden md:flex">
             <img
               src="/images/pattern.jpg"
               className="rounded-2xl "
@@ -44,7 +55,7 @@ const Login = ({ handleCross, handleRegister }) => {
             />
           </div>
           <div className="w-full md:w-2/3 flex justify-center items-center flex-col ">
-            <h2 className=" font-bold text-2xl mb-10">Sign in</h2>
+            <h2 className="font-bold text-2xl mb-10">Sign in</h2>
             <form id="login" onSubmit={handleSubmit}>
               <div className="flex flex-col">
                 <label className="pt-2 font-bold">Email</label>
@@ -56,7 +67,7 @@ const Login = ({ handleCross, handleRegister }) => {
                   id="email"
                   value={values.email}
                   onChange={handleChange}
-                  onBlur={handleBur}
+                  onBlur={handleBlur}
                 />
                 {errors.email && touched.email ? (
                   <p className="text-red-600 italic">{errors.email}</p>
@@ -73,13 +84,14 @@ const Login = ({ handleCross, handleRegister }) => {
                   name="password"
                   value={values.password}
                   onChange={handleChange}
-                  onBlur={handleBur}
+                  onBlur={handleBlur}
                 />
                 {errors.password && touched.password ? (
                   <p className="text-red-600 italic">{errors.password}</p>
                 ) : null}
               </div>
               <Button
+                type="submit"
                 width={"w-2/3"}
                 bg={
                   " bg-[#ff385c] text-white   hover:bg-white hover:text-[#ff385c]"
@@ -99,6 +111,18 @@ const Login = ({ handleCross, handleRegister }) => {
                 </h5>
               </div>
             </form>
+            {showSuccessMessage && (
+              <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mt-4">
+                <strong className="font-bold">Success!</strong>
+                <span className="block sm:inline"> Login Successful!</span>
+                <button
+                  className="absolute top-0 bottom-0 right-0 px-4 py-3"
+                  onClick={() => setShowSuccessMessage(false)}
+                >
+                  Close
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

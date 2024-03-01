@@ -3,6 +3,7 @@ import {
   login,
   register,
   user,
+  userHostel,
   userToken,
 } from "../controller/auth-controller.js";
 
@@ -23,5 +24,6 @@ router.route("/setPassword").post(usermiddleware, password);
 router.route("/usertoken").get(authmiddleware, userToken);
 router.route("/reset").post(usermiddleware, resetController);
 router.route("/token").post(usermiddleware, tokenController);
+router.route('/userDetails').get(authmiddleware,userHostel)
 
 export default router;

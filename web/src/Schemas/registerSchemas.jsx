@@ -9,6 +9,9 @@ export const signUpSchema = Yup.object({
     .min(3, "Last Name must be at least 3 characters")
     .required("Last Name is required")
     .max(15, "Last Name must be at most 15 characters"),
+  phone: Yup.string()
+    .min(10, "Phone number must be at least 10 characters")
+    .required("Phone number is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
   password: Yup.string()
     .min(8, "Password must be at least 8 characters")

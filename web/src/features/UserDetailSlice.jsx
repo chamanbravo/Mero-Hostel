@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 const url = import.meta.env.VITE_URL;
 export const loginUser = createAsyncThunk(
   "loginUser",
@@ -13,9 +14,12 @@ export const loginUser = createAsyncThunk(
       });
       const result = await response.json();
       if (response.ok) {
+        toast.success("Login Successful");
+
         localStorage.setItem("token", result.token);
         return result.token;
       } else {
+        toast.error("Invalid email or password");
         return rejectWithValue({ message: result.message });
       }
     } catch (error) {
@@ -62,9 +66,7 @@ export const recommendedHostel = createAsyncThunk(
   "recommendedHostel",
   async (data, { rejectWithValue }) => {
     try {
-      const response = await fetch(
-        `${url}api/hostel/show?skip=0&limit=6`
-      );
+      const response = await fetch(`${url}api/hostel/show?skip=0&limit=6`);
       const result = await response.json();
       return result.hostel;
     } catch (error) {
@@ -77,9 +79,7 @@ export const searchHostelOne = createAsyncThunk(
   "searchHostelOne",
   async (data, { rejectWithValue }) => {
     try {
-      const response = await fetch(
-        `${url}api/hostel/search?location=${data}`
-      );
+      const response = await fetch(`${url}api/hostel/search?location=${data}`);
       const result = await response.json();
 
       return result;
@@ -93,19 +93,20 @@ export const hostelRegister = createAsyncThunk(
   "hostelRegister",
   async (data, { rejectWithValue }) => {
     try {
-      const response = await fetch(
-        `${url}api/hostel/register`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
-      const result = await response.json();
-      console.log("post", result);
-      return response.ok;
+      const response = await fetch(`${url}api/hostel/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        toast.success("Hostel Registered Successfully");
+        return response.ok;
+      } else {
+        toast.error("Hostel Registration Failed");
+        return rejectWithValue({ message: "Hostel Registration Failed" });
+      }
     } catch (error) {
       return rejectWithValue({ message: error.message });
     }
@@ -116,9 +117,7 @@ export const hostelDetail = createAsyncThunk(
   "hostelDetail",
   async (data, { rejectWithValue }) => {
     try {
-      const response = await fetch(
-        `${url}api/hostel/show/${data}`
-      );
+      const response = await fetch(`${url}api/hostel/show/${data}`);
       const result = await response.json();
       return result.message;
     } catch (error) {
@@ -138,7 +137,13 @@ export const bookingHostel = createAsyncThunk(
         },
         body: JSON.stringify(data),
       });
-      return response.ok;
+      if (response.ok) {
+        toast.success("Booking Successful");
+        return response.ok;
+      } else {
+        toast.error("Booking Failed");
+        return rejectWithValue({ message: "Booking Failed" });
+      }
     } catch (error) {
       return rejectWithValue({ message: error.message });
     }
@@ -149,7 +154,7 @@ export const tokenData = createAsyncThunk(
   "tokenData",
   async (data, { rejectWithValue }) => {
     try {
-      const response = await fetch(`${url}/api/auth/usertoken`, {
+      const response = await fetch(`${url}api/auth/usertoken`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${data}`,
@@ -157,7 +162,6 @@ export const tokenData = createAsyncThunk(
       });
 
       const result = await response.json();
-      console.log(result);
       return result;
     } catch (error) {
       return rejectWithValue({ message: error.message });
@@ -165,14 +169,32 @@ export const tokenData = createAsyncThunk(
   }
 );
 
-export const clearUser =createAsyncThunk(
-  "clearUser",
-  ()=>{
-    localStorage.removeItem("token");
-    return false;
+export const clearUser = createAsyncThunk("clearUser", () => {
+  localStorage.removeItem("token");
+  toast.success("Logout Successful");
+  return false;
+});
+
+export const profileUser = createAsyncThunk(
+  "profileUser",
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await fetch(
+        `${url}api/auth/userDetails`,
+        {
+          method: "Get",
+          headers: {
+            Authorization: `Bearer ${data}`,
+          },
+        }
+      );
+      const result = await response.json();
+      return { user: result.user, userdetails: result.userdetails };
+    } catch (error) {
+      return rejectWithValue({ message: error.message });
+    }
   }
-  
-)
+);
 
 const initialState = {
   token: localStorage.getItem("token") || null,
@@ -183,6 +205,9 @@ const initialState = {
   hostelInfo: [],
   response: false,
   userItem: [],
+  isLoggedIn: false,
+  userdetails: [],
+  user:[]
 };
 
 const userDetailSlice = createSlice({
@@ -196,6 +221,7 @@ const userDetailSlice = createSlice({
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loading = false;
+        state.isLoggedIn = true;
         state.token = action.payload;
       })
       .addCase(loginUser.rejected, (state, action) => {
@@ -294,9 +320,23 @@ const userDetailSlice = createSlice({
       })
       .addCase(clearUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.token=null;
+        state.token = action.payload;
+        state.ok = action.payload;
       })
       .addCase(clearUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload.message;
+      })
+      .addCase(profileUser.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(profileUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.userdetails = action.payload.userdetails;
+        state.user = action.payload.user;
+
+      })
+      .addCase(profileUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload.message;
       });
