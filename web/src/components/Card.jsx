@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 const Card = () => {
 
 
-  const {isLoggedIn}=useSelector((state)=>state.userDetail)
+  const {isLoggedIn,token}=useSelector((state)=>state.userDetail)
   const imagesDetails = [
     {
       img: "/places/anamnagar.jpg",
@@ -67,7 +67,7 @@ const Card = () => {
             />
 
           {
-            isLoggedIn ? (
+            token ? (
               <h5
               className="text-lg font-semibold"
               onClick={() => {

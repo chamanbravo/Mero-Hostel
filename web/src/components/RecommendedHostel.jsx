@@ -36,6 +36,9 @@ const RecommendedHostel = () => {
   const handleRegister = (value) => {
     navigate(`/hostel/book/${value}`);
   };
+  const handleNotLogin=()=>{
+    toast.error('Please Login to Continue');
+  }
 
   if (loading) {
     return <h1>Loading...</h1>;
@@ -85,7 +88,9 @@ const RecommendedHostel = () => {
                   </CardBody>
                   <Divider />
                   <CardFooter>
-                    <ButtonGroup spacing="2">
+                   {
+                    token ?(
+                      <ButtonGroup spacing="2">
                       <Button
                         variant="solid"
                         colorScheme="blue"
@@ -105,6 +110,27 @@ const RecommendedHostel = () => {
                           View Details
                         </Button>
                     </ButtonGroup>
+
+                    ):(
+                      <ButtonGroup spacing="2">
+                      <Button
+                        variant="solid"
+                        colorScheme="blue"
+                        onClick={handleNotLogin}
+                      >
+                        Book Now
+                      </Button>
+                      <Button
+                          variant="ghost"
+                          colorScheme="blue"
+                          onClick={handleNotLogin}
+                        >
+                          View Details
+                        </Button>
+                    </ButtonGroup>
+
+                    )
+                   }
                   </CardFooter>
                 </Card>
               );

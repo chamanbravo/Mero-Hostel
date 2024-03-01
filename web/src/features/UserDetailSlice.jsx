@@ -154,7 +154,7 @@ export const tokenData = createAsyncThunk(
   "tokenData",
   async (data, { rejectWithValue }) => {
     try {
-      const response = await fetch(`${url}/api/auth/usertoken`, {
+      const response = await fetch(`${url}api/auth/usertoken`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${data}`,
@@ -180,7 +180,7 @@ export const profileUser = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/userDetails",
+        `${url}api/auth/userDetails`,
         {
           method: "Get",
           headers: {
